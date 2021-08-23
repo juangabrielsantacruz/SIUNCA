@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BIZ.PlanDeEstudio">
+    <Position X="5.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgIAAAAgAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>PlanDeEstudio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.DetallesPlanDeEstudio">
+    <Position X="3.5" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAEAgAAAAAAEABAAAAAACAAIAAAAAAAgAA=</HashCode>
+      <FileName>DetallesPlanDeEstudio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.Curso">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAggAAAAAAAAAAgAICAAAAAAABAAIgAA=</HashCode>
+      <FileName>Curso.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.MateriaConCorrelativas" HideInheritanceLine="true">
+    <Position X="3.5" Y="6" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MateriaConCorrelativas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.DetallesCorrelativa" HideInheritanceLine="true">
+    <Position X="7" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAEAAgAAABgAA=</HashCode>
+      <FileName>DetallesCorrelativa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.Materias" HideInheritanceLine="true">
+    <Position X="4.75" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Materias.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.DetallesAlumnoMateriaCC" HideInheritanceLine="true">
+    <Position X="3.5" Y="8" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAQAQAAAAgAIAAAAAAAAAAAAAAAAAAAABAAQgAg=</HashCode>
+      <FileName>DetallesAlumnoMateriaCC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.Profesor">
+    <Position X="7.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEACAAhAAAIAEAAgAAAACAAQAAAAA=</HashCode>
+      <FileName>Profesor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="MateriaCC_Profesor1" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BIZ.Asistencia" HideInheritanceLine="true">
+    <Position X="7.75" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAgEAAAAAEAAAAAAAAAAAIAAAAAAQAAg=</HashCode>
+      <FileName>Asistencia.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.MateriaCC_Profesor">
+    <Position X="10.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAgAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MateriaCC_Profesor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.Promedio">
+    <Position X="12.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Promedio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.Bitacora">
+    <Position X="8.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAiAAAAAAAQAAAAAAE=</HashCode>
+      <FileName>Bitacora.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.Evaluacion" HideInheritanceLine="true">
+    <Position X="10.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAEAAAAAAAAAAAAAAAAAAAAgEIAQAAA=</HashCode>
+      <FileName>Evaluacion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.AlumnoMateria" HideInheritanceLine="true">
+    <Position X="1.75" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAgAAAQAAg=</HashCode>
+      <FileName>AlumnoMateria.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Materias" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BIZ.Carrera">
+    <Position X="1.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAgACAAAgAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Carrera.cs</FileName>
+      <NewMemberFileName>Alumno.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

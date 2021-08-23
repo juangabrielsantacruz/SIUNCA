@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CED1AA46-BE93-4186-99AB-EF3C3F4C7ADE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GUI</RootNamespace>
+    <AssemblyName>GUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>GUI.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmSecretarioAcademico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSecretarioAcademico.designer.cs">
+      <DependentUpon>frmSecretarioAcademico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProfesor.designer.cs">
+      <DependentUpon>frmProfesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSeguridad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSeguridad.Designer.cs">
+      <DependentUpon>frmSeguridad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Idiomas\Login\Res.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Idiomas\Profesor\Asistencia\Res.en-US.Designer.cs">
+      <DependentUpon>Res.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Idiomas\Profesor\Asistencia\Res.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Idiomas\Profesor\Res.en-US.Designer.cs">
+      <DependentUpon>Res.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Idiomas\Profesor\Res.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Idiomas\SecretarioAcademico\Alumnos\Res.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Idiomas\SecretarioAcademico\Cursos\Res.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Idiomas\SecretarioAcademico\Materias\Res.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Idiomas\SecretarioAcademico\PlanDeEstudio\Res.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Idiomas\SecretarioAcademico\Res.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Idiomas\SecretarioAcademico\Res.en-US.Designer.cs">
+      <DependentUpon>Res.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrueba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrueba.Designer.cs">
+      <DependentUpon>FormPrueba.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seguridad\UCBackups.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Seguridad\UCBackups.Designer.cs">
+      <DependentUpon>UCBackups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\UCBitacora.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Seguridad\UCBitacora.Designer.cs">
+      <DependentUpon>UCBitacora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\UCPerfilesUsuarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Seguridad\UCPerfilesUsuarios.Designer.cs">
+      <DependentUpon>UCPerfilesUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\UCUsuarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Seguridad\UCUsuarios.Designer.cs">
+      <DependentUpon>UCUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlProfesor\UCAsistencias.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlProfesor\UCAsistencias.designer.cs">
+      <DependentUpon>UCAsistencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlProfesor\UCFinales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlProfesor\UCFinales.Designer.cs">
+      <DependentUpon>UCFinales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlProfesor\UCParciales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlProfesor\UCParciales.designer.cs">
+      <DependentUpon>UCParciales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlProfesor\UCRecuperatorios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlProfesor\UCRecuperatorios.Designer.cs">
+      <DependentUpon>UCRecuperatorios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlSecretarioAcademico\UCAlumnos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlSecretarioAcademico\UCAlumnos.Designer.cs">
+      <DependentUpon>UCAlumnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlSecretarioAcademico\UCCursos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlSecretarioAcademico\UCCursos.Designer.cs">
+      <DependentUpon>UCCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlSecretarioAcademico\UCMaterias.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlSecretarioAcademico\UCMaterias.designer.cs">
+      <DependentUpon>UCMaterias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlSecretarioAcademico\UCPlanDeEstudio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlSecretarioAcademico\UCPlanDeEstudio.designer.cs">
+      <DependentUpon>UCPlanDeEstudio.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormPrueba.resx">
+      <DependentUpon>FormPrueba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSecretarioAcademico.resx">
+      <DependentUpon>frmSecretarioAcademico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProfesor.resx">
+      <DependentUpon>frmProfesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSeguridad.resx">
+      <DependentUpon>frmSeguridad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\Login\Res.en-US.resx" />
+    <EmbeddedResource Include="Idiomas\Login\Res.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\Profesor\Asistencia\Res.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\Profesor\Asistencia\Res.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\Profesor\Res.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\Profesor\Res.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Alumnos\Res.en-US.resx" />
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Alumnos\Res.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Cursos\Res.en-US.resx" />
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Cursos\Res.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Materias\Res.en-US.resx" />
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Materias\Res.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\PlanDeEstudio\Res.en-US.resx" />
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\PlanDeEstudio\Res.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Res.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Res.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Seguridad\UCBackups.resx">
+      <DependentUpon>UCBackups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\UCBitacora.resx">
+      <DependentUpon>UCBitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\UCPerfilesUsuarios.resx">
+      <DependentUpon>UCPerfilesUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\UCUsuarios.resx">
+      <DependentUpon>UCUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlProfesor\UCAsistencias.resx">
+      <DependentUpon>UCAsistencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlProfesor\UCFinales.resx">
+      <DependentUpon>UCFinales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlProfesor\UCParciales.resx">
+      <DependentUpon>UCParciales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlProfesor\UCRecuperatorios.resx">
+      <DependentUpon>UCRecuperatorios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlSecretarioAcademico\UCAlumnos.resx">
+      <DependentUpon>UCAlumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlSecretarioAcademico\UCCursos.resx">
+      <DependentUpon>UCCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlSecretarioAcademico\UCMaterias.resx">
+      <DependentUpon>UCMaterias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlSecretarioAcademico\UCPlanDeEstudio.resx">
+      <DependentUpon>UCPlanDeEstudio.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BIZ\BIZ.csproj">
+      <Project>{da92f225-0fd8-402a-862a-d3cd20ce4e52}</Project>
+      <Name>BIZ</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{1ba273a3-4bd1-4b6f-b800-535c81d0c2d3}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.D-2015\Framework.D-2015\Framework.D-2015.vbproj">
+      <Project>{1149e452-dd20-496b-bf20-5f5d697dc6e1}</Project>
+      <Name>Framework.D-2015</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icons\icons8-cerrar-ventana-32.png" />
+    <Content Include="Icons\icons8-maximizar-la-ventana-32.png" />
+    <Content Include="Icons\icons8-minimize-window-32.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

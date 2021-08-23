@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BIZ.Seguridad.UsuarioPatente" Collapsed="true">
+    <Position X="7.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Seguridad\UsuarioPatente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.Seguridad.Familia">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAEAIAQAAAAAAAAAAAAAAAQAAQAAgAAAAAAA=</HashCode>
+      <FileName>Seguridad\Familia.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.Seguridad.Patente">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAEgAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Seguridad\Patente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.Seguridad.Permiso" Collapsed="true">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAQAEAABAAAABAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Seguridad\Permiso.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.Seguridad.UsuarioFamilia" Collapsed="true">
+    <Position X="5.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Seguridad\UsuarioFamilia.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.Seguridad.FamiliaFamilia" Collapsed="true">
+    <Position X="5.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Seguridad\FamiliaFamilia.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.Seguridad.FamiliaPatente" Collapsed="true">
+    <Position X="7.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Seguridad\FamiliaPatente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
