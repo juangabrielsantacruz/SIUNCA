@@ -14,6 +14,7 @@ using GUI.Idiomas.SecretarioAcademico;
 using GUI.Seguridad;
 using BLL;
 using BIZ;
+using BIZ.Servicios;
 
 namespace GUI
 {
@@ -46,9 +47,9 @@ namespace GUI
 
             //usuario.iduser = CacheUsuario.iduser;
             //usuario.password = CacheUsuario.password;
-            
+
             //GestorUsuario unGestorUsuario = new GestorUsuario();
-           // var resultadoUser = unGestorUsuario.traerUsuario(usuario);            
+            // var resultadoUser = unGestorUsuario.traerUsuario(usuario);            
 
             // Logueo (traigo perfil) del Usuario
             //var resultadoUserPerfil = unGestorUsuario.Login(usuario);
@@ -63,9 +64,10 @@ namespace GUI
             // button3.visible = usuarioSimulado.Perfil.Validar(1)
 
             //aca deberia llamar al usuario singleton
-            //btnUSUARIOS.Visible = resultadoUserPerfil.Perfil.Validar(3);
+            //habilitarbotones()
+            btnUSUARIOS.Visible = SesionSingleton.Instancia.usuario.Perfil.Validar(3);
 
-           
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)

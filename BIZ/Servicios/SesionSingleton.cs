@@ -10,9 +10,6 @@ namespace BIZ.Servicios
     {
         private static SesionSingleton _instancia;
         //private static Object _lock = new object();
-
-        public Usuario usuario { get; set; }
-
         public static SesionSingleton Instancia
         {
             get
@@ -23,6 +20,18 @@ namespace BIZ.Servicios
                 return _instancia;
             }
         }
+
+        public Usuario usuario { get; set; }
+
+     
+        //private int myVar;
+
+        //public int MyProperty
+        //{
+        //    get { return myVar; }
+        //    set { myVar = value; }
+        //}
+
         public void Login(Usuario usuario)
         {
             this.usuario = usuario;

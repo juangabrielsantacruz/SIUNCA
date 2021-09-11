@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DAL;
 using BIZ;
 using Framework.D_2015.Cache;
+using BIZ.Servicios;
 
 namespace BLL
 {
@@ -16,9 +17,7 @@ namespace BLL
 
         public Usuario traerUsuario(Usuario usuario)
         {
-            var unUsuario = new Usuario();
-            //try
-            unUsuario = unUsuarioDAO.traerUsuario(usuario);
+            var unUsuario = unUsuarioDAO.traerUsuario(usuario);
 
             //Carga las variables cache por medio de linq, para poder usarlas a nivel global en el sistema,
             //los datos se mantienen siempre y cuando el sistema no se cierre
@@ -31,12 +30,12 @@ namespace BLL
 
             //si devuelve null significa que se ingreso un dato incorrecto en el form login
             //var user = unUsuario.Where(x => x.email == usuario.email && x.password == usuario.password && x.rol == usuario.rol).FirstOrDefault();
-   
+
 
             // Logueo (traigo perfil) del Usuario            
-
-
-            return Login(unUsuario);
+          
+            SesionSingleton.Instancia.Login(CargarPermisos(unUsuario));
+            return SesionSingleton.Instancia.usuario;
         }
 
         public void eliminarUsuario(int idUsuario)
@@ -55,10 +54,10 @@ namespace BLL
             return unUsuarioDAO.TraerTodo();
         }
 
-        public Usuario Login(Usuario unUsuario)
+        public Usuario CargarPermisos(Usuario unUsuario)
         {
             // Logueo (traigo perfil) del Usuario
-            return unUsuarioDAO.Login(unUsuario);
+            return unUsuarioDAO.TraerPermisos(unUsuario);
         }
 
         public void GuardarPermisos(Usuario unUsuario)

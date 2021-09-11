@@ -17,6 +17,7 @@ using GUI.Idiomas.Login;
 using Framework.D_2015.Idiomas;
 using Framework.D_2015.Seguridad;
 using Framework.D_2015.Cache;
+using BIZ.Servicios;
 
 namespace GUI
 {
@@ -56,7 +57,9 @@ namespace GUI
             var gestorUsuario = new GestorUsuario();
             var resultadoUser = gestorUsuario.traerUsuario(usuario);
 
-   
+            //traigo el usuario de la sesion logueada
+            var UsuarioSingleton = SesionSingleton.Instancia.usuario;
+
             if (resultadoUser != null)
             {
                 //GestorUsuario unGestorUsuario = new GestorUsuario();
@@ -70,15 +73,18 @@ namespace GUI
                 // BD y los DTO en consecuencia
                 // Si tiene Patente 1 puede ver boton 1
                 // 
-
+                
                 // SI usuario TIENE ID 1 (de patente) button 3.visible=true
                 // button3.visible = usuarioSimulado.Perfil.Validar(1)
 
                 //instancio los formularios
                 frmSecretarioAcademico frmAdministrativo = new frmSecretarioAcademico();
                 frmProfesor frmProfe = new frmProfesor();
+
+                //habilitarpermisos(resultadoUser);
+
                 //si usuario tiene la Patente de ID 1 muestra form secretario
-                frmAdministrativo.Visible = resultadoUser.Perfil.Validar(1);
+                frmAdministrativo.Visible = SesionSingleton.Instancia.usuario.Perfil.Validar(1);
                 //si usuario tiene la Patente de ID 9 muestra form profesor
                 frmProfe.Visible = resultadoUser.Perfil.Validar(9);
 

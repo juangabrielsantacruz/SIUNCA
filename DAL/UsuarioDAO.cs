@@ -87,7 +87,7 @@ namespace DAL
             }
         }
 
-        public Usuario Login(Usuario unUsuario)
+        public Usuario TraerPermisos(Usuario unUsuario)
         {
             Conexion unaConexion = new Conexion("config.xml");
             List<Usuario> resultado = new List<Usuario>();

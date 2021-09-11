@@ -88,7 +88,7 @@ namespace GUI.Seguridad
                 unUsuario = new Usuario();
                 unUsuario = (Usuario)dgvUsuariosGestion.CurrentRow.DataBoundItem ;
                 // Logueo (traigo Perfil) del Usuario
-                unUsuario = UnGestorUsuario.Login(unUsuario);
+                unUsuario = UnGestorUsuario.CargarPermisos(unUsuario);
 
                 CargarPermisosUsuario(unUsuario);
             }
