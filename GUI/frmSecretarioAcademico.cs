@@ -36,7 +36,7 @@ namespace GUI
         {
             InitializeComponent();
             seleccionarUserControl(ucplandeestudio);
-            this.lblSecretarioAcademico.Text = CacheUsuario.username;
+            this.lblSecretarioAcademico.Text = SesionSingleton.Instancia.usuario.email;
 
             Idioma.cambiarIdioma(Idioma.cacheIdioma, IdiomaPorDefecto);
 
