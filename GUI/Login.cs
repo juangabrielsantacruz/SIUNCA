@@ -56,35 +56,13 @@ namespace GUI
             var gestorUsuario = new GestorUsuario();
             var resultadoUser = gestorUsuario.traerUsuario(usuario);
 
-            //if (resultadoUser != null)
-            //{
-            //    Form forumulario = null;
-
-            //    switch (CacheUsuario.rol)
-            //    {
-            //        case "Profesor":
-            //            forumulario = new frmProfesor();
-            //            break;
-            //        case "Administrativo":
-            //            forumulario = new frmSecretarioAcademico();
-            //            break;
-            //        case "Administrador":
-            //            forumulario = new frmSeguridad();
-            //            break;
-            //    }
-            //    forumulario.Show();
-            //    this.Hide();
-            //}
-            //else
-            //{
-            //    lblError.Visible = true;
-            //}
+   
             if (resultadoUser != null)
             {
-                GestorUsuario unGestorUsuario = new GestorUsuario();
+                //GestorUsuario unGestorUsuario = new GestorUsuario();
 
                 // Logueo (traigo perfil) del Usuario
-                var resultadoUserPerfil = unGestorUsuario.Login(resultadoUser);
+                //var resultadoUserPerfil = unGestorUsuario.Login(resultadoUser);
 
                 // En base a las Id de las Patenteas voy validando la visibilidad de los controles
                 // porque .Validar devuelve un boolean.
@@ -93,7 +71,6 @@ namespace GUI
                 // Si tiene Patente 1 puede ver boton 1
                 // 
 
-
                 // SI usuario TIENE ID 1 (de patente) button 3.visible=true
                 // button3.visible = usuarioSimulado.Perfil.Validar(1)
 
@@ -101,9 +78,9 @@ namespace GUI
                 frmSecretarioAcademico frmAdministrativo = new frmSecretarioAcademico();
                 frmProfesor frmProfe = new frmProfesor();
                 //si usuario tiene la Patente de ID 1 muestra form secretario
-                frmAdministrativo.Visible = resultadoUserPerfil.Perfil.Validar(1);
+                frmAdministrativo.Visible = resultadoUser.Perfil.Validar(1);
                 //si usuario tiene la Patente de ID 9 muestra form profesor
-                frmProfe.Visible = resultadoUserPerfil.Perfil.Validar(9);
+                frmProfe.Visible = resultadoUser.Perfil.Validar(9);
 
 
                 //button1.Visible = resultadoUser.Perfil.Validar(1);

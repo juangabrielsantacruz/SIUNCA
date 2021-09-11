@@ -39,16 +39,19 @@ namespace GUI
 
             Idioma.cambiarIdioma(Idioma.cacheIdioma, IdiomaPorDefecto);
 
-            var usuario = new Usuario();
 
-            usuario.iduser = CacheUsuario.iduser;
-            usuario.password = CacheUsuario.password;
+            //aca deberia traer el usuario de sesion singleton
+
+            //var usuario = new Usuario();
+
+            //usuario.iduser = CacheUsuario.iduser;
+            //usuario.password = CacheUsuario.password;
             
-            GestorUsuario unGestorUsuario = new GestorUsuario();
+            //GestorUsuario unGestorUsuario = new GestorUsuario();
            // var resultadoUser = unGestorUsuario.traerUsuario(usuario);            
 
             // Logueo (traigo perfil) del Usuario
-            var resultadoUserPerfil = unGestorUsuario.Login(usuario);
+            //var resultadoUserPerfil = unGestorUsuario.Login(usuario);
 
             // En base a las Id de las Patenteas voy validando la visibilidad de los controles
             // porque .Validar devuelve un boolean.
@@ -59,7 +62,8 @@ namespace GUI
             // SI usuario TIENE ID 1 (de patente) button 3.visible=true
             // button3.visible = usuarioSimulado.Perfil.Validar(1)
 
-            btnUSUARIOS.Visible = resultadoUserPerfil.Perfil.Validar(3);
+            //aca deberia llamar al usuario singleton
+            //btnUSUARIOS.Visible = resultadoUserPerfil.Perfil.Validar(3);
 
            
         }

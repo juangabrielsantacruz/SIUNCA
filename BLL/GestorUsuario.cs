@@ -13,23 +13,30 @@ namespace BLL
     {
         UsuarioDAO unUsuarioDAO = new UsuarioDAO();
 
+
         public Usuario traerUsuario(Usuario usuario)
         {
-            var listaUsuario = new List<Usuario>();
-            listaUsuario = unUsuarioDAO.trarTodo(usuario);
+            var unUsuario = new Usuario();
+            //try
+            unUsuario = unUsuarioDAO.traerUsuario(usuario);
 
             //Carga las variables cache por medio de linq, para poder usarlas a nivel global en el sistema,
             //los datos se mantienen siempre y cuando el sistema no se cierre
-            CacheUsuario.iduser = listaUsuario.Select(x => x.iduser).FirstOrDefault();
-            CacheUsuario.password = listaUsuario.Select(x => x.password).FirstOrDefault();
-            CacheUsuario.username = listaUsuario.Select(x => x.username).FirstOrDefault();
-            CacheUsuario.email = listaUsuario.Select(x => x.email).FirstOrDefault();
-            CacheUsuario.rol = listaUsuario.Select(x => x.rol).FirstOrDefault();
+            //CacheUsuario.iduser = listaUsuario.Select(x => x.iduser).FirstOrDefault();
+            //CacheUsuario.password = listaUsuario.Select(x => x.password).FirstOrDefault();
+            //CacheUsuario.username = listaUsuario.Select(x => x.username).FirstOrDefault();
+            //CacheUsuario.email = listaUsuario.Select(x => x.email).FirstOrDefault();
+            //CacheUsuario.rol = listaUsuario.Select(x => x.rol).FirstOrDefault();
+            //CacheUsuario.iduser = unUsuario.iduser;
 
             //si devuelve null significa que se ingreso un dato incorrecto en el form login
-            var user = listaUsuario.Where(x => x.email == usuario.email && x.password == usuario.password && x.rol == usuario.rol).FirstOrDefault();
-            
-            return user;
+            //var user = unUsuario.Where(x => x.email == usuario.email && x.password == usuario.password && x.rol == usuario.rol).FirstOrDefault();
+   
+
+            // Logueo (traigo perfil) del Usuario            
+
+
+            return Login(unUsuario);
         }
 
         public void eliminarUsuario(int idUsuario)
@@ -50,6 +57,7 @@ namespace BLL
 
         public Usuario Login(Usuario unUsuario)
         {
+            // Logueo (traigo perfil) del Usuario
             return unUsuarioDAO.Login(unUsuario);
         }
 

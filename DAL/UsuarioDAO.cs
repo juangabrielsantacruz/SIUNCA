@@ -11,7 +11,7 @@ namespace DAL
 {
     public class UsuarioDAO
     {
-        public List<Usuario> trarTodo(Usuario usuario)
+        public Usuario traerUsuario(Usuario usuario)
         {
             var resultado = new List<Usuario>();
 
@@ -26,9 +26,10 @@ namespace DAL
             try
             {
                 resultado = con.EjecutarTupla<Usuario>(@"SELECT iduser, username, password, email, rol FROM tbl_user
-                                                           WHERE email = @email and password = @password and rol =                                                @rol", listaParametrosCD);
+                                                           WHERE email = @email and password = @password and rol = @rol", listaParametrosCD);
 
-                return resultado;
+                //firstordefault devuelve usuario o null
+                return resultado.FirstOrDefault();
             }
             catch (Exception ex)
             {
