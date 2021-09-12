@@ -71,7 +71,7 @@
     <Compile Include="Seguridad\TipoBitacora.cs" />
     <Compile Include="Seguridad\UsuarioFamilia.cs" />
     <Compile Include="Seguridad\UsuarioPatente.cs" />
-    <Compile Include="Servicios\SesionSingleton.cs" />
+    <Compile Include="Seguridad\SesionSingleton.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +84,7 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="Seguridad\ClassDiagram1.cd" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
