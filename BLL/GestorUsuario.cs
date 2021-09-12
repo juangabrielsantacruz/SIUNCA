@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DAL;
 using BIZ;
 using Framework.D_2015.Cache;
-using BIZ.Servicios;
+using BIZ.Seguridad;
 
 namespace BLL
 {
@@ -17,8 +17,27 @@ namespace BLL
 
         public Usuario traerUsuario(Usuario usuario)
         {
+            if (SesionSingleton.Instancia.IsLogged())
+                { 
+                    throw new Exception("Ya hay una sesión iniciada");
+                }
+
             var unUsuario = unUsuarioDAO.traerUsuario(usuario);
 
+
+            //if (!user) throw new LoginException(LoginResult.CredencialesInvalidas);
+            if (unUsuario == null)
+                {
+                    throw new Exception("crednediales invalidas// faltan crear excepciones");
+            }
+            else
+            {
+                SesionSingleton.Instancia.Login(CargarPermisos(unUsuario));
+                return SesionSingleton.Instancia.usuario;
+            }
+                
+                 
+        
             //Carga las variables cache por medio de linq, para poder usarlas a nivel global en el sistema,
             //los datos se mantienen siempre y cuando el sistema no se cierre
             //CacheUsuario.iduser = listaUsuario.Select(x => x.iduser).FirstOrDefault();
@@ -33,9 +52,8 @@ namespace BLL
 
 
             // Logueo (traigo perfil) del Usuario            
-          
-            SesionSingleton.Instancia.Login(CargarPermisos(unUsuario));
-            return SesionSingleton.Instancia.usuario;
+
+            
         }
 
         public void eliminarUsuario(int idUsuario)

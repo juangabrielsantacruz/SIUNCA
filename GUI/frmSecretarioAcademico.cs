@@ -14,7 +14,7 @@ using GUI.Idiomas.SecretarioAcademico;
 using GUI.Seguridad;
 using BLL;
 using BIZ;
-using BIZ.Servicios;
+using BIZ.Seguridad;
 
 namespace GUI
 {

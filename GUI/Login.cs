@@ -17,7 +17,7 @@ using GUI.Idiomas.Login;
 using Framework.D_2015.Idiomas;
 using Framework.D_2015.Seguridad;
 using Framework.D_2015.Cache;
-using BIZ.Servicios;
+using BIZ.Seguridad;
 
 namespace GUI
 {
@@ -86,7 +86,7 @@ namespace GUI
                 //si usuario tiene la Patente de ID 1 muestra form secretario
                 frmAdministrativo.Visible = SesionSingleton.Instancia.usuario.Perfil.Validar(1);
                 //si usuario tiene la Patente de ID 9 muestra form profesor
-                frmProfe.Visible = resultadoUser.Perfil.Validar(9);
+                frmProfe.Visible = UsuarioSingleton.Perfil.Validar(9);
 
 
                 //button1.Visible = resultadoUser.Perfil.Validar(1);

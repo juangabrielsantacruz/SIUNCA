@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Framework.D_2015.Persistencia;
 
-namespace BIZ.Servicios
+namespace BIZ.Seguridad
 {
     public class SesionSingleton
     {
