@@ -75,8 +75,8 @@
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Framework.D-2015\Framework.D-2015\Framework.D-2015.vbproj">
-      <Project>{1149e452-dd20-496b-bf20-5f5d697dc6e1}</Project>
+    <ProjectReference Include="..\Framework.D-2015\Framework.D-2015\Framework.D-2015.csproj">
+      <Project>{A36D6539-1178-069A-3D78-95230BEAF241}</Project>
       <Name>Framework.D-2015</Name>
     </ProjectReference>
   </ItemGroup>
