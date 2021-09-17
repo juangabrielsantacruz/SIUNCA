@@ -18,7 +18,7 @@ using Framework.D_2015.Idiomas;
 using Framework.D_2015.Seguridad;
 using Framework.D_2015.Cache;
 using BIZ.Seguridad;
-using Framework.D_2015.Persistencia;
+using Framework.D_2015.Generadores;
 
 namespace GUI
 {
@@ -146,6 +146,9 @@ namespace GUI
         {
             //var unaConexion= new Conexion(Conexion.EstrategiasDbEnum.SqlServer, "pruebaservidor", "catalogo", "usuario", "clave");
             //unaConexion.GenerarArchivoConfiguracion(Conexion.EstrategiasDbEnum.SqlServer, "pruebaservidor", "catalogo", "usuario", "clave");
+            var ungenerador = new GeneradorXML();
+            ungenerador.GeneradorXMLDBConfig("tipodb", "server", "catarloggo", "usuarioo", "contrasena");
+            
         }
 
         /// <summary>
