@@ -83,7 +83,9 @@ namespace GUI
                 frmSecretarioAcademico frmAdministrativo = new frmSecretarioAcademico();
                 frmProfesor frmProfe = new frmProfesor();
 
-                //habilitarpermisos(resultadoUser);
+
+                //validar permisos en la bll
+                //UNBLL.habilitarpermisos(resultadoUser);
 
                 //si usuario tiene la Patente de ID 1 muestra form secretario
                 frmAdministrativo.Visible = SesionSingleton.Instancia.usuario.Perfil.Validar(1);
