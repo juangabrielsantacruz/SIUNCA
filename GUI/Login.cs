@@ -18,6 +18,7 @@ using Framework.D_2015.Idiomas;
 using Framework.D_2015.Seguridad;
 using Framework.D_2015.Cache;
 using BIZ.Seguridad;
+using Framework.D_2015.Persistencia;
 
 namespace GUI
 {
@@ -48,6 +49,7 @@ namespace GUI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+
             var usuario = new Usuario();
 
             usuario.email = txtUsuario.Text;
@@ -98,6 +100,7 @@ namespace GUI
             else
             {
                 lblError.Visible = true;
+                
             }
 
 
@@ -137,6 +140,12 @@ namespace GUI
             lblRol.Text = Res.lblRol;
             lblError.Text = Res.lblError;
             btnLogin.Text = Res.btnLogin;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //var unaConexion= new Conexion(Conexion.EstrategiasDbEnum.SqlServer, "pruebaservidor", "catalogo", "usuario", "clave");
+            //unaConexion.GenerarArchivoConfiguracion(Conexion.EstrategiasDbEnum.SqlServer, "pruebaservidor", "catalogo", "usuario", "clave");
         }
 
         /// <summary>

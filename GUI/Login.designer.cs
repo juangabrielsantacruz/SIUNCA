@@ -45,6 +45,7 @@
             this.lblError = new System.Windows.Forms.Label();
             this.cboIdioma = new System.Windows.Forms.ComboBox();
             this.lblIdioma = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.panelFooter.SuspendLayout();
             this.SuspendLayout();
@@ -200,6 +201,7 @@
             // panelFooter
             // 
             this.panelFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
+            this.panelFooter.Controls.Add(this.button1);
             this.panelFooter.Controls.Add(this.btnLogin);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelFooter.Location = new System.Drawing.Point(0, 426);
@@ -242,6 +244,16 @@
             this.lblIdioma.Size = new System.Drawing.Size(55, 16);
             this.lblIdioma.TabIndex = 11;
             this.lblIdioma.Text = "Idioma";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(212, 30);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "prueba";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Login
             // 
@@ -292,5 +304,6 @@
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.ComboBox cboIdioma;
         private System.Windows.Forms.Label lblIdioma;
+        private System.Windows.Forms.Button button1;
     }
 }

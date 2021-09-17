@@ -54,7 +54,10 @@ namespace Framework.D_2015.Persistencia
             }
         }
 
-        public static void GenerarArchivoConfiguracion(EstrategiasDbEnum estrategiaElegida, string servidor, string catalogo, string usuario, string clave)
+
+        //public static void GenerarArchivoConfiguracion(EstrategiasDbEnum estrategiaElegida, string servidor, string catalogo, string usuario, string clave)
+
+        public void GenerarArchivoConfiguracion(EstrategiasDbEnum estrategiaElegida, string servidor, string catalogo, string usuario, string clave)
         {
             var Configuracion = new ConfiguracionDB();
             Configuracion.TipoDeConexion = ((int)estrategiaElegida).ToString();
