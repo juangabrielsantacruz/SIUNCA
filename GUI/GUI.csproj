@@ -122,6 +122,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="idiomatest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="idiomatest.Designer.cs">
+      <DependentUpon>idiomatest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="idiomatest2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="idiomatest2.Designer.cs">
+      <DependentUpon>idiomatest2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,6 +281,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Res.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="idiomatest.resx">
+      <DependentUpon>idiomatest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -342,6 +357,10 @@
     <ProjectReference Include="..\Framework.D-2015\Framework.D-2015\Framework.D-2015.csproj">
       <Project>{A36D6539-1178-069A-3D78-95230BEAF241}</Project>
       <Name>Framework.D-2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{1E9485EA-0F5F-4D86-86C1-D1B292677AD9}</Project>
+      <Name>Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

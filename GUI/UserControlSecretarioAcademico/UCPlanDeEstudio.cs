@@ -48,7 +48,7 @@ namespace GUI.UserControlSecretarioAcademico
             //ucPlanDeEstudio
             //CargarPlanes();
             CargarMaterias();
-            Idioma.cambiarIdioma(Idioma.cacheIdioma, IdiomaPorDefecto);
+            IdiomaViejo.cambiarIdioma(IdiomaViejo.cacheIdioma, IdiomaPorDefecto);
 
 
             

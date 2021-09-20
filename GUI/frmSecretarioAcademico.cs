@@ -38,7 +38,7 @@ namespace GUI
             seleccionarUserControl(ucplandeestudio);
             this.lblSecretarioAcademico.Text = SesionSingleton.Instancia.usuario.email;
 
-            Idioma.cambiarIdioma(Idioma.cacheIdioma, IdiomaPorDefecto);
+            IdiomaViejo.cambiarIdioma(IdiomaViejo.cacheIdioma, IdiomaPorDefecto);
 
 
             //aca deberia traer el usuario de sesion singleton

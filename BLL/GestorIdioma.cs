@@ -11,21 +11,70 @@ namespace BLL
 {
     public class GestorIdioma : IObservado
     {
-        public IList<IObservador> ObservadoresRegistrados { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        //public IList<IObservador> ObservadoresRegistrados { get; set; }
 
+        private List<IObservador> mListaRegistrados = new List<IObservador>();
+
+        /// <summary>
+        /// Lista de los observadores registrados para esta instancia
+        /// </summary>
+        /// <returns></returns>
+        public IList<IObservador> ObservadoresRegistrados
+        {
+            get
+            {
+                return mListaRegistrados;
+            }
+            set { }
+        }
+
+        /// <summary>
+        /// Registra un nuevo observador a la lista
+        /// </summary>
+        /// <param name="pObservador">Observador que se quiere registrar</param>
+        public void RegistrarObservador(IObservador pObservador)
+        {
+            if (mListaRegistrados.Count > 0)
+            {
+                foreach (IObservador mObservador in mListaRegistrados)
+                {
+                    if ((mObservador.ToString() ?? "") == (pObservador.ToString() ?? ""))
+                    {
+                        mListaRegistrados.Remove(mObservador);
+                        break;
+                    }
+                }
+            }
+
+            mListaRegistrados.Add(pObservador);
+        }
+
+
+        /// <summary>
+        /// Quita a un observador de la lista
+        /// </summary>
+        /// <param name="pObservador">Observador que quiere quitarse de la lista</param>
+        public void DesregistrarObservador(IObservador pObservador)
+        {
+            foreach (IObservador mObservador in mListaRegistrados)
+            {
+                if ((mObservador.ToString() ?? "") == (pObservador.ToString() ?? ""))
+                {
+                    mListaRegistrados.Remove(mObservador);
+                    break;
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Ejecuta el metodo Actualizar() de todos los observadores registrados en esta instancia
+        /// </summary>
         public void ActualizarObservadores(IIdioma idioma)
         {
-            throw new NotImplementedException();
+            foreach (IObservador mObservador in mListaRegistrados)
+                mObservador.Actualizar((IIdioma)mObservador);
         }
 
-        public void DesregistrarObservador(IObservador observador)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RegistrarObservador(IObservador observador)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

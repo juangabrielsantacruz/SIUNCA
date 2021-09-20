@@ -28,7 +28,7 @@ namespace GUI
 
             this.lblNombreProfesor.Text = CacheUsuario.username;
 
-            Idioma.cambiarIdioma(Idioma.cacheIdioma, IdiomaPorDefecto);
+            IdiomaViejo.cambiarIdioma(IdiomaViejo.cacheIdioma, IdiomaPorDefecto);
         }
 
         private void btnClose_Click(object sender, EventArgs e)

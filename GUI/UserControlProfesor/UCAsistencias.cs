@@ -27,7 +27,7 @@ namespace GUI.UserControlProfesor
             cargarCboMaterias();
             lblFechaActual.Text = DateTime.Now.ToShortDateString();
 
-            Idioma.cambiarIdioma(Idioma.cacheIdioma, IdiomaPorDefecto);
+            IdiomaViejo.cambiarIdioma(IdiomaViejo.cacheIdioma, IdiomaPorDefecto);
         }
 
         private void btnSelMateriaAsistencia_Click(object sender, EventArgs e)

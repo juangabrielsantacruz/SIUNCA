@@ -19,6 +19,7 @@ using Framework.D_2015.Seguridad;
 using Framework.D_2015.Cache;
 using BIZ.Seguridad;
 using Framework.D_2015.Generadores;
+using Framework.D_2015.Multiidioma;
 
 namespace GUI
 {
@@ -31,9 +32,9 @@ namespace GUI
         {
             InitializeComponent();
             lblError.Visible = false;
-            cboIdioma.SelectedIndex = Idioma.cacheIdioma == "Español" ? 0 : 1;
+            cboIdioma.SelectedIndex = IdiomaViejo.cacheIdioma == "Español" ? 0 : 1;
             cboRol.SelectedIndex = 2;
-            Idioma.cambiarIdioma(Idioma.cacheIdioma, IdiomaPorDefecto);
+            IdiomaViejo.cambiarIdioma(IdiomaViejo.cacheIdioma, IdiomaPorDefecto);
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -126,8 +127,8 @@ namespace GUI
 
         private void cboIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Idioma.cacheIdioma = cboIdioma.Text;
-            Idioma.cambiarIdioma(Idioma.cacheIdioma, IdiomaPorDefecto);
+            IdiomaViejo.cacheIdioma = cboIdioma.Text;
+            IdiomaViejo.cambiarIdioma(IdiomaViejo.cacheIdioma, IdiomaPorDefecto);
         }
 
         /// <summary>
@@ -148,9 +149,12 @@ namespace GUI
         {
             //var unaConexion= new Conexion(Conexion.EstrategiasDbEnum.SqlServer, "pruebaservidor", "catalogo", "usuario", "clave");
             //unaConexion.GenerarArchivoConfiguracion(Conexion.EstrategiasDbEnum.SqlServer, "pruebaservidor", "catalogo", "usuario", "clave");
-            var ungenerador = new GeneradorXML();
-            ungenerador.GeneradorXMLDBConfig("tipodb", "server", "catarloggo", "usuarioo", "contrasena");
-            
+            //var ungenerador = new GeneradorXML();
+            //ungenerador.GeneradorXMLDBConfig("tipodb", "server", "catarloggo", "usuarioo", "contrasena");
+
+
+
+
         }
 
         /// <summary>

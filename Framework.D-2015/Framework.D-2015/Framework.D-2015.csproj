@@ -84,7 +84,7 @@
     <Compile Include="Funciones\Fechas.cs" />
     <Compile Include="Funciones\Matematicas.cs" />
     <Compile Include="Funciones\Validadores.cs" />
-    <Compile Include="Idiomas\Idioma.cs" />
+    <Compile Include="Idiomas\IdiomaViejo.cs" />
     <Compile Include="Observer\IObservado.cs" />
     <Compile Include="Observer\IObservador.cs" />
     <Compile Include="Persistencia\Conexion.cs" />

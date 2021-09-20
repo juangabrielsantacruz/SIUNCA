@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace Framework.D_2015.Idiomas
 {
-    public class Idioma
+    public class IdiomaViejo
     {
 
         /// <summary>
