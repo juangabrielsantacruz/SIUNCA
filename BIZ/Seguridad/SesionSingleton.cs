@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Framework.D_2015.Multiidioma;
 using Framework.D_2015.Persistencia;
+using Interfaces;
 
 namespace BIZ.Seguridad
 {
-    public class SesionSingleton
+    public class SesionSingleton : IObservado
     {
         private static SesionSingleton _instancia;
-        //private static Object _lock = new object();
+
         public static SesionSingleton Instancia
         {
             get
@@ -23,7 +25,7 @@ namespace BIZ.Seguridad
 
         public Usuario usuario { get; set; }
 
-     
+
         //private int myVar;
 
         //public int MyProperty
@@ -44,5 +46,42 @@ namespace BIZ.Seguridad
         {
             usuario = null;
         }
+
+
+
+        /* MULTIIDIOMA */
+
+        public Idioma idioma { get; set; }
+        public IList<IObservador> ObservadoresRegistrados { get; set; }
+
+        private SesionSingleton()
+        {
+            ObservadoresRegistrados = new List<IObservador>();
+        }
+        public void CambiarIdioma(Idioma i)
+        {
+            idioma = i;
+            ActualizarObservadores(i);
+        }
+
+        public void ActualizarObservadores(IIdioma idioma)
+        {
+            foreach (var item in ObservadoresRegistrados)
+            {
+                item.Actualizar(idioma);
+            }
+        }
+
+        public void DesregistrarObservador(IObservador observador)
+        {
+            ObservadoresRegistrados.Add(observador);
+        }
+
+        public void RegistrarObservador(IObservador observador)
+        {
+            ObservadoresRegistrados.Add(observador);
+        }
+
+   
     }
 }

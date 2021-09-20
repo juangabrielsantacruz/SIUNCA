@@ -68,12 +68,15 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity.cs" />
     <Compile Include="Generadores\GeneradorXML.cs" />
+    <Compile Include="Multiidioma\Idioma.cs" />
+    <Compile Include="Multiidioma\Palabra.cs" />
+    <Compile Include="Multiidioma\Traduccion.cs" />
     <Compile Include="My Project\MyNamespace.Static.1.Designer.cs" />
     <Compile Include="My Project\MyNamespace.Static.2.Designer.cs" />
     <Compile Include="My Project\MyNamespace.Static.3.Designer.cs" />
     <Compile Include="Cache\CacheUsuario.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Configuracion.cs" />
     <Compile Include="DigitoVerificador\DigitoVerificador.cs" />
     <Compile Include="Funciones\Archivo.cs" />
@@ -129,7 +132,12 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Interfaces\Interfaces.csproj">
+      <Project>{1e9485ea-0f5f-4d86-86c1-d1b292677ad9}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

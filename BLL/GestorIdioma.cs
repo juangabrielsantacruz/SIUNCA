@@ -5,25 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 using BIZ;
 using DAL;
-using Framework.D_2015.Observer;
+using Interfaces;
 
 namespace BLL
 {
     public class GestorIdioma : IObservado
     {
-        public List<IObservador> ObservadoresRegistrados => throw new NotImplementedException();
+        public IList<IObservador> ObservadoresRegistrados { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public void ActualizarObservadores()
+        public void ActualizarObservadores(IIdioma idioma)
         {
             throw new NotImplementedException();
         }
 
-        public void DesregistrarObservador(IObservador pObservador)
+        public void DesregistrarObservador(IObservador observador)
         {
             throw new NotImplementedException();
         }
 
-        public void RegistrarObservador(IObservador pObservador)
+        public void RegistrarObservador(IObservador observador)
         {
             throw new NotImplementedException();
         }
