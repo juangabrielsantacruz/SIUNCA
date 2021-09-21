@@ -284,6 +284,9 @@
     <EmbeddedResource Include="idiomatest.resx">
       <DependentUpon>idiomatest.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="idiomatest2.resx">
+      <DependentUpon>idiomatest2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

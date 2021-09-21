@@ -17,6 +17,7 @@ namespace GUI
     {
         Idioma i1 = new Idioma() { Id = 1, Nombre = "Español" };
         Idioma i2 = new Idioma() { Id = 2, Nombre = "Inglés" };
+        //private SesionSingleton instancia = SesionSingleton.Instancia;
         public idiomatest()
         {
             InitializeComponent();
@@ -44,36 +45,36 @@ namespace GUI
 
         void GenerarDiccionarios()
         {
-            Palabra p1 = new Palabra() { Id = 1, Texto = "Inicio" };
+            Palabra p1 = new Palabra() { Id = 1, Texto = "TagLabelESP" };
 
             Traduccion t1 = new Traduccion()
             {
                 Id = 1,
                 Palabra = p1,
-                PalabraTraducida = "Inicio"
+                PalabraTraducida = "TagLabelESP"
             };
 
             Traduccion t2 = new Traduccion()
             {
                 Id = 2,
                 Palabra = p1,
-                PalabraTraducida = "Home"
+                PalabraTraducida = "HomeING"
             };
 
-            Palabra p2 = new Palabra() { Id = 2, Texto = "Cambiar" };
+            Palabra p2 = new Palabra() { Id = 2, Texto = "TagBOTON" };
 
             Traduccion t3 = new Traduccion()
             {
                 Id = 3,
                 Palabra = p2,
-                PalabraTraducida = "Cambiar"
+                PalabraTraducida = "TagBOTON"
             };
 
             Traduccion t4 = new Traduccion()
             {
                 Id = 4,
                 Palabra = p2,
-                PalabraTraducida = "Change"
+                PalabraTraducida = "ChangeING"
             };
 
             i1.AgregarTraduccion(t1);
