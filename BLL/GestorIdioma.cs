@@ -18,14 +18,12 @@ namespace BLL
             return ObtenerIdiomas().Where(i => i.Default).FirstOrDefault();
         }
         public static IList<Idioma> ObtenerIdiomas()
-        {
-            
+        {            
                 var listaIdioma = new List<Idioma>();
                 var unIdiomaDAO = new IdiomaDAO();
                 listaIdioma = unIdiomaDAO.ListarIdiomas();
 
-                return listaIdioma;
-            
+                return listaIdioma;           
 
         }
 

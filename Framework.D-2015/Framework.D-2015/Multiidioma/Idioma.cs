@@ -26,5 +26,7 @@ namespace Framework.D_2015.Multiidioma
         {
             return Traducciones.FirstOrDefault(x => x.Palabra.Texto == texto).PalabraTraducida;
         }
+
+ 
     }
 }

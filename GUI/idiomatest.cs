@@ -36,30 +36,27 @@ namespace GUI
         {
 
 
-            //// ***** TEST IDIOMA CON DICCIONARIO BASE
-            ///
-            //var gestoridioma = new GestorIdioma();
+            ////////// ***** TEST IDIOMA CON DICCIONARIO BASE
+            /////
+            
             //cbIdioma.DataSource = GestorIdioma.ObtenerIdiomas();
             //cbIdioma.DisplayMember = "Nombre_Idioma";
             //cbIdioma.ValueMember = "IdIdioma";
             //Idioma unIdioma = GestorIdioma.TraerIdiomaPorId(int.Parse((string)cbIdioma.SelectedValue));
 
             ////aca tengo que traer traducciones
-            //var listatraduccion = GestorIdioma.ObtenerTraducciones1(unIdioma);
-
-
-            ////unIdioma.AgregarTraduccion(listatraduccion);
+            //GestorIdioma.ObtenerTraducciones(unIdioma);
 
             ////Traducir(SesionSingleton.Instancia.idioma);
 
             //SesionSingleton.Instancia.CambiarIdioma(unIdioma);
             //SesionSingleton.Instancia.RegistrarObservador(this);
             //Actualizar(SesionSingleton.Instancia.idioma);
-            // ******* CIERRETEST IDIOMA CON DICCIONARIO BASE
+            ////////*******CIERRE TEST IDIOMA CON DICCIONARIO BASE
 
-            ///
-            ///
-            //PARA IDIOMA EN MEMORIA
+            /////////
+            /////////
+            ////PARA IDIOMA EN MEMORIA
 
             GenerarDiccionarios();
             SesionSingleton.Instancia.CambiarIdioma(unIdioma1);
@@ -157,6 +154,8 @@ namespace GUI
         private void button1_Click(object sender, EventArgs e)
         {
             SesionSingleton.Instancia.CambiarIdioma(unIdioma2);
+            //SesionSingleton.Instancia.CambiarIdioma((Idioma)cbIdioma.SelectedItem);
+            
         }
     }
 }
