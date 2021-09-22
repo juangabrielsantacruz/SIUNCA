@@ -5,75 +5,35 @@ using System.Text;
 using System.Threading.Tasks;
 using BIZ;
 using DAL;
+using Framework.D_2015.Multiidioma;
 using Interfaces;
+
 
 namespace BLL
 {
-    public class GestorIdioma : IObservado
+    public class GestorIdioma 
     {
-        //public IList<IObservador> ObservadoresRegistrados { get; set; }
-
-        private List<IObservador> mListaRegistrados = new List<IObservador>();
-
-        /// <summary>
-        /// Lista de los observadores registrados para esta instancia
-        /// </summary>
-        /// <returns></returns>
-        public IList<IObservador> ObservadoresRegistrados
+        public static IIdioma ObtenerIdiomaDefault()
         {
-            get
-            {
-                return mListaRegistrados;
-            }
-            set { }
+            return ObtenerIdiomas().Where(i => i.Default).FirstOrDefault();
+        }
+        public static IList<Idioma> ObtenerIdiomas()
+        {
+            
+                var listaIdioma = new List<Idioma>();
+                var unIdiomaDAO = new IdiomaDAO();
+                listaIdioma = unIdiomaDAO.ListarIdiomas();
+
+                return listaIdioma;
+            
+
         }
 
-        /// <summary>
-        /// Registra un nuevo observador a la lista
-        /// </summary>
-        /// <param name="pObservador">Observador que se quiere registrar</param>
-        public void RegistrarObservador(IObservador pObservador)
+        public static Idioma TraerIdiomaPorId(int id)
         {
-            if (mListaRegistrados.Count > 0)
-            {
-                foreach (IObservador mObservador in mListaRegistrados)
-                {
-                    if ((mObservador.ToString() ?? "") == (pObservador.ToString() ?? ""))
-                    {
-                        mListaRegistrados.Remove(mObservador);
-                        break;
-                    }
-                }
-            }
-
-            mListaRegistrados.Add(pObservador);
-        }
-
-
-        /// <summary>
-        /// Quita a un observador de la lista
-        /// </summary>
-        /// <param name="pObservador">Observador que quiere quitarse de la lista</param>
-        public void DesregistrarObservador(IObservador pObservador)
-        {
-            foreach (IObservador mObservador in mListaRegistrados)
-            {
-                if ((mObservador.ToString() ?? "") == (pObservador.ToString() ?? ""))
-                {
-                    mListaRegistrados.Remove(mObservador);
-                    break;
-                }
-            }
-        }
-
-
-        /// <summary>
-        /// Ejecuta el metodo Actualizar() de todos los observadores registrados en esta instancia
-        /// </summary>
-        public void ActualizarObservadores(IIdioma idioma)
-        {
-            foreach (IObservador mObservador in mListaRegistrados)
-                mObservador.Actualizar((IIdioma)mObservador);
+            var idioma = new Idioma();
+            idioma = IdiomaDAO.ObtenerIdiomaPorId(id);
+            return idioma;
         }
 
     }

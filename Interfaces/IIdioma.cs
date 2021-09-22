@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Interfaces
 {
@@ -11,6 +7,10 @@ namespace Interfaces
         string Nombre { get; set; }
         IList<ITraduccion> Traducciones { get; set; }
         void AgregarTraduccion(ITraduccion traduccion);
+
         string BuscarTraduccion(string texto);
+
+        bool Default { get; set; }
+
     }
 }

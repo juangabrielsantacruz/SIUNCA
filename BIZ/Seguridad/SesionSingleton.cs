@@ -10,6 +10,7 @@ namespace BIZ.Seguridad
 {
     public class SesionSingleton : IObservado
     {
+        //deberia hacer esta clase en el FRAMEWORK
         private static SesionSingleton _instancia;
 
         public static SesionSingleton Instancia
@@ -74,7 +75,7 @@ namespace BIZ.Seguridad
 
         public void DesregistrarObservador(IObservador observador)
         {
-            ObservadoresRegistrados.Add(observador);
+            ObservadoresRegistrados.Remove(observador);
         }
 
         public void RegistrarObservador(IObservador observador)

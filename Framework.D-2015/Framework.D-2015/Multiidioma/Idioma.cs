@@ -11,6 +11,7 @@ namespace Framework.D_2015.Multiidioma
     {
         public string Nombre { get; set; }
         public IList<ITraduccion> Traducciones { get; set; }
+        public bool Default { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public Idioma()
         {

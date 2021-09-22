@@ -1,4 +1,5 @@
 ﻿using BIZ.Seguridad;
+using BLL;
 using Framework.D_2015.Multiidioma;
 using Interfaces;
 using System;
@@ -15,8 +16,8 @@ namespace GUI
 {
     public partial class idiomatest : Form, IObservador
     {
-        Idioma i1 = new Idioma() { Id = 1, Nombre = "Español" };
-        Idioma i2 = new Idioma() { Id = 2, Nombre = "Inglés" };
+        Idioma unIdioma1 = new Idioma() { Id = 1, Nombre = "Español" };
+        Idioma unIdioma2 = new Idioma() { Id = 2, Nombre = "Inglés" };
         //private SesionSingleton instancia = SesionSingleton.Instancia;
         public idiomatest()
         {
@@ -33,8 +34,22 @@ namespace GUI
 
         private void idiomatest_Load(object sender, EventArgs e)
         {
+
+            ////
+            ///
+
+            //var gestoridioma = new GestorIdioma();
+            //cbIdioma.DataSource = GestorIdioma.ObtenerIdiomas();
+            //cbIdioma.DisplayMember = "Nombre_Idioma";
+            //cbIdioma.ValueMember = "IdIdioma";
+            //GestorIdioma.TraerIdiomaPorId(int.Parse((string)cbIdioma.SelectedValue));
+           
+            ///
+            ///
+            //aca debo TRAER IDIOMAS y el resultado va a sesion.instancia.CambiarIdioma(resultado)
+
             GenerarDiccionarios();
-            SesionSingleton.Instancia.CambiarIdioma(i1);
+            SesionSingleton.Instancia.CambiarIdioma(unIdioma1);
             SesionSingleton.Instancia.RegistrarObservador(this);
             Actualizar(SesionSingleton.Instancia.idioma);
 
@@ -45,8 +60,10 @@ namespace GUI
 
         void GenerarDiccionarios()
         {
+            //aca debo traer lista de palabras
             Palabra p1 = new Palabra() { Id = 1, Texto = "TagLabelESP" };
 
+            //aca debo traer lista de traducciones
             Traduccion t1 = new Traduccion()
             {
                 Id = 1,
@@ -77,15 +94,33 @@ namespace GUI
                 PalabraTraducida = "ChangeING"
             };
 
-            i1.AgregarTraduccion(t1);
-            i1.AgregarTraduccion(t3);
-            i2.AgregarTraduccion(t2);
-            i2.AgregarTraduccion(t4);
+            Palabra p3 = new Palabra() { Id = 2, Texto = "combo" };
+
+            Traduccion t5 = new Traduccion()
+            {
+                Id = 3,
+                Palabra = p3,
+                PalabraTraducida = "combo"
+            };
+
+            Traduccion t6 = new Traduccion()
+            {
+                Id = 4,
+                Palabra = p3,
+                PalabraTraducida = "comboing"
+            };
+
+            unIdioma1.AgregarTraduccion(t1);
+            unIdioma1.AgregarTraduccion(t3);
+            unIdioma2.AgregarTraduccion(t2);
+            unIdioma2.AgregarTraduccion(t4);
+            unIdioma1.AgregarTraduccion(t5);
+            unIdioma2.AgregarTraduccion(t6);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SesionSingleton.Instancia.CambiarIdioma(i2);
+            SesionSingleton.Instancia.CambiarIdioma(unIdioma2);
         }
     }
 }
