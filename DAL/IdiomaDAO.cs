@@ -42,6 +42,17 @@ namespace DAL
             //"select Palabra_Texto, Traduccion_Palabra from Palabra inner join Traduccion on IdPalabra = IdPalabra_Traduccion where IdIdioma = " + pIdioma.IdIdioma;
             
         }
+
+        public static IDictionary<string, ITraduccion> ObtenerTraducciones(IIdioma idioma)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static List<ITraduccion> ObtenerTraducciones1(IIdioma idioma)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Palabra> TraerPalabrasBase()
         {
             throw new NotImplementedException();
@@ -51,6 +62,8 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+    
 
         public void AgregarIdioma(Idioma idioma)
         {

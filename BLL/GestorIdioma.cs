@@ -36,5 +36,23 @@ namespace BLL
             return idioma;
         }
 
+        public static Traduccion BuscarTraduccionPalabraIdioma(int palabra, Idioma idioma)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static IDictionary<string, ITraduccion> ObtenerTraducciones(IIdioma idioma)
+        {
+            //var listaTraduccion = new List<Traduccion>();
+            var listaTraduccion = IdiomaDAO.ObtenerTraducciones(idioma);
+            return listaTraduccion;
+        }
+
+        public static List<ITraduccion> ObtenerTraducciones1(IIdioma idioma)
+        {
+            var listaTraduccion = new List<ITraduccion>();
+            listaTraduccion = IdiomaDAO.ObtenerTraducciones1(idioma);
+            return listaTraduccion;
+        }
     }
 }

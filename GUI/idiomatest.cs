@@ -35,28 +35,64 @@ namespace GUI
         private void idiomatest_Load(object sender, EventArgs e)
         {
 
-            ////
-            ///
 
+            //// ***** TEST IDIOMA CON DICCIONARIO BASE
+            ///
             //var gestoridioma = new GestorIdioma();
             //cbIdioma.DataSource = GestorIdioma.ObtenerIdiomas();
             //cbIdioma.DisplayMember = "Nombre_Idioma";
             //cbIdioma.ValueMember = "IdIdioma";
-            //GestorIdioma.TraerIdiomaPorId(int.Parse((string)cbIdioma.SelectedValue));
-           
+            //Idioma unIdioma = GestorIdioma.TraerIdiomaPorId(int.Parse((string)cbIdioma.SelectedValue));
+
+            ////aca tengo que traer traducciones
+            //var listatraduccion = GestorIdioma.ObtenerTraducciones1(unIdioma);
+
+
+            ////unIdioma.AgregarTraduccion(listatraduccion);
+
+            ////Traducir(SesionSingleton.Instancia.idioma);
+
+            //SesionSingleton.Instancia.CambiarIdioma(unIdioma);
+            //SesionSingleton.Instancia.RegistrarObservador(this);
+            //Actualizar(SesionSingleton.Instancia.idioma);
+            // ******* CIERRETEST IDIOMA CON DICCIONARIO BASE
+
             ///
             ///
-            //aca debo TRAER IDIOMAS y el resultado va a sesion.instancia.CambiarIdioma(resultado)
+            //PARA IDIOMA EN MEMORIA
 
             GenerarDiccionarios();
             SesionSingleton.Instancia.CambiarIdioma(unIdioma1);
             SesionSingleton.Instancia.RegistrarObservador(this);
             Actualizar(SesionSingleton.Instancia.idioma);
 
+            ///
+            // CIERRE PARA IDIOMA EN MEMORIA
+
             idiomatest2 form2 = new idiomatest2();
             form2.Show();
 
         }
+
+        //private void Traducir(IIdioma idioma)
+        //{
+        //    var traducciones = GestorIdioma.ObtenerTraducciones(idioma);
+
+        //    if (this.Tag != null && traducciones.ContainsKey(this.Tag.ToString()))
+        //        this.Text = traducciones[this.Tag.ToString()].PalabraTraducida;
+
+        //    if (label1.Tag != null && traducciones.ContainsKey(label1.Tag.ToString()))
+        //        label1.Text = traducciones[label1.Tag.ToString()].PalabraTraducida;
+
+        //    if (button1.Tag != null && traducciones.ContainsKey(button1.Tag.ToString()))
+        //        button1.Text = traducciones[button1.Tag.ToString()].PalabraTraducida;
+
+
+        //    if (cbIdioma.Tag != null && traducciones.ContainsKey(cbIdioma.Tag.ToString()))
+        //        cbIdioma.Text = traducciones[cbIdioma.Tag.ToString()].PalabraTraducida;
+
+        //    //    this.mnuSesion.Text = traducciones[mnuSesion.Tag.ToString()].Texto;
+        //}
 
         void GenerarDiccionarios()
         {
@@ -94,18 +130,18 @@ namespace GUI
                 PalabraTraducida = "ChangeING"
             };
 
-            Palabra p3 = new Palabra() { Id = 2, Texto = "combo" };
+            Palabra p3 = new Palabra() { Id = 3, Texto = "combo" };
 
             Traduccion t5 = new Traduccion()
             {
-                Id = 3,
+                Id = 5,
                 Palabra = p3,
                 PalabraTraducida = "combo"
             };
 
             Traduccion t6 = new Traduccion()
             {
-                Id = 4,
+                Id = 6,
                 Palabra = p3,
                 PalabraTraducida = "comboing"
             };
