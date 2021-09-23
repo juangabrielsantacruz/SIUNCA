@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace Framework.D_2015.Multiidioma
 {
-    public class Traduccion : Entity, ITraduccion
+    public class Traduccion :  ITraduccion
     {
+        public int IdPalabra_Traduccion { get; set; }
         public string PalabraTraducida { get; set; }
-        public IPalabra Palabra { get; set; }
+
+        public string Palabra_Texto { get; set; }
     }
 }

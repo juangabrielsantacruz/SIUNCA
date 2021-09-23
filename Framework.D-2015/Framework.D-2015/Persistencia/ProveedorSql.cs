@@ -153,5 +153,57 @@ namespace Framework.D_2015.Persistencia
             resultadoDataReader.Close();
             return resultado;
         }
+
+        public IDictionary<T, T> EjecutarTupla2<T>(string query, List<Parametro> parametros) where T : new()
+        {
+            var unComando = new SqlCommand();
+
+            // Preconfig...
+            unComando.Connection = _sqlConnection;
+            unComando.Transaction = _sqlTransansaction;
+            unComando.CommandType = CommandType.Text;
+            unComando.CommandText = query;
+            foreach (var item in parametros)
+            {
+                var unParametro = new SqlParameter(item.NombreParametro, item.Valor);
+                unComando.Parameters.Add(unParametro);
+            }
+
+            // Ejecucion...
+            var resultadoDataReader = unComando.ExecuteReader();
+            return MappearResultado2<T>(resultadoDataReader);
+        }
+
+        private IDictionary<T, T> MappearResultado2<T>(SqlDataReader resultadoDataReader) where T : new()
+        {
+            var resultado = new List<T>();
+
+            // Recorro todos los rows.
+            while (resultadoDataReader.Read())
+            {
+
+                // Creo un T.
+                var unT = new T();
+
+                // Recorro las columnas de la tabla.
+                for (int i = 0, loopTo = resultadoDataReader.FieldCount - 1; i <= loopTo; i++)
+                {
+
+                    // A una instancia de T, pegarle cada una de estas propiedades...
+                    string nombreColumna = resultadoDataReader.GetName(i);
+
+                    // Obtengo la property
+                    var propiedadInfo = unT.GetType().GetProperty(nombreColumna);
+
+                    // Le pego el valor a esa property.
+                    propiedadInfo.SetValue(unT, resultadoDataReader.GetValue(i));
+                }
+
+                resultado.Add(unT);
+            }
+
+            resultadoDataReader.Close();
+            return (IDictionary<T, T>)resultado;
+        }
     }
 }

@@ -18,16 +18,41 @@ namespace Framework.D_2015.Multiidioma
         {
             Traducciones = new List<ITraduccion>();
         }
-        public void AgregarTraduccion(ITraduccion traduccion)
+        public void AgregarTraduccion2(List<Traduccion> traduccion)
         {
-            Traducciones.Add(traduccion);
+            foreach (var item in traduccion)
+            {
+                Traducciones.Add(item);
+            }
+            
         }
 
         public string BuscarTraduccion(string texto)
         {
-            return Traducciones.FirstOrDefault(x => x.Palabra.Texto == texto).PalabraTraducida;
+            try
+            {
+                var _resultadotraducciones = Traducciones.FirstOrDefault(x => x.Palabra_Texto == texto).PalabraTraducida;
+                if (_resultadotraducciones == null)
+                {
+                    return texto;
+                }
+                else
+                {
+                    return _resultadotraducciones;
+                }
+            }
+            catch (Exception)
+            {
+
+                return "sintraduccion";
+            }
+            
+          
         }
 
- 
+        public void AgregarTraduccion(ITraduccion traduccion)
+        {
+            Traducciones.Add(traduccion);
+        }
     }
 }

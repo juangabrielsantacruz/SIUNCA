@@ -108,5 +108,6 @@ namespace Framework.D_2015.Persistencia
         {
             return _estrategiaConexion.EjecutarTupla<T>(query, parametros);
         }
+     
     }
 }

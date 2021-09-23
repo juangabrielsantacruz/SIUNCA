@@ -45,7 +45,11 @@ namespace GUI
             //Idioma unIdioma = GestorIdioma.TraerIdiomaPorId(cbIdioma.SelectedIndex);
 
             //aca tengo que traer traducciones
-            //GestorIdioma.ObtenerTraducciones(unIdioma);
+            List<Traduccion> traducciones = GestorIdioma.ObtenerTraducciones(unIdioma1);
+
+           
+            var t1 = GestorIdioma.ObtenerTraducciones(unIdioma2);
+            
 
             //Traducir(SesionSingleton.Instancia.idioma);
 
@@ -57,8 +61,19 @@ namespace GUI
             /////////
             /////////
             ////PARA IDIOMA EN MEMORIA
-
-            GenerarDiccionarios();
+            foreach (var item in t1)
+            {
+                unIdioma1.AgregarTraduccion2(t1);
+            }
+            
+            
+            
+            //unIdioma1.AgregarTraduccion(t3);
+            //unIdioma2.AgregarTraduccion(t2);
+            //unIdioma2.AgregarTraduccion(t4);
+            //unIdioma1.AgregarTraduccion(t5);
+            //unIdioma2.AgregarTraduccion(t6);
+            //GenerarDiccionarios();
             SesionSingleton.Instancia.CambiarIdioma(unIdioma1);
             SesionSingleton.Instancia.RegistrarObservador(this);
             Actualizar(SesionSingleton.Instancia.idioma);
@@ -91,65 +106,65 @@ namespace GUI
         //    //    this.mnuSesion.Text = traducciones[mnuSesion.Tag.ToString()].Texto;
         //}
 
-        void GenerarDiccionarios()
-        {
-            //aca debo traer lista de palabras
-            Palabra p1 = new Palabra() { Id = 1, Texto = "TagLabelESP" };
+        //void GenerarDiccionarios()
+        //{
+        //    //aca debo traer lista de palabras
+        //    Palabra p1 = new Palabra() { Id = 1, Texto = "TagLabelESP" };
 
-            //aca debo traer lista de traducciones
-            Traduccion t1 = new Traduccion()
-            {
-                Id = 1,
-                Palabra = p1,
-                PalabraTraducida = "TagLabelESP"
-            };
+        //    //aca debo traer lista de traducciones
+        //    Traduccion t1 = new Traduccion()
+        //    {
+        //        IdPalabra_Traduccion = 1,
+        //        Palabra_Texto = p1,
+        //        PalabraTraducida = "TagLabelESP"
+        //    };
 
-            Traduccion t2 = new Traduccion()
-            {
-                Id = 2,
-                Palabra = p1,
-                PalabraTraducida = "HomeING"
-            };
+        //    Traduccion t2 = new Traduccion()
+        //    {
+        //        IdPalabra_Traduccion = 2,
+        //        Palabra_Texto = p1,
+        //        PalabraTraducida = "HomeING"
+        //    };
 
-            Palabra p2 = new Palabra() { Id = 2, Texto = "TagBOTON" };
+        //    Palabra p2 = new Palabra() { Id = 2, Texto = "TagBOTON" };
 
-            Traduccion t3 = new Traduccion()
-            {
-                Id = 3,
-                Palabra = p2,
-                PalabraTraducida = "TagBOTON"
-            };
+        //    Traduccion t3 = new Traduccion()
+        //    {
+        //        IdPalabra_Traduccion = 3,
+        //        Palabra_Texto = p2,
+        //        PalabraTraducida = "TagBOTON"
+        //    };
 
-            Traduccion t4 = new Traduccion()
-            {
-                Id = 4,
-                Palabra = p2,
-                PalabraTraducida = "ChangeING"
-            };
+        //    Traduccion t4 = new Traduccion()
+        //    {
+        //        IdPalabra_Traduccion = 4,
+        //        Palabra_Texto = p2,
+        //        PalabraTraducida = "ChangeING"
+        //    };
 
-            Palabra p3 = new Palabra() { Id = 3, Texto = "combo" };
+        //    Palabra p3 = new Palabra() { Id = 3, Texto = "combo" };
 
-            Traduccion t5 = new Traduccion()
-            {
-                Id = 5,
-                Palabra = p3,
-                PalabraTraducida = "combo"
-            };
+        //    Traduccion t5 = new Traduccion()
+        //    {
+        //        IdPalabra_Traduccion = 5,
+        //        Palabra_Texto = p3,
+        //        PalabraTraducida = "combo"
+        //    };
 
-            Traduccion t6 = new Traduccion()
-            {
-                Id = 6,
-                Palabra = p3,
-                PalabraTraducida = "comboing"
-            };
+        //    Traduccion t6 = new Traduccion()
+        //    {
+        //        IdPalabra_Traduccion = 6,
+        //        Palabra_Texto = p3,
+        //        PalabraTraducida = "comboing"
+        //    };
 
-            unIdioma1.AgregarTraduccion(t1);
-            unIdioma1.AgregarTraduccion(t3);
-            unIdioma2.AgregarTraduccion(t2);
-            unIdioma2.AgregarTraduccion(t4);
-            unIdioma1.AgregarTraduccion(t5);
-            unIdioma2.AgregarTraduccion(t6);
-        }
+        //    unIdioma1.AgregarTraduccion(t1);
+        //    unIdioma1.AgregarTraduccion(t3);
+        //    unIdioma2.AgregarTraduccion(t2);
+        //    unIdioma2.AgregarTraduccion(t4);
+        //    unIdioma1.AgregarTraduccion(t5);
+        //    unIdioma2.AgregarTraduccion(t6);
+        //}
 
         private void button1_Click(object sender, EventArgs e)
         {

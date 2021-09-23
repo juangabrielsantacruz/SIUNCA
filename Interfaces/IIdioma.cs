@@ -6,7 +6,7 @@ namespace Interfaces
     {
         string Nombre { get; set; }
         IList<ITraduccion> Traducciones { get; set; }
-        void AgregarTraduccion(ITraduccion traduccion);
+        void  AgregarTraduccion(ITraduccion traduccion);
 
         string BuscarTraduccion(string texto);
 

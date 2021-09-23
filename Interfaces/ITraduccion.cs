@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Interfaces
+﻿namespace Interfaces
 {
-    public interface ITraduccion : IEntity
+    public interface ITraduccion 
     {
         string PalabraTraducida { get; set; }
-        IPalabra Palabra { get; set; }
+        string Palabra_Texto { get; set; }
     }
 }

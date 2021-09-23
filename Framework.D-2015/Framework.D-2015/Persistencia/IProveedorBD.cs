@@ -12,5 +12,6 @@ namespace Framework.D_2015.Persistencia
         void EjecutarSinResultado(string query, List<Parametro> parametros);
         T EjecutarEscalar<T>(string query, List<Parametro> parametros);
         List<T> EjecutarTupla<T>(string query, List<Parametro> parametros) where T : new();
+        
     }
 }
