@@ -28,9 +28,13 @@ namespace GUI
         }
         public void Actualizar(IIdioma idiomaObservado)
         {
+            
             foreach (Control item in this.Controls)
             {
-                item.Text = idiomaObservado.BuscarTraduccion(item.Tag.ToString());
+                if (item.Tag != null)
+                {
+                    item.Text = idiomaObservado.BuscarTraduccion(item.Tag.ToString());
+                }
             }
         }
 
@@ -167,7 +171,14 @@ namespace GUI
         private void button1_Click(object sender, EventArgs e)
         {
 
+
+            //hacer todo esto con la sesion idioma
+            //SesionSingleton.Instancia.idioma = (Idioma)cbIdioma.SelectedItem;
             unIdioma = (Idioma)cbIdioma.SelectedItem;
+
+            //aca traer lista de traducciones en la sesion
+            //SesionSingleton.Instancia.idioma.Traducciones = GestorIdioma.ObtenerTraducciones(unIdioma);
+
             var _listatraducciones3 = GestorIdioma.ObtenerTraducciones(unIdioma);
             unIdioma.AgregarTraduccion2(_listatraducciones3);
 
