@@ -29,9 +29,9 @@ namespace BLL
 
         public static Idioma TraerIdiomaPorId(int id)
         {
-            var idioma = new Idioma();
-            idioma = IdiomaDAO.ObtenerIdiomaPorId(id);
-            return idioma;
+            Idioma listaIdioma = new Idioma();
+            listaIdioma = IdiomaDAO.ObtenerIdiomaPorId(id);
+            return listaIdioma;
         }
 
         public static Traduccion BuscarTraduccionPalabraIdioma(int palabra, Idioma idioma)

@@ -9,6 +9,7 @@ namespace Interfaces
         void  AgregarTraduccion(ITraduccion traduccion);
 
         string BuscarTraduccion(string texto);
+        
 
         //bool Default { get; set; }
 

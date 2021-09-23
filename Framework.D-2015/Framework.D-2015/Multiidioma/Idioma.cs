@@ -13,14 +13,14 @@ namespace Framework.D_2015.Multiidioma
 
         public IList<ITraduccion> Traducciones { get; set; }
         //public bool Default { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
+        public Dictionary<string, string> Diccionario { get; set; } = new Dictionary<string, string>();
         public Idioma()
         {
             Traducciones = new List<ITraduccion>();
         }
         public void AgregarTraduccion2(List<Traduccion> traduccion)
         {
-            foreach (var item in traduccion)
+            foreach (Traduccion item in traduccion)
             {
                 Traducciones.Add(item);
             }

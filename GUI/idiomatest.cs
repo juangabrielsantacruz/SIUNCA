@@ -45,11 +45,13 @@ namespace GUI
             //Idioma unIdioma = GestorIdioma.TraerIdiomaPorId(cbIdioma.SelectedIndex);
 
             //aca tengo que traer traducciones
-            List<Traduccion> traducciones = GestorIdioma.ObtenerTraducciones(unIdioma1);
+            //List<Traduccion> traducciones = GestorIdioma.ObtenerTraducciones(unIdioma1);
 
-           
-            var t1 = GestorIdioma.ObtenerTraducciones(unIdioma2);
-            
+            var _listatraducciones1 = GestorIdioma.ObtenerTraducciones(unIdioma1);
+            var _listatraducciones2 = GestorIdioma.ObtenerTraducciones(unIdioma2);
+
+            unIdioma1.AgregarTraduccion2(_listatraducciones1);
+            unIdioma2.AgregarTraduccion2(_listatraducciones2);
 
             //Traducir(SesionSingleton.Instancia.idioma);
 
@@ -61,18 +63,8 @@ namespace GUI
             /////////
             /////////
             ////PARA IDIOMA EN MEMORIA
-            foreach (var item in t1)
-            {
-                unIdioma1.AgregarTraduccion2(t1);
-            }
-            
-            
-            
-            //unIdioma1.AgregarTraduccion(t3);
-            //unIdioma2.AgregarTraduccion(t2);
-            //unIdioma2.AgregarTraduccion(t4);
-            //unIdioma1.AgregarTraduccion(t5);
-            //unIdioma2.AgregarTraduccion(t6);
+
+
             //GenerarDiccionarios();
             SesionSingleton.Instancia.CambiarIdioma(unIdioma1);
             SesionSingleton.Instancia.RegistrarObservador(this);
@@ -169,8 +161,10 @@ namespace GUI
         private void button1_Click(object sender, EventArgs e)
         {
             SesionSingleton.Instancia.CambiarIdioma(unIdioma2);
-            //SesionSingleton.Instancia.CambiarIdioma((Idioma)cbIdioma.SelectedItem);
-            
+            //Idioma unIdioma = GestorIdioma.TraerIdiomaPorId(cbIdioma.SelectedIndex);
+
+            //SesionSingleton.Instancia.CambiarIdioma(unIdioma);
+
         }
     }
 }

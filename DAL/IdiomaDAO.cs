@@ -3,6 +3,7 @@ using Framework.D_2015.Persistencia;
 using Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace DAL
@@ -50,7 +51,12 @@ namespace DAL
             try
             {
                 //aca deberia hacer un TRADUCCIONDTO para mapear palabra_texto Traduccionpalabra)
-                resultado_traducciones = con.EjecutarTupla<Traduccion>(@"select Palabra_Texto, PalabraTraducida from Palabra inner join Traduccion on IdPalabra = IdPalabra_Traduccion where IdIdioma = @Id ", listaParametrosCD);
+                resultado_traducciones = con.EjecutarTupla<Traduccion>(@"select Palabra_Texto, PalabraTraducida from Palabra inner join 
+                                                                        Traduccion on IdPalabra = IdPalabra_Traduccion where IdIdioma = @Id ", listaParametrosCD);
+
+                //select Palabra_Texto, PalabraTraducida from Palabra inner join Traduccion on IdPalabra = IdPalabra_Traduccion where IdIdioma = @Id
+
+                                                       
                 return resultado_traducciones;
             }
             catch (Exception ex)
@@ -103,7 +109,36 @@ namespace DAL
 
         public static Idioma ObtenerIdiomaPorId(int id)
         {
-            throw new NotImplementedException();
+            List<Idioma> resultado = new List<Idioma>();
+
+            Idioma resultado2 = new Idioma();
+            int ID;
+            Idioma unIdioma = new Idioma();
+            Conexion unaConexion = new Conexion("config.xml");
+            unaConexion.ConexionIniciar();
+            try
+            {
+                List<Parametro> listaParametrosCD = new List<Parametro>();
+                listaParametrosCD.Add(new Parametro("Id", id));
+                resultado = unaConexion.EjecutarTupla<Idioma>("SELECT Nombre FROM Idioma WHERE Id = (@Id)", listaParametrosCD);
+
+                resultado2 = unaConexion.EjecutarEscalar<Idioma>("SELECT Nombre FROM Idioma WHERE Id = (@Id)", new List<Parametro>());
+                //CacheUsuario.iduser = listaUsuario.Select(x => x.iduser).FirstOrDefault();
+                //unIdioma.Id = resultado.Select(x => x.Id).FirstOrDefault();
+                var asd = unIdioma.Id;
+            }
+            catch (Exception ex)
+            {
+                // EventViewer log = new EventViewer("error", "SQL", "Error al traer los Clientes de la base de datos", ".", EventViewer.TipoEvento._Error);
+                //Interaction.MsgBox("error al traer el nombre y apellido del alumno");
+                MessageBox.Show("error traer idioma", ex.ToString());
+
+            }
+            finally
+            {
+                unaConexion.ConexionFinalizar();
+            }
+            return resultado2;
         }
 
     }
