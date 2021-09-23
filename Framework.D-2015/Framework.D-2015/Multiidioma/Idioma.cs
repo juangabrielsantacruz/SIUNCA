@@ -10,8 +10,9 @@ namespace Framework.D_2015.Multiidioma
     public class Idioma : Entity, IIdioma
     {
         public string Nombre { get; set; }
+
         public IList<ITraduccion> Traducciones { get; set; }
-        public bool Default { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        //public bool Default { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public Idioma()
         {

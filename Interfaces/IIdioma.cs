@@ -10,7 +10,7 @@ namespace Interfaces
 
         string BuscarTraduccion(string texto);
 
-        bool Default { get; set; }
+        //bool Default { get; set; }
 
     }
 }

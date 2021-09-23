@@ -38,16 +38,16 @@ namespace GUI
 
             ////////// ***** TEST IDIOMA CON DICCIONARIO BASE
             /////
-            
-            //cbIdioma.DataSource = GestorIdioma.ObtenerIdiomas();
-            //cbIdioma.DisplayMember = "Nombre_Idioma";
-            //cbIdioma.ValueMember = "IdIdioma";
-            //Idioma unIdioma = GestorIdioma.TraerIdiomaPorId(int.Parse((string)cbIdioma.SelectedValue));
 
-            ////aca tengo que traer traducciones
+            cbIdioma.DataSource = GestorIdioma.ObtenerIdiomas();
+            cbIdioma.DisplayMember = "Nombre";
+            cbIdioma.ValueMember = "Id";
+            //Idioma unIdioma = GestorIdioma.TraerIdiomaPorId(cbIdioma.SelectedIndex);
+
+            //aca tengo que traer traducciones
             //GestorIdioma.ObtenerTraducciones(unIdioma);
 
-            ////Traducir(SesionSingleton.Instancia.idioma);
+            //Traducir(SesionSingleton.Instancia.idioma);
 
             //SesionSingleton.Instancia.CambiarIdioma(unIdioma);
             //SesionSingleton.Instancia.RegistrarObservador(this);

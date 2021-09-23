@@ -13,14 +13,14 @@ namespace BLL
 {
     public class GestorIdioma 
     {
-        public static IIdioma ObtenerIdiomaDefault()
+        //public static IIdioma ObtenerIdiomaDefault()
+        //{
+        //    return ObtenerIdiomas().Where(i => i.Default).FirstOrDefault();
+        //}
+        public static List<Idioma> ObtenerIdiomas()
         {
-            return ObtenerIdiomas().Where(i => i.Default).FirstOrDefault();
-        }
-        public static IList<Idioma> ObtenerIdiomas()
-        {            
-                var listaIdioma = new List<Idioma>();
-                var unIdiomaDAO = new IdiomaDAO();
+                List<Idioma> listaIdioma = new List<Idioma>();
+                IdiomaDAO unIdiomaDAO = new IdiomaDAO();
                 listaIdioma = unIdiomaDAO.ListarIdiomas();
 
                 return listaIdioma;           

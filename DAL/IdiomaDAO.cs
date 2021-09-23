@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Framework.D_2015.Multiidioma;
+﻿using Framework.D_2015.Multiidioma;
 using Framework.D_2015.Persistencia;
 using Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace DAL
 {
@@ -14,25 +11,22 @@ namespace DAL
     {
         public List<Idioma> ListarIdiomas()
         {
-            List<Idioma> resultado = new List<Idioma>();
-            var con = new Conexion("config.xml");
-            con.ConexionIniciar();
-
-            List<Parametro> listaParametrosCD = new List<Parametro>();
-
+            List<Idioma> resultado;
+            Conexion unaConexion = new Conexion("config.xml");
+            unaConexion.ConexionIniciar();
             try
             {
-                resultado = con.EjecutarTupla<Idioma>(@"SELECT IdIdioma, Nombre_Idioma FROM Idioma", listaParametrosCD);
+                resultado = unaConexion.EjecutarTupla<Idioma>("SELECT Id, Nombre FROM Idioma", new List<Parametro>());
                 return resultado;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error al traer idiomas" + ex);
-                return null;
+                throw ex;
             }
+            // Dim log As New EventViewer("error", "SQL", "Error al traer los Clientes de la base de datos", ".", EventViewer.TipoEvento._Error)
             finally
             {
-                con.ConexionFinalizar();
+                unaConexion.ConexionFinalizar();
             }
         }
 
@@ -40,7 +34,7 @@ namespace DAL
         public static void CargarDiccionario(Idioma pIdioma)
         {
             //"select Palabra_Texto, Traduccion_Palabra from Palabra inner join Traduccion on IdPalabra = IdPalabra_Traduccion where IdIdioma = " + pIdioma.IdIdioma;
-            
+
         }
 
         public static IDictionary<string, ITraduccion> ObtenerTraducciones(IIdioma idioma)
@@ -63,7 +57,7 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-    
+
 
         public void AgregarIdioma(Idioma idioma)
         {
@@ -90,5 +84,5 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        }
+    }
 }
