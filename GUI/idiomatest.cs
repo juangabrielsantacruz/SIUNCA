@@ -18,6 +18,9 @@ namespace GUI
     {
         Idioma unIdioma1 = new Idioma() { Id = 1, Nombre = "Español" };
         Idioma unIdioma2 = new Idioma() { Id = 2, Nombre = "Inglés" };
+        Idioma unIdioma = new Idioma();
+
+
         //private SesionSingleton instancia = SesionSingleton.Instancia;
         public idiomatest()
         {
@@ -41,17 +44,20 @@ namespace GUI
 
             cbIdioma.DataSource = GestorIdioma.ObtenerIdiomas();
             cbIdioma.DisplayMember = "Nombre";
-            cbIdioma.ValueMember = "Id";
+            //cbIdioma.ValueMember = "Id";
             //Idioma unIdioma = GestorIdioma.TraerIdiomaPorId(cbIdioma.SelectedIndex);
 
             //aca tengo que traer traducciones
             //List<Traduccion> traducciones = GestorIdioma.ObtenerTraducciones(unIdioma1);
+       
 
             var _listatraducciones1 = GestorIdioma.ObtenerTraducciones(unIdioma1);
             var _listatraducciones2 = GestorIdioma.ObtenerTraducciones(unIdioma2);
+            
 
             unIdioma1.AgregarTraduccion2(_listatraducciones1);
             unIdioma2.AgregarTraduccion2(_listatraducciones2);
+          
 
             //Traducir(SesionSingleton.Instancia.idioma);
 
@@ -160,9 +166,17 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SesionSingleton.Instancia.CambiarIdioma(unIdioma2);
-            //Idioma unIdioma = GestorIdioma.TraerIdiomaPorId(cbIdioma.SelectedIndex);
 
+            unIdioma = (Idioma)cbIdioma.SelectedItem;
+            var _listatraducciones3 = GestorIdioma.ObtenerTraducciones(unIdioma);
+            unIdioma.AgregarTraduccion2(_listatraducciones3);
+
+            SesionSingleton.Instancia.CambiarIdioma(unIdioma);
+
+            //SesionSingleton.Instancia.CambiarIdioma(unIdioma2);
+
+
+            //Idioma unIdioma = GestorIdioma.TraerIdiomaPorId(cbIdioma.SelectedIndex);
             //SesionSingleton.Instancia.CambiarIdioma(unIdioma);
 
         }
