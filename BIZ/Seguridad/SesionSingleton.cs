@@ -10,22 +10,23 @@ namespace BIZ.Seguridad
 {
     public class SesionSingleton : IObservado
     {
-        //deberia hacer esta clase en el FRAMEWORK
+        //deberia hacer esta clase en el FRAMEWORK?
         private static SesionSingleton _instancia;
-
+        public Usuario usuario { get; set; }
+        public DateTime FechaInicio { get; set; }
         public static SesionSingleton Instancia
         {
             get
             {
                 if (_instancia == null)
+                {
+                    //throw new Exception("Sesión no iniciada");
                     _instancia = new SesionSingleton();
+                }                 
 
                 return _instancia;
             }
         }
-
-        public Usuario usuario { get; set; }
-
 
         //private int myVar;
 
@@ -35,17 +36,42 @@ namespace BIZ.Seguridad
         //    set { myVar = value; }
         //}
 
-        public void Login(Usuario usuario)
+        public static void Login(Usuario usuario)
         {
-            this.usuario = usuario;
+            if (_instancia == null)
+            {
+                _instancia = new SesionSingleton();
+                _instancia.usuario = usuario;
+                _instancia.FechaInicio = DateTime.Now;
+            }
+            else
+            {
+                throw new Exception("Sesión ya iniciada");
+            }
         }
-        public bool IsLogged()
+        public static bool IsLogged()
         {
-            return usuario != null;
+            if (_instancia != null)
+            {
+                return _instancia != null;
+                
+            }
+            else
+            {
+                throw new Exception("Sesión no iniciada");
+            }
+            
         }
-        public void Logout()
+        public static void Logout()
         {
-            usuario = null;
+            if (_instancia != null)
+            {
+                _instancia = null;
+            }
+            else
+            {
+                throw new Exception("Sesión no iniciada");
+            }            
         }
 
 

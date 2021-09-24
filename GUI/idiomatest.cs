@@ -1,4 +1,5 @@
-﻿using BIZ.Seguridad;
+﻿using BIZ;
+using BIZ.Seguridad;
 using BLL;
 using Framework.D_2015.Multiidioma;
 using Interfaces;
@@ -57,11 +58,11 @@ namespace GUI
 
             var _listatraducciones1 = GestorIdioma.ObtenerTraducciones(unIdioma1);
             var _listatraducciones2 = GestorIdioma.ObtenerTraducciones(unIdioma2);
-            
 
-            unIdioma1.AgregarTraduccion2(_listatraducciones1);
-            unIdioma2.AgregarTraduccion2(_listatraducciones2);
-          
+
+            //unIdioma1.AgregarTraduccion2(_listatraducciones1);
+            //unIdioma2.AgregarTraduccion2(_listatraducciones2);
+
 
             //Traducir(SesionSingleton.Instancia.idioma);
 
@@ -76,9 +77,9 @@ namespace GUI
 
 
             //GenerarDiccionarios();
-            SesionSingleton.Instancia.CambiarIdioma(unIdioma1);
+            //SesionSingleton.Instancia.CambiarIdioma(unIdioma1);
             SesionSingleton.Instancia.RegistrarObservador(this);
-            Actualizar(SesionSingleton.Instancia.idioma);
+            //Actualizar(SesionSingleton.Instancia.idioma);
 
             ///
             // CIERRE PARA IDIOMA EN MEMORIA
@@ -170,19 +171,22 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-
+            SesionSingleton sesion = SesionSingleton.Instancia;
             //hacer todo esto con la sesion idioma
             //SesionSingleton.Instancia.idioma = (Idioma)cbIdioma.SelectedItem;
-            unIdioma = (Idioma)cbIdioma.SelectedItem;
+            sesion.idioma = (Idioma)cbIdioma.SelectedItem;
 
             //aca traer lista de traducciones en la sesion
-            //SesionSingleton.Instancia.idioma.Traducciones = GestorIdioma.ObtenerTraducciones(unIdioma);
 
-            var _listatraducciones3 = GestorIdioma.ObtenerTraducciones(unIdioma);
-            unIdioma.AgregarTraduccion2(_listatraducciones3);
+            sesion.idioma.Traducciones = (GestorIdioma.ObtenerTraducciones(sesion.idioma));
+            //var listat = sesion.idioma.Traducciones;
+            //sesion.idioma.AgregarTraduccion2(listat);
 
-            SesionSingleton.Instancia.CambiarIdioma(unIdioma);
+            //aca fucniona con var lista
+            //var _listatraducciones3 = GestorIdioma.ObtenerTraducciones(sesion.idioma);
+            //sesion.idioma.AgregarTraduccion2(_listatraducciones3);
+
+            sesion.CambiarIdioma(sesion.idioma);
 
             //SesionSingleton.Instancia.CambiarIdioma(unIdioma2);
 

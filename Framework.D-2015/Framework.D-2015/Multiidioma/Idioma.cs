@@ -11,21 +11,14 @@ namespace Framework.D_2015.Multiidioma
     {
         public string Nombre { get; set; }
 
-        public IList<ITraduccion> Traducciones { get; set; }
+        public List<Traduccion> Traducciones { get; set; }
         //public bool Default { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public Dictionary<string, string> Diccionario { get; set; } = new Dictionary<string, string>();
+        
         public Idioma()
         {
-            Traducciones = new List<ITraduccion>();
+            Traducciones = new List<Traduccion>();
         }
-        public void AgregarTraduccion2(List<Traduccion> traduccion)
-        {
-            foreach (Traduccion item in traduccion)
-            {
-                Traducciones.Add(item);
-            }
-            
-        }
+    
 
         public string BuscarTraduccion(string texto)
         {
@@ -45,14 +38,22 @@ namespace Framework.D_2015.Multiidioma
             {
 
                 return "sintraduccion";
-            }
-            
+            }           
           
         }
 
-        public void AgregarTraduccion(ITraduccion traduccion)
-        {
-            Traducciones.Add(traduccion);
-        }
+        //public void AgregarTraduccion(Traduccion traduccion)
+        //{
+        //    Traducciones.Add(traduccion);
+        //}
+
+        //public void AgregarTraduccion2(List<Traduccion> traduccion)
+        //{
+        //    foreach (Traduccion item in traduccion)
+        //    {
+        //        Traducciones.Add(item);
+        //    }
+
+        //}
     }
 }

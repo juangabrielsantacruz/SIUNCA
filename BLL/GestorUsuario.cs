@@ -17,7 +17,7 @@ namespace BLL
 
         public Usuario traerUsuario(Usuario usuario)
         {
-            if (SesionSingleton.Instancia.IsLogged())
+            if (SesionSingleton.IsLogged())
                 { 
                     throw new Exception("Ya hay una sesión iniciada");
                 }
@@ -32,7 +32,7 @@ namespace BLL
             }
             else
             {
-                SesionSingleton.Instancia.Login(CargarPermisos(unUsuario));
+                SesionSingleton.Login(CargarPermisos(unUsuario));
                 return SesionSingleton.Instancia.usuario;
             }
                 
