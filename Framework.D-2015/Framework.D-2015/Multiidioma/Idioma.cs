@@ -11,12 +11,12 @@ namespace Framework.D_2015.Multiidioma
     {
         public string Nombre { get; set; }
 
-        public List<Traduccion> Traducciones { get; set; }
+        public IList<ITraduccion> Traducciones { get; set; }
         //public bool Default { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         
         public Idioma()
         {
-            Traducciones = new List<Traduccion>();
+            Traducciones = new List<ITraduccion>();
         }
     
 

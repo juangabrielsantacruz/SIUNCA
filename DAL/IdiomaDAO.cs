@@ -72,7 +72,37 @@ namespace DAL
 
         public static List<ITraduccion> ObtenerTraducciones1(IIdioma idioma)
         {
-            throw new NotImplementedException();
+            List<Traduccion> resultado_traducciones1 = new List<Traduccion>();
+
+            //var foo = Traduccion as ITraduccion;
+            var con = new Conexion("config.xml");
+            con.ConexionIniciar();
+
+
+            List<Parametro> listaParametrosCD = new List<Parametro>();
+            listaParametrosCD.Add(new Parametro("Id", idioma.Id));
+
+            try
+            {
+                //aca deberia hacer un TRADUCCIONDTO para mapear palabra_texto Traduccionpalabra)
+                resultado_traducciones1 = con.EjecutarTupla<Traduccion>(@"select Palabra_Texto, PalabraTraducida from Palabra inner join 
+                                                                        Traduccion on IdPalabra = IdPalabra_Traduccion where IdIdioma = @Id ", listaParametrosCD);
+
+                //select Palabra_Texto, PalabraTraducida from Palabra inner join Traduccion on IdPalabra = IdPalabra_Traduccion where IdIdioma = @Id
+
+                return resultado_traducciones1.ConvertAll(o => (ITraduccion)o);
+                //resultado_traducciones.Add(resultado_traducciones1);
+                //return resultado_traducciones;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error al traer traducciones" + ex);
+                return null;
+            }
+            finally
+            {
+                con.ConexionFinalizar();
+            }
         }
 
         public List<Palabra> TraerPalabrasBase()

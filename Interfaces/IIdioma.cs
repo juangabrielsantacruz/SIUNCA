@@ -4,7 +4,9 @@ namespace Interfaces
 {
     public interface IIdioma : IEntity
     {
-        string Nombre { get; set; }        
+        string Nombre { get; set; }
+
+        IList<ITraduccion> Traducciones { get; set; }
 
         string BuscarTraduccion(string texto);
         

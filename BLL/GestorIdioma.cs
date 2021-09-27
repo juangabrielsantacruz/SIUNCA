@@ -46,11 +46,11 @@ namespace BLL
             return listaTraduccion;
         }
 
-        //public static List<ITraduccion> ObtenerTraducciones1(IIdioma idioma)
-        //{
-        //    var listaTraduccion = new List<ITraduccion>();
-        //    listaTraduccion = IdiomaDAO.ObtenerTraducciones1(idioma);
-        //    return listaTraduccion;
-        //}
+        public static List<ITraduccion> ObtenerTraducciones1(IIdioma idioma)
+        {
+            var listaTraduccion = new List<ITraduccion>();
+            listaTraduccion = IdiomaDAO.ObtenerTraducciones1(idioma);
+            return listaTraduccion;
+        }
     }
 }

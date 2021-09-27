@@ -178,7 +178,7 @@ namespace GUI
 
             //aca traer lista de traducciones en la sesion
 
-            sesion.idioma.Traducciones = (GestorIdioma.ObtenerTraducciones(sesion.idioma));
+            //sesion.idioma.Traducciones = (GestorIdioma.ObtenerTraducciones(sesion.idioma));
             //var listat = sesion.idioma.Traducciones;
             //sesion.idioma.AgregarTraduccion2(listat);
 
@@ -190,9 +190,20 @@ namespace GUI
 
             //SesionSingleton.Instancia.CambiarIdioma(unIdioma2);
 
-
             //Idioma unIdioma = GestorIdioma.TraerIdiomaPorId(cbIdioma.SelectedIndex);
             //SesionSingleton.Instancia.CambiarIdioma(unIdioma);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SesionSingleton sesion = SesionSingleton.Instancia;
+
+            sesion.idioma = (Idioma)cbIdioma.SelectedItem;
+
+            sesion.idioma.Traducciones = (GestorIdioma.ObtenerTraducciones1(sesion.idioma));
+
+
+            sesion.CambiarIdioma(sesion.idioma);
 
         }
     }
