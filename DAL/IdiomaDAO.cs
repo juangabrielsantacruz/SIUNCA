@@ -90,6 +90,7 @@ namespace DAL
 
                 //select Palabra_Texto, PalabraTraducida from Palabra inner join Traduccion on IdPalabra = IdPalabra_Traduccion where IdIdioma = @Id
 
+                //convierto el resultado en ITraduccion
                 return resultado_traducciones1.ConvertAll(o => (ITraduccion)o);
                 //resultado_traducciones.Add(resultado_traducciones1);
                 //return resultado_traducciones;
