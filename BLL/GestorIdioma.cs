@@ -52,5 +52,11 @@ namespace BLL
             listaTraduccion = IdiomaDAO.ObtenerTraducciones1(idioma);
             return listaTraduccion;
         }
+        public static List<ITraduccion> ObtenerTraducciones2(IIdioma idioma)
+        {
+            var listaTraduccion = new List<ITraduccion>();
+            listaTraduccion = IdiomaDAO.ObtenerTraducciones2(idioma);
+            return listaTraduccion;
+        }
     }
 }

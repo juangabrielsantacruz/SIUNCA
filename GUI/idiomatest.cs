@@ -200,9 +200,9 @@ namespace GUI
 
             sesion.idioma = (Idioma)cbIdioma.SelectedItem;
 
-            sesion.idioma.Traducciones = (GestorIdioma.ObtenerTraducciones1(sesion.idioma));
+            //sesion.idioma.Traducciones = (GestorIdioma.ObtenerTraducciones1(sesion.idioma));
 
-
+            sesion.idioma.Traducciones = (GestorIdioma.ObtenerTraducciones2(sesion.idioma));
             sesion.CambiarIdioma(sesion.idioma);
 
         }

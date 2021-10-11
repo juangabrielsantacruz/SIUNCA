@@ -3,6 +3,8 @@ using Framework.D_2015.Persistencia;
 using Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -67,6 +69,53 @@ namespace DAL
             finally
             {
                 con.ConexionFinalizar();
+            }
+        }
+
+        public static List<ITraduccion> ObtenerTraducciones2(IIdioma idioma)
+        {
+            SqlConnectionStringBuilder cs = new SqlConnectionStringBuilder();
+            cs.InitialCatalog = "PruebaSIUNCA";
+            cs.DataSource = ".\\SQLEXPRESS";
+            cs.IntegratedSecurity = true;
+
+            SqlConnection sql = new SqlConnection();
+            sql.ConnectionString = cs.ConnectionString;
+            IDataReader reader = null;
+            try
+            {
+                sql.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sql;
+                cmd.CommandText = @"select Palabra_Texto, PalabraTraducida from Palabra inner join 
+                                                                        Traduccion on IdPalabra = IdPalabra_Traduccion where IdIdioma = @Id  ";
+                cmd.Parameters.AddWithValue("Id", idioma.Id);
+
+                reader = cmd.ExecuteReader();
+
+                var listaTraducciones = new List<Traduccion>();
+                while (reader.Read())
+                {
+                    var unaTraduccion = new Traduccion();
+                    //unaTraduccion.IdPalabra_Traduccion = Int32.Parse(reader["username"].ToString());
+                    unaTraduccion.PalabraTraducida = reader["PalabraTraducida"].ToString();
+                    unaTraduccion.Palabra_Texto = reader["Palabra_Texto"].ToString();
+                    listaTraducciones.Add(unaTraduccion);
+
+                }
+                return listaTraducciones.ConvertAll(o => (ITraduccion)o);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+                if (sql != null)
+                    sql.Close();
             }
         }
 
