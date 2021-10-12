@@ -24,15 +24,23 @@ namespace Framework.D_2015.Multiidioma
         {
             try
             {
-                var _resultadotraducciones = Traducciones.FirstOrDefault(x => x.Palabra_Texto == texto).PalabraTraducida;
-                if (_resultadotraducciones == null)
+                if (texto == "")
                 {
-                    return texto;
+                    return "sintraduccion";
                 }
                 else
                 {
-                    return _resultadotraducciones;
+                    var _resultadotraducciones = Traducciones.FirstOrDefault(x => x.Palabra_Texto == texto).PalabraTraducida;
+                    if (_resultadotraducciones == null)
+                    {
+                        return texto;
+                    }
+                    else
+                    {
+                        return _resultadotraducciones;
+                    }
                 }
+                
             }
             catch (Exception)
             {

@@ -11,10 +11,12 @@ using BLL;
 using BIZ;
 using BIZ.Seguridad;
 using BLL.GestoresSeguridad;
+using Interfaces;
+using Framework.D_2015.Multiidioma;
 
 namespace GUI.Seguridad
 {
-    public partial class UCPerfilesUsuarios : UserControl
+    public partial class UCPerfilesUsuarios : UserControl, IObservador
     {
         GestorUsuario UnGestorUsuario = new GestorUsuario();
         Usuario unUsuario = new Usuario();
@@ -45,8 +47,52 @@ namespace GUI.Seguridad
             dgvModPatente.DataSource = unGestorPatente.TraerTodo();
 
         }
-       
 
+        public void Actualizar(IIdioma idiomaObservado)
+        {
+            //Recorro todos los controles en el UserControl
+            foreach (Control item in this.Controls)
+            {
+                if (item.Tag != null)
+                {
+                    item.Text = idiomaObservado.BuscarTraduccion(item.Tag.ToString());
+                }
+            }
+
+            // Itera a través de todas las pestañas del TabControl.
+            foreach (TabPage page in tabControl1.Controls)
+            {
+                //recorre todos los controles(textboxes, buttons, labels, etc.) en la TabPage.
+                foreach (Control item in page.Controls)
+                {
+                    //MessageBox.Show(item.GetType().ToString());
+                    if (item.Tag != null)
+                    {
+                        var traduccion = idiomaObservado.BuscarTraduccion(item.Tag.ToString());
+                        page.Text = idiomaObservado.BuscarTraduccion(page.Tag.ToString()); 
+                        item.Text = traduccion;
+                    }
+                }
+            }
+            // Itera a través de todas las pestañas del TabControl.
+            foreach (TabPage page2 in tabControl2.Controls)
+            {
+                //recorre todos los controles(textboxes, buttons, labels, etc.) en la TabPage.
+                foreach (Control item2 in page2.Controls)
+                {
+                    //MessageBox.Show(item.GetType().ToString());
+                    if (item2.Tag != null)
+                    {
+                        var traduccion = idiomaObservado.BuscarTraduccion(item2.Tag.ToString());
+                        page2.Text = idiomaObservado.BuscarTraduccion(page2.Tag.ToString());
+                        item2.Text = traduccion;
+                    }
+                }
+            }
+
+
+
+        }
         private void Button4_Click(object sender, EventArgs e)
         {
 
@@ -569,6 +615,26 @@ namespace GUI.Seguridad
         {
             dgvModPatente.DataSource = null;
             dgvModPatente.DataSource = unGestorPatente.TraerTodo();
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            SesionSingleton sesion = SesionSingleton.Instancia;
+
+            sesion.idioma = (Idioma)cbIdioma.SelectedItem;
+
+            //sesion.idioma.Traducciones = (GestorIdioma.ObtenerTraducciones1(sesion.idioma));
+
+            sesion.idioma.Traducciones = (GestorIdioma.ObtenerTraducciones2(sesion.idioma));
+            sesion.CambiarIdioma(sesion.idioma);
+        }
+
+        private void button38_Click(object sender, EventArgs e)
+        {
+            //registro usercontrol y traigo idiomas
+            cbIdioma.DataSource = GestorIdioma.ObtenerIdiomas();
+            cbIdioma.DisplayMember = "Nombre";
+            SesionSingleton.Instancia.RegistrarObservador(this);
         }
 
         /// 

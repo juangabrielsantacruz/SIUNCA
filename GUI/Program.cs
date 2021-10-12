@@ -20,7 +20,7 @@ namespace GUI
             Application.Run(new idiomatest());
             //Application.Run(new frmProfesor());
             //Application.Run(new frmSecretarioAcademico());
-            //Application.Run(new frmSeguridad());
+            Application.Run(new frmSeguridad());
         }
     }
 }
