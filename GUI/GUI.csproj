@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInicio.Designer.cs">
+      <DependentUpon>frmInicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSecretarioAcademico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,84 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seguridad\frmBackup\frmBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmBackup\frmBackup.Designer.cs">
+      <DependentUpon>frmBackup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmBitacora\frmBitacora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmBitacora\frmBitacora.Designer.cs">
+      <DependentUpon>frmBitacora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmFamilia\frmAltaFamilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmFamilia\frmAltaFamilia.Designer.cs">
+      <DependentUpon>frmAltaFamilia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmFamilia\frmBajaFamilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmFamilia\frmBajaFamilia.Designer.cs">
+      <DependentUpon>frmBajaFamilia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmFamilia\frmGestionFamilias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmFamilia\frmGestionFamilias.Designer.cs">
+      <DependentUpon>frmGestionFamilias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmFamilia\frmModificarFamilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmFamilia\frmModificarFamilia.Designer.cs">
+      <DependentUpon>frmModificarFamilia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmPatente\frmAltaPatente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmPatente\frmAltaPatente.Designer.cs">
+      <DependentUpon>frmAltaPatente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmPatente\frmBajaPatente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmPatente\frmBajaPatente.Designer.cs">
+      <DependentUpon>frmBajaPatente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmPatente\frmModificarPatente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmPatente\frmModificarPatente.Designer.cs">
+      <DependentUpon>frmModificarPatente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmPerfiles\frmPerfilesUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmPerfiles\frmPerfilesUsuarios.Designer.cs">
+      <DependentUpon>frmPerfilesUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmFamilia\frmPrincipalFamilias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmFamilia\frmPrincipalFamilias.Designer.cs">
+      <DependentUpon>frmPrincipalFamilias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmPatente\frmPrincipalPatentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmPatente\frmPrincipalPatentes.Designer.cs">
+      <DependentUpon>frmPrincipalPatentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmPerfiles\frmPrincipalPerfiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmPerfiles\frmPrincipalPerfiles.Designer.cs">
+      <DependentUpon>frmPrincipalPerfiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Seguridad\UCBackups.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -220,8 +304,15 @@
     <Compile Include="UserControlSecretarioAcademico\UCPlanDeEstudio.designer.cs">
       <DependentUpon>UCPlanDeEstudio.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormPrueba.aa.resx">
+      <DependentUpon>FormPrueba.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPrueba.resx">
       <DependentUpon>FormPrueba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInicio.resx">
+      <DependentUpon>frmInicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSecretarioAcademico.resx">
       <DependentUpon>frmSecretarioAcademico.cs</DependentUpon>
@@ -299,6 +390,45 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Seguridad\frmBackup\frmBackup.resx">
+      <DependentUpon>frmBackup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmBitacora\frmBitacora.resx">
+      <DependentUpon>frmBitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmFamilia\frmAltaFamilia.resx">
+      <DependentUpon>frmAltaFamilia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmFamilia\frmBajaFamilia.resx">
+      <DependentUpon>frmBajaFamilia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmFamilia\frmGestionFamilias.resx">
+      <DependentUpon>frmGestionFamilias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmFamilia\frmModificarFamilia.resx">
+      <DependentUpon>frmModificarFamilia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmPatente\frmAltaPatente.resx">
+      <DependentUpon>frmAltaPatente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmPatente\frmBajaPatente.resx">
+      <DependentUpon>frmBajaPatente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmPatente\frmModificarPatente.resx">
+      <DependentUpon>frmModificarPatente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmPerfiles\frmPerfilesUsuarios.resx">
+      <DependentUpon>frmPerfilesUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmFamilia\frmPrincipalFamilias.resx">
+      <DependentUpon>frmPrincipalFamilias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmPatente\frmPrincipalPatentes.resx">
+      <DependentUpon>frmPrincipalPatentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmPerfiles\frmPrincipalPerfiles.resx">
+      <DependentUpon>frmPrincipalPerfiles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\UCBackups.resx">
       <DependentUpon>UCBackups.cs</DependentUpon>
     </EmbeddedResource>

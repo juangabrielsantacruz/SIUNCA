@@ -10,11 +10,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Framework.D_2015.Cache;
+using Interfaces;
+using BIZ.Seguridad;
+using Framework.D_2015.Multiidioma;
+using BLL;
 
 namespace GUI
 {
     
-    public partial class frmSeguridad : Form
+    public partial class frmSeguridad : Form, IObservador
     {
 
         //variables para la funcion arrastrarForm(e, x, y)
@@ -198,6 +202,93 @@ namespace GUI
                 this.WindowState = FormWindowState.Maximized;
             }
         }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            
+
+
+
+            SesionSingleton sesion = SesionSingleton.Instancia;
+
+            sesion.idioma = (Idioma)cbIdioma.SelectedItem;
+
+            //sesion.idioma.Traducciones = (GestorIdioma.ObtenerTraducciones1(sesion.idioma));
+
+            sesion.idioma.Traducciones = (GestorIdioma.ObtenerTraducciones2(sesion.idioma));
+            sesion.CambiarIdioma(sesion.idioma);
+        }
+
+        private void button38_Click(object sender, EventArgs e)
+        {
+            //load
+            //registro usercontrol y traigo idiomas
+            cbIdioma.DataSource = GestorIdioma.ObtenerIdiomas();
+            cbIdioma.DisplayMember = "Nombre";
+            SesionSingleton.Instancia.RegistrarObservador(this);
+            //cierroload
+
+        }
+
+        public void Actualizar(IIdioma idiomaObservado)
+        {
+            //Recorro todos los controles en el Form
+            foreach (Control item in this.Controls)
+            {
+                //Pregunto si el form tiene controles hijos
+                if (item.HasChildren) this.RecControles(item, idiomaObservado);
+                if (item.Tag != null)
+                {                   
+                    item.Text = idiomaObservado.BuscarTraduccion(item.Tag.ToString());
+                }
+            }       
+        }
+        //Recorremos con un ciclo for each cada control que hay en la colección Controls
+        public void RecControles(Control control, IIdioma idiomaObservado)
+        {
+            //Recorremos con un ciclo for each cada control que hay en la colección Controls
+            foreach (Control contHijo in control.Controls)
+            {
+                //Preguntamos si el control tiene uno o mas controles dentro del mismo con la propiedad 'HasChildren'
+                //Si el control tiene 1 o más controles, entonces llamamos al procedimiento de forma recursiva, para que siga recorriendo los demás controles
+                if (contHijo.HasChildren) this.RecControles(contHijo, idiomaObservado);
+                //Aqui va la lógica de lo queramos hacer
+                if (contHijo.Tag != null)
+                {
+                    contHijo.Text = idiomaObservado.BuscarTraduccion(contHijo.Tag.ToString());
+                }
+            }
+        }
+
+        //private void BuscarControles()
+        //{
+        //    for (int i = 0; i < this.tabControl.TabPages.Count; i++)
+        //    {
+        //        this.Recorrer(this.tabControl.TabPages[i].Controls);
+        //    }
+        //}
+
+        //private void Recorrer(Control.ControlCollection controls)
+        //{
+        //    for (int i = 0; i < controls.Count; i++)
+        //    {
+        //        if (controls[i].Controls != null && controls[i].Controls.Count > 0)
+        //        {
+        //            this.Recorrer(controls[i].Controls);
+        //        }
+        //        else
+        //        {
+        //            ListBox LB = controls[i] as ListBox;
+
+        //            if (LB != null)
+        //            {
+        //                Clipboard.SetText(LB.SelectedItem.ToString());
+        //            }
+
+        //            //Aqui podes agregar codigo para los demas tipos de control
+        //        }
+        //    }
+        //}
 
         /// <summary>
         /// metodo para traer al panelcontenedor el usercontrol seleccionado en

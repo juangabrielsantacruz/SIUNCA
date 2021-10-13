@@ -32,26 +32,30 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button39 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button19 = new System.Windows.Forms.Button();
+            this.button38 = new System.Windows.Forms.Button();
+            this.cbIdioma = new System.Windows.Forms.ComboBox();
+            this.button20 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.button18 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.dgvUsuarioSinPatentes = new System.Windows.Forms.DataGridView();
             this.dgvUsuarioSinFamilias = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.dgvUsuarioPatenteFamilia = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.button17 = new System.Windows.Forms.Button();
             this.dgvPatentesUsuario = new System.Windows.Forms.DataGridView();
             this.dgvFamiliasUsuario = new System.Windows.Forms.DataGridView();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button19 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.button15 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.dgvUsuariosGestion = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -148,10 +152,6 @@
             this.button28 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
             this.dgvModPatente = new System.Windows.Forms.DataGridView();
-            this.button20 = new System.Windows.Forms.Button();
-            this.cbIdioma = new System.Windows.Forms.ComboBox();
-            this.button38 = new System.Windows.Forms.Button();
-            this.button39 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -250,6 +250,17 @@
             this.tabPage4.Text = "Perfiles";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // button39
+            // 
+            this.button39.Location = new System.Drawing.Point(-18, 37);
+            this.button39.Name = "button39";
+            this.button39.Size = new System.Drawing.Size(86, 56);
+            this.button39.TabIndex = 69;
+            this.button39.Tag = "Tagg";
+            this.button39.Text = "button39";
+            this.button39.UseVisualStyleBackColor = true;
+            this.button39.Click += new System.EventHandler(this.button39_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button38);
@@ -282,26 +293,36 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Usuario - Familias";
             // 
-            // label1
+            // button38
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 20);
-            this.label1.TabIndex = 54;
-            this.label1.Text = "Usuarios";
+            this.button38.Location = new System.Drawing.Point(406, 26);
+            this.button38.Name = "button38";
+            this.button38.Size = new System.Drawing.Size(135, 23);
+            this.button38.TabIndex = 68;
+            this.button38.Tag = "Tagg";
+            this.button38.Text = "button38";
+            this.button38.UseVisualStyleBackColor = true;
+            this.button38.Click += new System.EventHandler(this.button38_Click);
             // 
-            // button19
+            // cbIdioma
             // 
-            this.button19.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button19.Location = new System.Drawing.Point(277, 64);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(249, 36);
-            this.button19.TabIndex = 65;
-            this.button19.Text = "Actualizar grilla";
-            this.button19.UseVisualStyleBackColor = false;
-            this.button19.Click += new System.EventHandler(this.Button19_Click);
+            this.cbIdioma.FormattingEnabled = true;
+            this.cbIdioma.Location = new System.Drawing.Point(143, 21);
+            this.cbIdioma.Name = "cbIdioma";
+            this.cbIdioma.Size = new System.Drawing.Size(121, 28);
+            this.cbIdioma.TabIndex = 67;
+            this.cbIdioma.SelectedIndexChanged += new System.EventHandler(this.cbIdioma_SelectedIndexChanged);
+            // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(265, 26);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(135, 23);
+            this.button20.TabIndex = 66;
+            this.button20.Tag = "Tagg";
+            this.button20.Text = "button20";
+            this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
             // label12
             // 
@@ -365,15 +386,6 @@
             this.label9.TabIndex = 58;
             this.label9.Text = "Familias que no tiene usuario";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(273, 264);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(273, 20);
-            this.label5.TabIndex = 57;
-            this.label5.Text = "Patentes en Familias del Usuario";
-            // 
             // dgvUsuarioPatenteFamilia
             // 
             this.dgvUsuarioPatenteFamilia.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
@@ -392,15 +404,6 @@
             this.label11.Size = new System.Drawing.Size(145, 20);
             this.label11.TabIndex = 55;
             this.label11.Text = "Patentes usuario";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 264);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(139, 20);
-            this.label10.TabIndex = 46;
-            this.label10.Text = "Familias usuario";
             // 
             // button17
             // 
@@ -433,6 +436,57 @@
             this.dgvFamiliasUsuario.RowHeadersWidth = 57;
             this.dgvFamiliasUsuario.Size = new System.Drawing.Size(258, 85);
             this.dgvFamiliasUsuario.TabIndex = 51;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button5.Location = new System.Drawing.Point(6, 378);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(258, 26);
+            this.button5.TabIndex = 27;
+            this.button5.Text = "Quitar familia a usuario";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.Button5_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 20);
+            this.label1.TabIndex = 54;
+            this.label1.Text = "Usuarios";
+            // 
+            // button19
+            // 
+            this.button19.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button19.Location = new System.Drawing.Point(277, 64);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(249, 36);
+            this.button19.TabIndex = 65;
+            this.button19.Text = "Actualizar grilla";
+            this.button19.UseVisualStyleBackColor = false;
+            this.button19.Click += new System.EventHandler(this.Button19_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(273, 264);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(273, 20);
+            this.label5.TabIndex = 57;
+            this.label5.Text = "Patentes en Familias del Usuario";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 264);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(139, 20);
+            this.label10.TabIndex = 46;
+            this.label10.Text = "Familias usuario";
             // 
             // button15
             // 
@@ -469,18 +523,6 @@
             this.button14.Text = "Cargar usuario seleccionado";
             this.button14.UseVisualStyleBackColor = false;
             this.button14.Click += new System.EventHandler(this.Button14_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Location = new System.Drawing.Point(6, 378);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(258, 26);
-            this.button5.TabIndex = 27;
-            this.button5.Text = "Quitar familia a usuario";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.Button5_Click);
             // 
             // dgvUsuariosGestion
             // 
@@ -1530,46 +1572,6 @@
             this.dgvModPatente.RowHeadersWidth = 57;
             this.dgvModPatente.Size = new System.Drawing.Size(450, 205);
             this.dgvModPatente.TabIndex = 23;
-            // 
-            // button20
-            // 
-            this.button20.Location = new System.Drawing.Point(265, 26);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(135, 23);
-            this.button20.TabIndex = 66;
-            this.button20.Tag = "Tagg";
-            this.button20.Text = "button20";
-            this.button20.UseVisualStyleBackColor = true;
-            this.button20.Click += new System.EventHandler(this.button20_Click);
-            // 
-            // cbIdioma
-            // 
-            this.cbIdioma.FormattingEnabled = true;
-            this.cbIdioma.Location = new System.Drawing.Point(143, 21);
-            this.cbIdioma.Name = "cbIdioma";
-            this.cbIdioma.Size = new System.Drawing.Size(121, 28);
-            this.cbIdioma.TabIndex = 67;
-            // 
-            // button38
-            // 
-            this.button38.Location = new System.Drawing.Point(406, 26);
-            this.button38.Name = "button38";
-            this.button38.Size = new System.Drawing.Size(135, 23);
-            this.button38.TabIndex = 68;
-            this.button38.Tag = "Tagg";
-            this.button38.Text = "button38";
-            this.button38.UseVisualStyleBackColor = true;
-            this.button38.Click += new System.EventHandler(this.button38_Click);
-            // 
-            // button39
-            // 
-            this.button39.Location = new System.Drawing.Point(-18, 37);
-            this.button39.Name = "button39";
-            this.button39.Size = new System.Drawing.Size(86, 56);
-            this.button39.TabIndex = 69;
-            this.button39.Tag = "Tagg";
-            this.button39.Text = "button39";
-            this.button39.UseVisualStyleBackColor = true;
             // 
             // UCPerfilesUsuarios
             // 

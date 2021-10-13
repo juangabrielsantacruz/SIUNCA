@@ -69,7 +69,7 @@ namespace GUI.Seguridad
                     if (item.Tag != null)
                     {
                         var traduccion = idiomaObservado.BuscarTraduccion(item.Tag.ToString());
-                        page.Text = idiomaObservado.BuscarTraduccion(page.Tag.ToString()); 
+                        page.Text = idiomaObservado.BuscarTraduccion(page.Tag.ToString());
                         item.Text = traduccion;
                     }
                 }
@@ -89,8 +89,6 @@ namespace GUI.Seguridad
                     }
                 }
             }
-
-
 
         }
         private void Button4_Click(object sender, EventArgs e)
@@ -635,6 +633,16 @@ namespace GUI.Seguridad
             cbIdioma.DataSource = GestorIdioma.ObtenerIdiomas();
             cbIdioma.DisplayMember = "Nombre";
             SesionSingleton.Instancia.RegistrarObservador(this);
+        }
+
+        private void button39_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbIdioma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         /// 

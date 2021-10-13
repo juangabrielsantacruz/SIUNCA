@@ -83,6 +83,15 @@ namespace GUI
 
             ///
             // CIERRE PARA IDIOMA EN MEMORIA
+            SesionSingleton sesion = SesionSingleton.Instancia;
+
+
+            //aca tuve que haber seleccionado el idioma en el form padre para cargarle a la sesion
+            
+            sesion.idioma.Traducciones = (GestorIdioma.ObtenerTraducciones2(sesion.idioma));
+            sesion.CambiarIdioma(sesion.idioma);
+
+
 
             idiomatest2 form2 = new idiomatest2();
             form2.Show();

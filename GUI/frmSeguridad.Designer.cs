@@ -40,10 +40,13 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelHeader2 = new System.Windows.Forms.Panel();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.panelHeader1 = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.lblNombre = new System.Windows.Forms.Label();
+            this.cbIdioma = new System.Windows.Forms.ComboBox();
+            this.button20 = new System.Windows.Forms.Button();
+            this.button38 = new System.Windows.Forms.Button();
             this.panelHeader2.SuspendLayout();
             this.panelHeader1.SuspendLayout();
             this.panelMenu.SuspendLayout();
@@ -120,6 +123,7 @@
             this.btnPerfiles.Name = "btnPerfiles";
             this.btnPerfiles.Size = new System.Drawing.Size(188, 43);
             this.btnPerfiles.TabIndex = 3;
+            this.btnPerfiles.Tag = "Tagg";
             this.btnPerfiles.Text = "Perfiles usuarios";
             this.btnPerfiles.UseVisualStyleBackColor = false;
             this.btnPerfiles.Click += new System.EventHandler(this.BtnPlanDeEstudio_Click);
@@ -186,6 +190,16 @@
             this.panelHeader2.TabIndex = 11;
             this.panelHeader2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelHeader2_MouseMove);
             // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(170, 19);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(74, 20);
+            this.lblNombre.TabIndex = 8;
+            this.lblNombre.Text = "nombre ";
+            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
@@ -217,6 +231,9 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
             this.panelMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelMenu.Controls.Add(this.button38);
+            this.panelMenu.Controls.Add(this.cbIdioma);
+            this.panelMenu.Controls.Add(this.button20);
             this.panelMenu.Controls.Add(this.btnGestionUsuarios);
             this.panelMenu.Controls.Add(this.btnBitacora);
             this.panelMenu.Controls.Add(this.label1);
@@ -230,15 +247,35 @@
             this.panelMenu.TabIndex = 9;
             this.panelMenu.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMenu_MouseMove);
             // 
-            // lblNombre
+            // cbIdioma
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(170, 19);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(74, 20);
-            this.lblNombre.TabIndex = 8;
-            this.lblNombre.Text = "nombre ";
+            this.cbIdioma.FormattingEnabled = true;
+            this.cbIdioma.Location = new System.Drawing.Point(44, 348);
+            this.cbIdioma.Name = "cbIdioma";
+            this.cbIdioma.Size = new System.Drawing.Size(121, 21);
+            this.cbIdioma.TabIndex = 69;
+            // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(44, 375);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(135, 23);
+            this.button20.TabIndex = 68;
+            this.button20.Tag = "combo";
+            this.button20.Text = "button20";
+            this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
+            // 
+            // button38
+            // 
+            this.button38.Location = new System.Drawing.Point(44, 404);
+            this.button38.Name = "button38";
+            this.button38.Size = new System.Drawing.Size(135, 23);
+            this.button38.TabIndex = 70;
+            this.button38.Tag = "Tagg";
+            this.button38.Text = "button38";
+            this.button38.UseVisualStyleBackColor = true;
+            this.button38.Click += new System.EventHandler(this.button38_Click);
             // 
             // frmSeguridad
             // 
@@ -278,5 +315,8 @@
         private System.Windows.Forms.Panel panelHeader1;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.ComboBox cbIdioma;
+        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button button38;
     }
 }

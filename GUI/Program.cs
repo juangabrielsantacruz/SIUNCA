@@ -16,8 +16,10 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new frmInicio());
+            //Application.Run(new FormPrueba());
             //Application.Run(new Login());
-            Application.Run(new idiomatest());
+            //Application.Run(new idiomatest());
             //Application.Run(new frmProfesor());
             //Application.Run(new frmSecretarioAcademico());
             Application.Run(new frmSeguridad());
