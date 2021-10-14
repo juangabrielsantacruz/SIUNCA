@@ -47,6 +47,7 @@
     <Compile Include="GestorDetallesAlumnoMateria.cs" />
     <Compile Include="GestorDetallesCorrelativa.cs" />
     <Compile Include="GestorDetMatPlanCorrPlan.cs" />
+    <Compile Include="GestoresSeguridad\DigitoVerificadorDAO.cs" />
     <Compile Include="GestoresSeguridad\GestorBitacora.cs" />
     <Compile Include="GestoresSeguridad\GestorFamilia.cs" />
     <Compile Include="GestoresSeguridad\GestorPatente.cs" />

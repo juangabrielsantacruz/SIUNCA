@@ -59,6 +59,7 @@ namespace BIZ.Seguridad
 
         public override bool Validar(int id)
         {
+            //recorro cada patente en la lista de patentes y la comparo con el int que mando en validar si son iguales true (pantente.idequals(int)
             bool resultado = default(bool);
             foreach (Permiso _permiso in this.Lista)
                 resultado = (resultado | _permiso.Validar(id));

@@ -8,6 +8,7 @@ using BIZ;
 using Framework.D_2015.Cache;
 using BIZ.Seguridad;
 using Framework.D_2015.Seguridad;
+using BLL.GestoresSeguridad;
 
 namespace BLL
 {
@@ -43,10 +44,10 @@ namespace BLL
             unUsuarioDAO.eliminar(idUsuario);
         }
 
-        public void guardarUsuario(Usuario usuario)
-        {
-            var unUsuarioDAO = new UsuarioDAO();
-            unUsuarioDAO.insertarUsuario(usuario);
+        public void guardarUsuario(Usuario unUsuario)
+        {        
+            unUsuarioDAO.insertarUsuario(unUsuario);
+
         }
 
         public List<Usuario> TraerTodo()

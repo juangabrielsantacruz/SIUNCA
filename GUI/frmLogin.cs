@@ -42,6 +42,7 @@ namespace GUI
                 ManejadorSesion.GetInstancia.CambiarIdioma(unidioma);
                 frmInicio frmINICIO = new frmInicio();
                 frmINICIO.Show();
+                this.Hide();
             }
             else
             {

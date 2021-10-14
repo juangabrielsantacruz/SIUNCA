@@ -86,6 +86,8 @@ namespace DAL
             }
         }
 
+   
+
         public Usuario TraerPermisos(Usuario unUsuario)
         {
             Conexion unaConexion = new Conexion("config.xml");
@@ -206,6 +208,8 @@ namespace DAL
                 conexion.ConexionIniciar();
                 conexion.TransaccionIniciar();
 
+
+                usuario.rol = "Profesor";
                 var parametros = new List<Parametro>();
                 parametros.Add(new Parametro("username", usuario.username));
                 parametros.Add(new Parametro("password", usuario.password));

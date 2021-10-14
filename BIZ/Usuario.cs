@@ -26,19 +26,6 @@ namespace BIZ
 
         private Familia _perfil;
 
-        
-
-        //public int IdUsuario
-        //{
-        //    get
-        //    {
-        //        return _idUsuario;
-        //    }
-        //    set
-        //    {
-        //        _idUsuario = value;
-        //    }
-        //}
 
         public Familia Perfil
         {
@@ -78,6 +65,7 @@ namespace BIZ
         {
             Perfil.Lista.Add(unaPatente);
         }
+
 
     }
 }

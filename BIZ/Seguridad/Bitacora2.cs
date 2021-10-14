@@ -18,13 +18,23 @@ namespace BIZ.Seguridad
 
         public string Mensaje { get; set; }
 
-        public bool Habilitado { get; set; }
-
-      
-        public Int64 DigitoHorizontal { get; set; }
-
         public TipoBitacora TipoBitacora { get; set; }
 
         public Usuario Usuario { get; set; }
+
+        private int _dv;
+        public int dv
+        {
+            get
+            {
+                return _dv;
+            }
+            set
+            {
+                _dv = value;
+            }
+        }
+
+
     }
 }

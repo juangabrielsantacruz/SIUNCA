@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualBasic;
+﻿using System;
 
 namespace Framework.D_2015.DigitoVerificador
 {
@@ -7,11 +7,12 @@ namespace Framework.D_2015.DigitoVerificador
         public int calcularDV(string cadena)
         {
             int multiplo = 2;
-            var contador = default(int);
+            var contador = 0;
             for (int i = cadena.Length - 1; i >= 0; i -= 1)
             {
                 char unChar = cadena[i];
-                int vChar = Strings.AscW(unChar);
+                //valor que representa el char
+                int vChar = (int)unChar;
                 int subTot;
                 subTot = vChar * multiplo;
                 contador = contador + subTot;

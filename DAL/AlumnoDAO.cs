@@ -29,20 +29,6 @@ namespace DAL
 
             try
             {
-                //cambie mayusculass
-                //resultado = con.EjecutarTupla<DTOAlumno>(@"select alu.LegajoAlumno, alu.Nombre, alu.Apellido, asist.Ausente, asist.Presente, almatcc.Estado, almatcc.IdMAteriaCC from Alumno as alu inner join Alumno_MateriaCC as almatcc
-                //                                            on alu.LegajoAlumno = almatcc.LegajoAlumno inner join MateriaConCorrelativas as matcor
-                //                                            on almatcc.IdMAteriaCC = matcor.IdMateriaCC inner join Asistencia as asist
-                //                                            on alu.LegajoAlumno = asist.LegajoAlumno
-                //                                            where matcor.Nombre = @Nombre ", listaParametrosCD);
-
-                //resultado = con.EjecutarTupla<DTOAlumno>(@"SELECT alu.LegajoAlumno, alu.Nombre, alu.Apellido, CAST(SUM(CAST(asist.Ausente AS int))                                           AS varchar) Ausente, CAST(SUM(CAST(asist.Presente AS int)) AS varchar) Presente,                                                 almatcc.Estado, almatcc.IdMAteriaCC FROM Alumno                                                                                  AS alu inner join Alumno_MateriaCC AS almatcc
-                //                                            ON alu.LegajoAlumno = almatcc.LegajoAlumno INNER JOIN MateriaConCorrelativas AS matcor
-                //                                            ON almatcc.IdMAteriaCC = matcor.IdMateriaCC INNER JOIN Asistencia as asist
-                //                                            ON alu.LegajoAlumno = asist.LegajoAlumno
-                //                                            WHERE matcor.IdMateriaCC = @IdMateriaCC
-                //                                            GROUP BY alu.LegajoAlumno, alu.Nombre, alu.Apellido, almatcc.Estado, almatcc.IdMAteriaCC", listaParametrosCD);
-
                 resultado = con.EjecutarTupla<DTOAlumno>(@"SELECT alu.LegajoAlumno, alu.Nombre, alu.Apellido, CAST(SUM(CAST(asist.Ausente AS int))                                          AS varchar) Ausente, CAST(SUM(CAST(asist.Presente AS int)) AS varchar) Presente,                                                 asist.IdMateriaCC, es.Nombre AS Estado
                                                            FROM Alumno AS alu INNER JOIN Asistencia AS asist
                                                            ON alu.LegajoAlumno = asist.LegajoAlumno INNER JOIN MateriaConCorrelativas as matcor
@@ -63,7 +49,6 @@ namespace DAL
             }
 
         }
-
         public List<Alumno> traerTodo()
         {
             List<Alumno> resultado = new List<Alumno>();
@@ -104,7 +89,7 @@ namespace DAL
             catch (Exception ex)
             {
                 // EventViewer log = new EventViewer("error", "SQL", "Error al traer los Clientes de la base de datos", ".", EventViewer.TipoEvento._Error);
-                //Interaction.MsgBox("error al traer el nombre y apellido del alumno");
+
                 MessageBox.Show("error traer alumno", ex.ToString());
 
             }
@@ -139,7 +124,6 @@ namespace DAL
                     //item.IdDetallesDetMatPlanCorrPlan = IdDetallesDetMatPlanCorrPlan;
 
                     unaConexion.EjecutarSinResultado("INSERT INTO Alumno_MateriaCC (IdMateriaCC, LegajoAlumno, Estado) VALUES (@IdMateriaCC, @LegajoAlumno, @Estado)", listaParametrosCD);
-                    //unaConexion.EjecutarSinResultado("INSERT INTO Curso (IdMateriaCC, IdCarrera) VALUES (@IdMateriaCC, @LegajoAlumno, @Estado)", listaParametrosCD);
                 }
                 unaConexion.TransaccionAceptar();
             }
@@ -194,7 +178,6 @@ namespace DAL
         public void Eliminar(object unAlumno)
         {
         }
-
 
 
     }

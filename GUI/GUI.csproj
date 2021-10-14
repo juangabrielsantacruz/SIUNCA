@@ -183,76 +183,88 @@
     <Compile Include="Seguridad\frmPerfiles\frmPrincipalPerfiles.Designer.cs">
       <DependentUpon>frmPrincipalPerfiles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Seguridad\UCBackups.cs">
+    <Compile Include="Seguridad\frmUsuarios\frmAltaUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmUsuarios\frmAltaUsuario.Designer.cs">
+      <DependentUpon>frmAltaUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmUsuarios\frmPrincipalUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmUsuarios\frmPrincipalUsuarios.Designer.cs">
+      <DependentUpon>frmPrincipalUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pruebas\UserControls\UserControlSeguridad\UCBackups.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Seguridad\UCBackups.Designer.cs">
+    <Compile Include="Pruebas\UserControls\UserControlSeguridad\UCBackups.Designer.cs">
       <DependentUpon>UCBackups.cs</DependentUpon>
     </Compile>
-    <Compile Include="Seguridad\UCBitacora.cs">
+    <Compile Include="Pruebas\UserControls\UserControlSeguridad\UCBitacora.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Seguridad\UCBitacora.Designer.cs">
+    <Compile Include="Pruebas\UserControls\UserControlSeguridad\UCBitacora.Designer.cs">
       <DependentUpon>UCBitacora.cs</DependentUpon>
     </Compile>
-    <Compile Include="Seguridad\UCPerfilesUsuarios.cs">
+    <Compile Include="Pruebas\UserControls\UserControlSeguridad\UCPerfilesUsuarios.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Seguridad\UCPerfilesUsuarios.Designer.cs">
+    <Compile Include="Pruebas\UserControls\UserControlSeguridad\UCPerfilesUsuarios.Designer.cs">
       <DependentUpon>UCPerfilesUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Seguridad\UCUsuarios.cs">
+    <Compile Include="Pruebas\UserControls\UserControlSeguridad\UCUsuarios.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Seguridad\UCUsuarios.Designer.cs">
+    <Compile Include="Pruebas\UserControls\UserControlSeguridad\UCUsuarios.Designer.cs">
       <DependentUpon>UCUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlProfesor\UCAsistencias.cs">
+    <Compile Include="Pruebas\UserControls\UserControlProfesor\UCAsistencias.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlProfesor\UCAsistencias.designer.cs">
+    <Compile Include="Pruebas\UserControls\UserControlProfesor\UCAsistencias.designer.cs">
       <DependentUpon>UCAsistencias.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlProfesor\UCFinales.cs">
+    <Compile Include="Pruebas\UserControls\UserControlProfesor\UCFinales.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlProfesor\UCFinales.Designer.cs">
+    <Compile Include="Pruebas\UserControls\UserControlProfesor\UCFinales.Designer.cs">
       <DependentUpon>UCFinales.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlProfesor\UCParciales.cs">
+    <Compile Include="Pruebas\UserControls\UserControlProfesor\UCParciales.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlProfesor\UCParciales.designer.cs">
+    <Compile Include="Pruebas\UserControls\UserControlProfesor\UCParciales.designer.cs">
       <DependentUpon>UCParciales.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlProfesor\UCRecuperatorios.cs">
+    <Compile Include="Pruebas\UserControls\UserControlProfesor\UCRecuperatorios.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlProfesor\UCRecuperatorios.Designer.cs">
+    <Compile Include="Pruebas\UserControls\UserControlProfesor\UCRecuperatorios.Designer.cs">
       <DependentUpon>UCRecuperatorios.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlSecretarioAcademico\UCAlumnos.cs">
+    <Compile Include="Pruebas\UserControls\UserControlSecretarioAcademico\UCAlumnos.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlSecretarioAcademico\UCAlumnos.Designer.cs">
+    <Compile Include="Pruebas\UserControls\UserControlSecretarioAcademico\UCAlumnos.Designer.cs">
       <DependentUpon>UCAlumnos.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlSecretarioAcademico\UCCursos.cs">
+    <Compile Include="Pruebas\UserControls\UserControlSecretarioAcademico\UCCursos.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlSecretarioAcademico\UCCursos.Designer.cs">
+    <Compile Include="Pruebas\UserControls\UserControlSecretarioAcademico\UCCursos.Designer.cs">
       <DependentUpon>UCCursos.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlSecretarioAcademico\UCMaterias.cs">
+    <Compile Include="Pruebas\UserControls\UserControlSecretarioAcademico\UCMaterias.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlSecretarioAcademico\UCMaterias.designer.cs">
+    <Compile Include="Pruebas\UserControls\UserControlSecretarioAcademico\UCMaterias.designer.cs">
       <DependentUpon>UCMaterias.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlSecretarioAcademico\UCPlanDeEstudio.cs">
+    <Compile Include="Pruebas\UserControls\UserControlSecretarioAcademico\UCPlanDeEstudio.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlSecretarioAcademico\UCPlanDeEstudio.designer.cs">
+    <Compile Include="Pruebas\UserControls\UserControlSecretarioAcademico\UCPlanDeEstudio.designer.cs">
       <DependentUpon>UCPlanDeEstudio.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Pruebas\FormPrueba.aa.resx">
@@ -334,40 +346,46 @@
     <EmbeddedResource Include="Seguridad\frmPerfiles\frmPrincipalPerfiles.resx">
       <DependentUpon>frmPrincipalPerfiles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Seguridad\UCBackups.resx">
+    <EmbeddedResource Include="Seguridad\frmUsuarios\frmAltaUsuario.resx">
+      <DependentUpon>frmAltaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmUsuarios\frmPrincipalUsuarios.resx">
+      <DependentUpon>frmPrincipalUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pruebas\UserControls\UserControlSeguridad\UCBackups.resx">
       <DependentUpon>UCBackups.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Seguridad\UCBitacora.resx">
+    <EmbeddedResource Include="Pruebas\UserControls\UserControlSeguridad\UCBitacora.resx">
       <DependentUpon>UCBitacora.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Seguridad\UCPerfilesUsuarios.resx">
+    <EmbeddedResource Include="Pruebas\UserControls\UserControlSeguridad\UCPerfilesUsuarios.resx">
       <DependentUpon>UCPerfilesUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Seguridad\UCUsuarios.resx">
+    <EmbeddedResource Include="Pruebas\UserControls\UserControlSeguridad\UCUsuarios.resx">
       <DependentUpon>UCUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlProfesor\UCAsistencias.resx">
+    <EmbeddedResource Include="Pruebas\UserControls\UserControlProfesor\UCAsistencias.resx">
       <DependentUpon>UCAsistencias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlProfesor\UCFinales.resx">
+    <EmbeddedResource Include="Pruebas\UserControls\UserControlProfesor\UCFinales.resx">
       <DependentUpon>UCFinales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlProfesor\UCParciales.resx">
+    <EmbeddedResource Include="Pruebas\UserControls\UserControlProfesor\UCParciales.resx">
       <DependentUpon>UCParciales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlProfesor\UCRecuperatorios.resx">
+    <EmbeddedResource Include="Pruebas\UserControls\UserControlProfesor\UCRecuperatorios.resx">
       <DependentUpon>UCRecuperatorios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlSecretarioAcademico\UCAlumnos.resx">
+    <EmbeddedResource Include="Pruebas\UserControls\UserControlSecretarioAcademico\UCAlumnos.resx">
       <DependentUpon>UCAlumnos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlSecretarioAcademico\UCCursos.resx">
+    <EmbeddedResource Include="Pruebas\UserControls\UserControlSecretarioAcademico\UCCursos.resx">
       <DependentUpon>UCCursos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlSecretarioAcademico\UCMaterias.resx">
+    <EmbeddedResource Include="Pruebas\UserControls\UserControlSecretarioAcademico\UCMaterias.resx">
       <DependentUpon>UCMaterias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlSecretarioAcademico\UCPlanDeEstudio.resx">
+    <EmbeddedResource Include="Pruebas\UserControls\UserControlSecretarioAcademico\UCPlanDeEstudio.resx">
       <DependentUpon>UCPlanDeEstudio.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -402,9 +420,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Icons\icons8-cerrar-ventana-32.png" />
-    <Content Include="Icons\icons8-maximizar-la-ventana-32.png" />
-    <Content Include="Icons\icons8-minimize-window-32.png" />
+    <Content Include="Pruebas\Icons\icons8-cerrar-ventana-32.png" />
+    <Content Include="Pruebas\Icons\icons8-maximizar-la-ventana-32.png" />
+    <Content Include="Pruebas\Icons\icons8-minimize-window-32.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

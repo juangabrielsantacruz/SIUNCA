@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button38 = new System.Windows.Forms.Button();
-            this.cbIdioma = new System.Windows.Forms.ComboBox();
-            this.button20 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.button18 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -58,34 +55,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvFamiliasUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuariosGestion)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button38
-            // 
-            this.button38.Location = new System.Drawing.Point(414, 22);
-            this.button38.Name = "button38";
-            this.button38.Size = new System.Drawing.Size(135, 23);
-            this.button38.TabIndex = 91;
-            this.button38.Tag = "Tagg";
-            this.button38.Text = "button38";
-            this.button38.UseVisualStyleBackColor = true;
-            // 
-            // cbIdioma
-            // 
-            this.cbIdioma.FormattingEnabled = true;
-            this.cbIdioma.Location = new System.Drawing.Point(151, 25);
-            this.cbIdioma.Name = "cbIdioma";
-            this.cbIdioma.Size = new System.Drawing.Size(121, 21);
-            this.cbIdioma.TabIndex = 90;
-            // 
-            // button20
-            // 
-            this.button20.Location = new System.Drawing.Point(273, 22);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(135, 23);
-            this.button20.TabIndex = 89;
-            this.button20.Tag = "Tagg";
-            this.button20.Text = "button20";
-            this.button20.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -302,9 +271,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 575);
-            this.Controls.Add(this.button38);
-            this.Controls.Add(this.cbIdioma);
-            this.Controls.Add(this.button20);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.button18);
             this.Controls.Add(this.button4);
@@ -339,10 +305,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button38;
-        private System.Windows.Forms.ComboBox cbIdioma;
-        private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button4;

@@ -39,7 +39,7 @@ namespace Framework.D_2015.Multiidioma
             catch (Exception)
             {
 
-                return "sintraduccion";
+                throw new Exception();
             }           
           
         }

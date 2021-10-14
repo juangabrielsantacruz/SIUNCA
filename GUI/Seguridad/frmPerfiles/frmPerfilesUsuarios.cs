@@ -176,7 +176,7 @@ namespace GUI.Seguridad
                     PatentesFaltantes.Remove(item);
             }
 
-            // Muestro Patentes que Usuario no tiene esta bien el name del dg?LACONCHA
+            // Muestro Patentes que Usuario no tiene 
             dgvUsuarioSinPatentes.DataSource = null;
             dgvUsuarioSinPatentes.DataSource = PatentesFaltantes;
 

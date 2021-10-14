@@ -12,6 +12,5 @@ namespace BIZ.Seguridad
 
         public string Descripcion { get; set; }
 
-        public Int64 DigitoHorizontal { get; set; }
     }
 }

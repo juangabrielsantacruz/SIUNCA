@@ -15,6 +15,7 @@ using BIZ.Seguridad;
 using Interfaces;
 using BLL;
 using Framework.D_2015.Multiidioma;
+using GUI.Seguridad.frmUsuarios;
 
 namespace GUI
 {
@@ -24,6 +25,21 @@ namespace GUI
         public frmInicio()
         {
             InitializeComponent();
+        }
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            //Verfica que el form no este abierto
+            if ((Application.OpenForms["frmPrincipalUsuarios"] as frmPrincipalUsuarios) != null)
+            {
+                MessageBox.Show("Este formulario ya se encuenta abierto");
+                Application.OpenForms["frmPrincipalUsuarios"].BringToFront();
+            }
+            else
+            {
+                frmPrincipalUsuarios f1 = new frmPrincipalUsuarios();
+                f1.MdiParent = this;
+                f1.Show();
+            }
         }
         private void button2_Click_1(object sender, EventArgs e)
         {
@@ -104,6 +120,7 @@ namespace GUI
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            Application.Exit();
         }
 
 
@@ -176,6 +193,8 @@ namespace GUI
                 sesion.CambiarIdioma(sesion.idioma);
             }
         }
+
+
     }
 
    

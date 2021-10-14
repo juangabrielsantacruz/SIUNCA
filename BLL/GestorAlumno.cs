@@ -12,16 +12,6 @@ namespace BLL
 {
     public class GestorAlumno
     {
-        //public List<Alumno> traerAlumnos()
-        //{        
-        //    List<Alumno> listaAlumnos = new List<Alumno>();
-        //    var unAlumnoDAO = new AlumnoDAO();
-        //    listaAlumnos = unAlumnoDAO.traerTodo();
-
-        //    return listaAlumnos;
-        //}
-
-
         public List<DTOAlumno> traerAlumnos(int IdMateriaCC)
         {
             var listaAlumnos = new List<DTOAlumno>();
@@ -65,7 +55,9 @@ namespace BLL
         }
         public void Eliminar(object unAlumno)
         {
-        }       
+        }
+
+
 
     }
 }

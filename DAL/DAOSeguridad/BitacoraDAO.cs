@@ -7,6 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using Framework.D_2015.Cache;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace DAL.DAOSeguridad
 {
@@ -156,19 +158,21 @@ namespace DAL.DAOSeguridad
         {
             Conexion unaConexion = new Conexion("config.xml");
             List<Parametro> listaParametros = new List<Parametro>();
-          
+
+            int dv = 123;            
 
             listaParametros.Add(new Parametro("IdUsuario", unIdUsuario));
             listaParametros.Add(new Parametro("IdTipoBitacora", unIdTipoBitacora));
             listaParametros.Add(new Parametro("FechaHora", unaFechaHora));
             listaParametros.Add(new Parametro("Mensaje", unMensaje));
+            listaParametros.Add(new Parametro("dv", dv));
 
 
             try
             {
                 unaConexion.ConexionIniciar();
                 unaConexion.TransaccionIniciar();
-                unaConexion.EjecutarSinResultado("INSERT INTO Bitacora (IdUsuario,IdTipoBitacora,FechaHora,Mensaje) VALUES (@IdUsuario,@IdTipoBitacora,@FechaHora,@Mensaje)", listaParametros);
+                unaConexion.EjecutarSinResultado("INSERT INTO Bitacora (IdUsuario,IdTipoBitacora,FechaHora,Mensaje,dv) VALUES (@IdUsuario,@IdTipoBitacora,@FechaHora,@Mensaje,@dv)", listaParametros);
                 unaConexion.TransaccionAceptar();
             }
             catch (Exception ex)
@@ -210,6 +214,51 @@ namespace DAL.DAOSeguridad
                 {
                     unaConexion.ConexionFinalizar();
                 }
+            }
+        }
+        public string TraerCadenaDv()
+        {
+            SqlConnectionStringBuilder cs = new SqlConnectionStringBuilder();
+            cs.InitialCatalog = "PruebaSIUNCA";
+            cs.DataSource = ".\\SQLEXPRESS";
+            cs.IntegratedSecurity = true;
+
+            SqlConnection sql = new SqlConnection();
+            sql.ConnectionString = cs.ConnectionString;
+            
+            try
+            {
+                sql.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sql;
+                cmd.CommandText = @"SELECT dv FROM Bitacora ";
+                
+
+                var reader = cmd.ExecuteReader();
+
+                var listadv = new List<string>();
+                var unaCadena = "";
+                while (reader.Read())
+                {
+                    //unaCadena = Int32.Parse(reader[0].ToString());
+                    unaCadena = Convert.ToString(reader.GetInt32(0));
+                    listadv.Add(unaCadena);
+                }
+                reader.Close();
+                string cadenaDv = String.Join("", listadv.ToArray());
+
+                return cadenaDv;
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            finally
+            {
+                sql.Close();
+                if (sql != null)
+                    sql.Close();
             }
         }
     }
