@@ -71,7 +71,7 @@
     <Compile Include="Seguridad\TipoBitacora.cs" />
     <Compile Include="Seguridad\UsuarioFamilia.cs" />
     <Compile Include="Seguridad\UsuarioPatente.cs" />
-    <Compile Include="Seguridad\SesionSingleton.cs" />
+    <Compile Include="Seguridad\ManejadorSesion.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>

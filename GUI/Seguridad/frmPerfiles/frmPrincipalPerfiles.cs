@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BIZ.Seguridad;
+using Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,8 +12,9 @@ using System.Windows.Forms;
 
 namespace GUI.Seguridad
 {
-    public partial class frmPrincipalPerfiles : Form
+    public partial class frmPrincipalPerfiles : Form, IObservador
     {
+        ManejadorSesion sesion = ManejadorSesion.GetInstancia;
         public frmPrincipalPerfiles()
         {
             InitializeComponent();
@@ -65,6 +68,24 @@ namespace GUI.Seguridad
                 f1.MdiParent = this.MdiParent;
                 f1.Show();
                 this.MdiParent.MinimumSize = f1.Size;
+            }
+        }
+
+        private void frmPrincipalPerfiles_Load(object sender, EventArgs e)
+        {
+            ManejadorSesion.GetInstancia.RegistrarObservador(this);
+            Actualizar(sesion.idioma);     
+            
+        }
+        public void Actualizar(IIdioma idiomaObservado)
+        {
+            //Recorro todos los controles en el UserControl
+            foreach (Control item in this.Controls)
+            {
+                if (item.Tag != null)
+                {
+                    item.Text = idiomaObservado.BuscarTraduccion(item.Tag.ToString());
+                }
             }
         }
     }

@@ -112,6 +112,7 @@ namespace DAL
             }
             finally
             {
+                sql.Close();
                 if (reader != null)
                     reader.Close();
                 if (sql != null)

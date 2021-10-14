@@ -54,10 +54,7 @@ namespace GUI
 
             //aca tengo que traer traducciones
             //List<Traduccion> traducciones = GestorIdioma.ObtenerTraducciones(unIdioma1);
-       
 
-            var _listatraducciones1 = GestorIdioma.ObtenerTraducciones(unIdioma1);
-            var _listatraducciones2 = GestorIdioma.ObtenerTraducciones(unIdioma2);
 
 
             //unIdioma1.AgregarTraduccion2(_listatraducciones1);
@@ -78,12 +75,12 @@ namespace GUI
 
             //GenerarDiccionarios();
             //SesionSingleton.Instancia.CambiarIdioma(unIdioma1);
-            SesionSingleton.Instancia.RegistrarObservador(this);
+            ManejadorSesion.GetInstancia.RegistrarObservador(this);
             //Actualizar(SesionSingleton.Instancia.idioma);
 
             ///
             // CIERRE PARA IDIOMA EN MEMORIA
-            SesionSingleton sesion = SesionSingleton.Instancia;
+            ManejadorSesion sesion = ManejadorSesion.GetInstancia;
 
 
             //aca tuve que haber seleccionado el idioma en el form padre para cargarle a la sesion
@@ -180,7 +177,7 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SesionSingleton sesion = SesionSingleton.Instancia;
+            ManejadorSesion sesion = ManejadorSesion.GetInstancia;
             //hacer todo esto con la sesion idioma
             //SesionSingleton.Instancia.idioma = (Idioma)cbIdioma.SelectedItem;
             sesion.idioma = (Idioma)cbIdioma.SelectedItem;
@@ -205,7 +202,7 @@ namespace GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            SesionSingleton sesion = SesionSingleton.Instancia;
+            ManejadorSesion sesion = ManejadorSesion.GetInstancia;
 
             sesion.idioma = (Idioma)cbIdioma.SelectedItem;
 

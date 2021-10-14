@@ -19,14 +19,13 @@ namespace DAL
             con.ConexionIniciar();
 
             List<Parametro> listaParametrosCD = new List<Parametro>();
-            listaParametrosCD.Add(new Parametro("email", usuario.email));
+            listaParametrosCD.Add(new Parametro("username", usuario.username));
             listaParametrosCD.Add(new Parametro("password", usuario.password));
-            listaParametrosCD.Add(new Parametro("rol", usuario.rol));
 
             try
             {
                 resultado = con.EjecutarTupla<Usuario>(@"SELECT iduser, username, password, email, rol FROM tbl_user
-                                                           WHERE email = @email and password = @password and rol = @rol", listaParametrosCD);
+                                                           WHERE username = @username and password = @password ", listaParametrosCD);
 
                 //firstordefault devuelve usuario o null
                 return resultado.FirstOrDefault();

@@ -8,22 +8,21 @@ using Interfaces;
 
 namespace BIZ.Seguridad
 {
-    public class SesionSingleton : IObservado
+    public class ManejadorSesion : IObservado
     {
         //deberia hacer esta clase en el FRAMEWORK?
-        private static SesionSingleton _instancia;
+        private static ManejadorSesion _instancia;
         public Usuario usuario { get; set; }
         public DateTime FechaInicio { get; set; }
-        public static SesionSingleton Instancia
+        public static ManejadorSesion GetInstancia
         {
             get
             {
                 if (_instancia == null)
                 {
-                    //throw new Exception("Sesión no iniciada");
-                    _instancia = new SesionSingleton();
-                }                 
-
+                    throw new Exception("Sesión no iniciada");
+                    //_instancia = new ManejadorSesion();
+                }  
                 return _instancia;
             }
         }
@@ -40,7 +39,7 @@ namespace BIZ.Seguridad
         {
             if (_instancia == null)
             {
-                _instancia = new SesionSingleton();
+                _instancia = new ManejadorSesion();
                 _instancia.usuario = usuario;
                 _instancia.FechaInicio = DateTime.Now;
             }
@@ -51,15 +50,7 @@ namespace BIZ.Seguridad
         }
         public static bool IsLogged()
         {
-            if (_instancia != null)
-            {
-                return _instancia != null;
-                
-            }
-            else
-            {
-                throw new Exception("Sesión no iniciada");
-            }
+             return _instancia != null;
             
         }
         public static void Logout()
@@ -81,7 +72,7 @@ namespace BIZ.Seguridad
         public Idioma idioma { get; set; }
         public IList<IObservador> ObservadoresRegistrados { get; set; }
 
-        private SesionSingleton()
+        private ManejadorSesion()
         {
             ObservadoresRegistrados = new List<IObservador>();
         }
@@ -95,7 +86,7 @@ namespace BIZ.Seguridad
         {
             foreach (var item in ObservadoresRegistrados)
             {
-                item.Actualizar(idioma);
+                item.Actualizar(idioma);                
             }
         }
 

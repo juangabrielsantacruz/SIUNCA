@@ -41,6 +41,7 @@
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(181, 220);
             this.button19.TabIndex = 90;
+            this.button19.Tag = "Gestion Perfiles Usuarios";
             this.button19.Text = "Gestion Perfiles usuarios";
             this.button19.UseVisualStyleBackColor = false;
             this.button19.Click += new System.EventHandler(this.button19_Click);
@@ -53,6 +54,7 @@
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(180, 151);
             this.button14.TabIndex = 89;
+            this.button14.Tag = "Gestion Familias";
             this.button14.Text = "Gestion Familias";
             this.button14.UseVisualStyleBackColor = false;
             this.button14.Click += new System.EventHandler(this.button14_Click);
@@ -65,6 +67,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(180, 43);
             this.button1.TabIndex = 91;
+            this.button1.Tag = "Gestion Patentes";
             this.button1.Text = "Gestion Patentes";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -79,6 +82,7 @@
             this.Controls.Add(this.button14);
             this.Name = "frmPrincipalPerfiles";
             this.Text = "frmPrincipalPerfiles";
+            this.Load += new System.EventHandler(this.frmPrincipalPerfiles_Load);
             this.ResumeLayout(false);
 
         }

@@ -34,7 +34,7 @@ namespace GUI
 
         private void idiomatest2_Load(object sender, EventArgs e)
         {
-            SesionSingleton.Instancia.RegistrarObservador(this);
+            ManejadorSesion.GetInstancia.RegistrarObservador(this);
             //Actualizar(SesionSingleton.Instancia.idioma);
         }
     }

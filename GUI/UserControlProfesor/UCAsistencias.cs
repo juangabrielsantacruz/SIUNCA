@@ -12,7 +12,6 @@ using BIZ.DTOs;
 using BLL;
 using System.Threading;
 using System.Globalization;
-using GUI.Idiomas.Profesor.Asistencia;
 using Framework.D_2015.Idiomas;
 using Framework.D_2015.Cache;
 
@@ -27,7 +26,7 @@ namespace GUI.UserControlProfesor
             cargarCboMaterias();
             lblFechaActual.Text = DateTime.Now.ToShortDateString();
 
-            IdiomaViejo.cambiarIdioma(IdiomaViejo.cacheIdioma, IdiomaPorDefecto);
+            //IdiomaViejo.cambiarIdioma(IdiomaViejo.cacheIdioma, IdiomaPorDefecto);
         }
 
         private void btnSelMateriaAsistencia_Click(object sender, EventArgs e)
@@ -183,18 +182,18 @@ namespace GUI.UserControlProfesor
             }
         }
 
-        void IdiomaPorDefecto()
-        {
-            btnSelMateriaAsist.Text = Res.btnSelMateriaAsistencia;
-            lblFecha.Text = Res.lblFecha;
-            gbListaDeAlumnos.Text = Res.gbListaDeAlumnos;
-            gbSeleccionDeMateria.Text = Res.gbSeleccionDeMateria;
-            btnGuardarAsist.Text = Res.btnGuardarAsist;
-            btnCancelarAsist.Text = Res.btnCancelarAsist;
-            btnModificarAsist.Text = Res.btnModificarAsist;
-            gbListadoDeAlu.Text = Res.gbListadoDeAlu;
-            gbSelDeMat.Text = Res.gbSelDeMat;
-            btnSelMateriaAsistencia.Text = Res.btnSelMateriaAsistencia;
-        }
+        //void IdiomaPorDefecto()
+        //{
+        //    btnSelMateriaAsist.Text = Res.btnSelMateriaAsistencia;
+        //    lblFecha.Text = Res.lblFecha;
+        //    gbListaDeAlumnos.Text = Res.gbListaDeAlumnos;
+        //    gbSeleccionDeMateria.Text = Res.gbSeleccionDeMateria;
+        //    btnGuardarAsist.Text = Res.btnGuardarAsist;
+        //    btnCancelarAsist.Text = Res.btnCancelarAsist;
+        //    btnModificarAsist.Text = Res.btnModificarAsist;
+        //    gbListadoDeAlu.Text = Res.gbListadoDeAlu;
+        //    gbSelDeMat.Text = Res.gbSelDeMat;
+        //    btnSelMateriaAsistencia.Text = Res.btnSelMateriaAsistencia;
+        //}
     }
 }

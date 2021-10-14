@@ -39,13 +39,6 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        public static List<Traduccion> ObtenerTraducciones(IIdioma idioma)
-        {
-            var listaTraduccion = new List<Traduccion>();
-            listaTraduccion = IdiomaDAO.ObtenerTraducciones(idioma);
-            return listaTraduccion;
-        }
-
         public static List<ITraduccion> ObtenerTraducciones1(IIdioma idioma)
         {
             var listaTraduccion = new List<ITraduccion>();

@@ -209,7 +209,7 @@ namespace GUI
 
 
 
-            SesionSingleton sesion = SesionSingleton.Instancia;
+            ManejadorSesion sesion = ManejadorSesion.GetInstancia;
 
             sesion.idioma = (Idioma)cbIdioma.SelectedItem;
 
@@ -225,7 +225,7 @@ namespace GUI
             //registro usercontrol y traigo idiomas
             cbIdioma.DataSource = GestorIdioma.ObtenerIdiomas();
             cbIdioma.DisplayMember = "Nombre";
-            SesionSingleton.Instancia.RegistrarObservador(this);
+            ManejadorSesion.GetInstancia.RegistrarObservador(this);
             //cierroload
 
         }

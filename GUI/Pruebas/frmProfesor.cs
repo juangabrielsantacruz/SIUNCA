@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using GUI.UserControlProfesor;
 using System.Threading;
 using System.Globalization;
-using GUI.Idiomas.Profesor;
 using Framework.D_2015.Idiomas;
 using Framework.D_2015.Cache;
 
@@ -28,7 +27,7 @@ namespace GUI
 
             this.lblNombreProfesor.Text = CacheUsuario.username;
 
-            IdiomaViejo.cambiarIdioma(IdiomaViejo.cacheIdioma, IdiomaPorDefecto);
+            //IdiomaViejo.cambiarIdioma(IdiomaViejo.cacheIdioma, IdiomaPorDefecto);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -143,13 +142,13 @@ namespace GUI
             panelContenedor.Controls.Add(uc);
         }
 
-        void IdiomaPorDefecto()
-        {
-            lblProfesor.Text = Res.lblProfesor;
-            btnAsistencias.Text = Res.btnAsistencias;
-            btnFinales.Text = Res.btnFinales;
-            btnParciales.Text = Res.btnParciales;
-            btnRecuperatorios.Text = Res.btnRecuperatorios;
-        }
+        //void IdiomaPorDefecto()
+        //{
+        //    lblProfesor.Text = Res.lblProfesor;
+        //    btnAsistencias.Text = Res.btnAsistencias;
+        //    btnFinales.Text = Res.btnFinales;
+        //    btnParciales.Text = Res.btnParciales;
+        //    btnRecuperatorios.Text = Res.btnRecuperatorios;
+        //}
     }
 }

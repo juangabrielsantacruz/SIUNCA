@@ -83,6 +83,7 @@ namespace DAL.DAOSeguridad
         public List<Bitacora2> ConsultarBitacora(DateTime unaFechaInicial, DateTime unaFechaFinal, int unTipoIdBitacora, int unIdUsuario)
         {
             List<Bitacora2> resultado = new List<Bitacora2>();
+           
 
             Conexion unaConexion = new Conexion("config.xml");
             List<Parametro> listaParametros = new List<Parametro>();
@@ -95,6 +96,7 @@ namespace DAL.DAOSeguridad
 
             try
             {
+
                 unaConexion.ConexionIniciar();
                 unaConexion.TransaccionIniciar();
                 // unaConexion.EjecutarSinResultado("SELECT * FROM Bitacora WHERE idTipoBitacora = (@IdTipoBitacora) AND IdUsuario = (@IdUsuario) AND FechaHora BETWEEN (@FechaInicial) AND (@FechaFinal)", listaParametros)

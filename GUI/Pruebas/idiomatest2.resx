@@ -117,19 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnAlumnos" xml:space="preserve">
-    <value>Student Managemen</value>
-  </data>
-  <data name="btnCursos" xml:space="preserve">
-    <value>Course Management</value>
-  </data>
-  <data name="btnMaterias" xml:space="preserve">
-    <value>Subject Management</value>
-  </data>
-  <data name="btnPlanDeEstudio" xml:space="preserve">
-    <value>Study Plan Management</value>
-  </data>
-  <data name="lblProfesor" xml:space="preserve">
-    <value>Professor</value>
-  </data>
 </root>

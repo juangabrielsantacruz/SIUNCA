@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using Framework.D_2015.Cache;
 using Framework.D_2015.Idiomas;
 using GUI.UserControlSecretarioAcademico;
-using GUI.Idiomas.SecretarioAcademico;
 using GUI.Seguridad;
 using BLL;
 using BIZ;
@@ -36,9 +35,9 @@ namespace GUI
         {
             InitializeComponent();
             seleccionarUserControl(ucplandeestudio);
-            this.lblSecretarioAcademico.Text = SesionSingleton.Instancia.usuario.email;
+            this.lblSecretarioAcademico.Text = ManejadorSesion.GetInstancia.usuario.email;
 
-            IdiomaViejo.cambiarIdioma(IdiomaViejo.cacheIdioma, IdiomaPorDefecto);
+            //IdiomaViejo.cambiarIdioma(IdiomaViejo.cacheIdioma, IdiomaPorDefecto);
 
 
             //aca deberia traer el usuario de sesion singleton
@@ -65,7 +64,7 @@ namespace GUI
 
             //aca deberia llamar al usuario singleton
             //habilitarbotones()
-            btnUSUARIOS.Visible = SesionSingleton.Instancia.usuario.Perfil.Validar(3);
+            btnUSUARIOS.Visible = ManejadorSesion.GetInstancia.usuario.Perfil.Validar(3);
 
 
         }
@@ -231,18 +230,18 @@ namespace GUI
             seleccionarUserControl(ucperfilesusuarios);
         }
 
-        void IdiomaPorDefecto()
-        {
-            btnPlanDeEstudio.Text = Res.btnPlanDeEstudio;
-            btnMaterias.Text = Res.btnMaterias;
-            btnCursos.Text = Res.btnCursos;
-            btnAlumnos.Text = Res.btnAlumnos;
+        //void IdiomaPorDefecto()
+        //{
+        //    btnPlanDeEstudio.Text = Res.btnPlanDeEstudio;
+        //    btnMaterias.Text = Res.btnMaterias;
+        //    btnCursos.Text = Res.btnCursos;
+        //    btnAlumnos.Text = Res.btnAlumnos;
  
-            //lblProfesor.Text = Res.lblProfesor;
-            //btnAsistencias.Text = Res.btnAsistencias;
-            //btnFinales.Text = Res.btnFinales;
-            //btnParciales.Text = Res.btnParciales;
-            //btnRecuperatorios.Text = Res.btnRecuperatorios;
-        }
+        //    //lblProfesor.Text = Res.lblProfesor;
+        //    //btnAsistencias.Text = Res.btnAsistencias;
+        //    //btnFinales.Text = Res.btnFinales;
+        //    //btnParciales.Text = Res.btnParciales;
+        //    //btnRecuperatorios.Text = Res.btnRecuperatorios;
+        //}
     }
 }

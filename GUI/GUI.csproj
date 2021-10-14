@@ -55,101 +55,52 @@
     <Compile Include="frmInicio.Designer.cs">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSecretarioAcademico.cs">
+    <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSecretarioAcademico.designer.cs">
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pruebas\frmSecretarioAcademico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pruebas\frmSecretarioAcademico.designer.cs">
       <DependentUpon>frmSecretarioAcademico.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProfesor.cs">
+    <Compile Include="Pruebas\frmProfesor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProfesor.designer.cs">
+    <Compile Include="Pruebas\frmProfesor.designer.cs">
       <DependentUpon>frmProfesor.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSeguridad.cs">
+    <Compile Include="Pruebas\frmSeguridad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSeguridad.Designer.cs">
+    <Compile Include="Pruebas\frmSeguridad.Designer.cs">
       <DependentUpon>frmSeguridad.cs</DependentUpon>
     </Compile>
-    <Compile Include="Idiomas\Login\Res.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Res.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Idiomas\Profesor\Asistencia\Res.en-US.Designer.cs">
-      <DependentUpon>Res.en-US.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Idiomas\Profesor\Asistencia\Res.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Res.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Idiomas\Profesor\Res.en-US.Designer.cs">
-      <DependentUpon>Res.en-US.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Idiomas\Profesor\Res.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Res.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Idiomas\SecretarioAcademico\Alumnos\Res.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Res.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Idiomas\SecretarioAcademico\Cursos\Res.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Res.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Idiomas\SecretarioAcademico\Materias\Res.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Res.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Idiomas\SecretarioAcademico\PlanDeEstudio\Res.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Res.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Idiomas\SecretarioAcademico\Res.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Res.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Idiomas\SecretarioAcademico\Res.en-US.Designer.cs">
-      <DependentUpon>Res.en-US.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="idiomatest.cs">
+    <Compile Include="Pruebas\idiomatest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="idiomatest.Designer.cs">
+    <Compile Include="Pruebas\idiomatest.Designer.cs">
       <DependentUpon>idiomatest.cs</DependentUpon>
     </Compile>
-    <Compile Include="idiomatest2.cs">
+    <Compile Include="Pruebas\idiomatest2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="idiomatest2.Designer.cs">
+    <Compile Include="Pruebas\idiomatest2.Designer.cs">
       <DependentUpon>idiomatest2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="Pruebas\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.designer.cs">
+    <Compile Include="Pruebas\Login.designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPrueba.cs">
+    <Compile Include="Pruebas\FormPrueba.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPrueba.Designer.cs">
+    <Compile Include="Pruebas\FormPrueba.Designer.cs">
       <DependentUpon>FormPrueba.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -304,81 +255,35 @@
     <Compile Include="UserControlSecretarioAcademico\UCPlanDeEstudio.designer.cs">
       <DependentUpon>UCPlanDeEstudio.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormPrueba.aa.resx">
+    <EmbeddedResource Include="Pruebas\FormPrueba.aa.resx">
       <DependentUpon>FormPrueba.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPrueba.resx">
+    <EmbeddedResource Include="Pruebas\FormPrueba.resx">
       <DependentUpon>FormPrueba.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSecretarioAcademico.resx">
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pruebas\frmSecretarioAcademico.resx">
       <DependentUpon>frmSecretarioAcademico.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProfesor.resx">
+    <EmbeddedResource Include="Pruebas\frmProfesor.resx">
       <DependentUpon>frmProfesor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSeguridad.resx">
+    <EmbeddedResource Include="Pruebas\frmSeguridad.resx">
       <DependentUpon>frmSeguridad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Idiomas\Login\Res.en-US.resx" />
-    <EmbeddedResource Include="Idiomas\Login\Res.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Res.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Idiomas\Profesor\Asistencia\Res.en-US.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Res.en-US.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Idiomas\Profesor\Asistencia\Res.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Res.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Idiomas\Profesor\Res.en-US.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Res.en-US.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Idiomas\Profesor\Res.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Res.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Alumnos\Res.en-US.resx" />
-    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Alumnos\Res.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Res.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Cursos\Res.en-US.resx" />
-    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Cursos\Res.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Res.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Materias\Res.en-US.resx" />
-    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Materias\Res.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Res.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Idiomas\SecretarioAcademico\PlanDeEstudio\Res.en-US.resx" />
-    <EmbeddedResource Include="Idiomas\SecretarioAcademico\PlanDeEstudio\Res.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Res.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Res.en-US.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Res.en-US.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Res.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Res.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="idiomatest.resx">
+    <EmbeddedResource Include="Pruebas\idiomatest.resx">
       <DependentUpon>idiomatest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="idiomatest2.resx">
+    <EmbeddedResource Include="Pruebas\idiomatest2.resx">
       <DependentUpon>idiomatest2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Pruebas\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

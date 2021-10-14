@@ -13,7 +13,6 @@ using BLL;
 //Using necesarios para el idioma
 using System.Threading;
 using System.Globalization;
-using GUI.Idiomas.Login;
 using Framework.D_2015.Idiomas;
 using Framework.D_2015.Seguridad;
 using Framework.D_2015.Cache;
@@ -34,7 +33,7 @@ namespace GUI
             lblError.Visible = false;
             cboIdioma.SelectedIndex = IdiomaViejo.cacheIdioma == "Español" ? 0 : 1;
             cboRol.SelectedIndex = 2;
-            IdiomaViejo.cambiarIdioma(IdiomaViejo.cacheIdioma, IdiomaPorDefecto);
+            //IdiomaViejo.cambiarIdioma(IdiomaViejo.cacheIdioma, IdiomaPorDefecto);
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -58,10 +57,10 @@ namespace GUI
             usuario.rol = cboRol.Text;
 
             var gestorUsuario = new GestorUsuario();
-            var resultadoUser = gestorUsuario.traerUsuario(usuario);
+            var resultadoUser = gestorUsuario.IniciarSesion(usuario);
 
             //traigo el usuario de la sesion logueada
-            var UsuarioSingleton = SesionSingleton.Instancia.usuario;
+            var UsuarioSingleton = ManejadorSesion.GetInstancia.usuario;
 
             if (resultadoUser != null)
             {
@@ -89,7 +88,7 @@ namespace GUI
                 //UNBLL.habilitarpermisos(resultadoUser);
 
                 //si usuario tiene la Patente de ID 1 muestra form secretario
-                frmAdministrativo.Visible = SesionSingleton.Instancia.usuario.Perfil.Validar(1);
+                frmAdministrativo.Visible = ManejadorSesion.GetInstancia.usuario.Perfil.Validar(1);
                 //si usuario tiene la Patente de ID 9 muestra form profesor
                 frmProfe.Visible = UsuarioSingleton.Perfil.Validar(9);
 
@@ -128,22 +127,22 @@ namespace GUI
         private void cboIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
             IdiomaViejo.cacheIdioma = cboIdioma.Text;
-            IdiomaViejo.cambiarIdioma(IdiomaViejo.cacheIdioma, IdiomaPorDefecto);
+            //IdiomaViejo.cambiarIdioma(IdiomaViejo.cacheIdioma, IdiomaPorDefecto);
         }
 
         /// <summary>
         /// El idioma por defecto es español, el archivo por defecto es Res.resx
         /// </summary>
-        void IdiomaPorDefecto()
-        {
-            lblIdioma.Text = Res.lblIdioma;
-            lblInicioDeSesion.Text = Res.lblInicioDeSesion;
-            lblUsuario.Text = Res.lblUsuario;
-            lblContraseña.Text = Res.lblContraseña;
-            lblRol.Text = Res.lblRol;
-            lblError.Text = Res.lblError;
-            btnLogin.Text = Res.btnLogin;
-        }
+        //void IdiomaPorDefecto()
+        //{
+        //    lblIdioma.Text = Res.lblIdioma;
+        //    lblInicioDeSesion.Text = Res.lblInicioDeSesion;
+        //    lblUsuario.Text = Res.lblUsuario;
+        //    lblContraseña.Text = Res.lblContraseña;
+        //    lblRol.Text = Res.lblRol;
+        //    lblError.Text = Res.lblError;
+        //    btnLogin.Text = Res.btnLogin;
+        //}
 
         private void button1_Click(object sender, EventArgs e)
         {

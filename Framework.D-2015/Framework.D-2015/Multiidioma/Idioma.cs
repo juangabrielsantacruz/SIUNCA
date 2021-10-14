@@ -22,25 +22,19 @@ namespace Framework.D_2015.Multiidioma
 
         public string BuscarTraduccion(string texto)
         {
+            
             try
             {
-                if (texto == "")
+                var _resultadotraducciones = Traducciones.FirstOrDefault(x => x.Palabra_Texto == texto).PalabraTraducida;
+                
+                if (_resultadotraducciones == null)
                 {
-                    return "sintraduccion";
+                    return texto;
                 }
                 else
                 {
-                    var _resultadotraducciones = Traducciones.FirstOrDefault(x => x.Palabra_Texto == texto).PalabraTraducida;
-                    if (_resultadotraducciones == null)
-                    {
-                        return texto;
-                    }
-                    else
-                    {
-                        return _resultadotraducciones;
-                    }
-                }
-                
+                    return _resultadotraducciones;
+                }  
             }
             catch (Exception)
             {

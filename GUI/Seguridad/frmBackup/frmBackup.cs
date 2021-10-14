@@ -19,7 +19,7 @@ namespace GUI.Seguridad.frmBackup
         BackupSQL backup = new BackupSQL();
         private string cadenaConexion = null;
         private SqlConnection conexion;
-        SesionSingleton sesion = SesionSingleton.Instancia;
+        ManejadorSesion sesion = ManejadorSesion.GetInstancia;
         public frmBackup()
         {
             InitializeComponent();

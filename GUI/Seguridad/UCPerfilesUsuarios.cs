@@ -617,7 +617,7 @@ namespace GUI.Seguridad
 
         private void button20_Click(object sender, EventArgs e)
         {
-            SesionSingleton sesion = SesionSingleton.Instancia;
+            ManejadorSesion sesion = ManejadorSesion.GetInstancia;
 
             sesion.idioma = (Idioma)cbIdioma.SelectedItem;
 
@@ -632,7 +632,7 @@ namespace GUI.Seguridad
             //registro usercontrol y traigo idiomas
             cbIdioma.DataSource = GestorIdioma.ObtenerIdiomas();
             cbIdioma.DisplayMember = "Nombre";
-            SesionSingleton.Instancia.RegistrarObservador(this);
+            ManejadorSesion.GetInstancia.RegistrarObservador(this);
         }
 
         private void button39_Click(object sender, EventArgs e)

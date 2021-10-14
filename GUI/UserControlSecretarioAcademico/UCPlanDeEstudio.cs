@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using BIZ;
 using BLL;
 using BIZ.DTOs;
-using GUI.Idiomas.SecretarioAcademico.PlanDeEstudio;
 using System.Threading;
 using System.Globalization;
 using Framework.D_2015.Idiomas;
@@ -48,28 +47,28 @@ namespace GUI.UserControlSecretarioAcademico
             //ucPlanDeEstudio
             //CargarPlanes();
             CargarMaterias();
-            IdiomaViejo.cambiarIdioma(IdiomaViejo.cacheIdioma, IdiomaPorDefecto);
+            //IdiomaViejo.cambiarIdioma(IdiomaViejo.cacheIdioma, IdiomaPorDefecto);
 
 
             
         }
 
-        void IdiomaPorDefecto()
-        {
-            lblNombrePlan.Text = Res.lblNombrePlan;
-            lblCarrera.Text = Res.lblCarrera;
-            lblObligatoriedad.Text = Res.lblObligatoriedad;
-            lblAño.Text = Res.lblAño;
-            lblCargaHoraria.Text = Res.lblCargaHoraria;
-            lblNumeroMateria.Text = Res.lblNumeroMateria;
-            lblMatConCorr.Text = Res.lblMatConCorr;
-            btnAsignarCorrelativas.Text = Res.btnAsignarCorrelativas;
-            btnConsultarCorrelativas.Text = Res.btnConsultarCorrelativas;
-            button4.Text = Res.button4;
-            button5.Text = Res.button5;
-            btnGuardarPE.Text = Res.btnGuardarPE;
+        //void IdiomaPorDefecto()
+        //{
+        //    lblNombrePlan.Text = Res.lblNombrePlan;
+        //    lblCarrera.Text = Res.lblCarrera;
+        //    lblObligatoriedad.Text = Res.lblObligatoriedad;
+        //    lblAño.Text = Res.lblAño;
+        //    lblCargaHoraria.Text = Res.lblCargaHoraria;
+        //    lblNumeroMateria.Text = Res.lblNumeroMateria;
+        //    lblMatConCorr.Text = Res.lblMatConCorr;
+        //    btnAsignarCorrelativas.Text = Res.btnAsignarCorrelativas;
+        //    btnConsultarCorrelativas.Text = Res.btnConsultarCorrelativas;
+        //    button4.Text = Res.button4;
+        //    button5.Text = Res.button5;
+        //    btnGuardarPE.Text = Res.btnGuardarPE;
             
-        }  
+        //}  
         
 
         private void CargarPlanes()
