@@ -152,6 +152,7 @@
             this.button28 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
             this.dgvModPatente = new System.Windows.Forms.DataGridView();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -239,6 +240,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.treeView1);
             this.tabPage4.Controls.Add(this.button39);
             this.tabPage4.Controls.Add(this.groupBox1);
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
@@ -1573,6 +1575,14 @@
             this.dgvModPatente.Size = new System.Drawing.Size(450, 205);
             this.dgvModPatente.TabIndex = 23;
             // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(33, 231);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(215, 157);
+            this.treeView1.TabIndex = 70;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
             // UCPerfilesUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1763,5 +1773,6 @@
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Button button38;
         private System.Windows.Forms.Button button39;
+        private System.Windows.Forms.TreeView treeView1;
     }
 }

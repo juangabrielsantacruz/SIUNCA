@@ -133,7 +133,7 @@ namespace GUI.Seguridad
                 unUsuario = (Usuario)dgvUsuariosGestion.CurrentRow.DataBoundItem ;
                 // Logueo (traigo Perfil) del Usuario
                 unUsuario = UnGestorUsuario.CargarPermisos(unUsuario);
-
+                treeView1.Nodes.Add(unUsuario.ToString());
                 CargarPermisosUsuario(unUsuario);
             }
             catch (Exception ex)
@@ -196,16 +196,33 @@ namespace GUI.Seguridad
 
             dgvFamiliasUsuario.DataSource = null;
             dgvFamiliasUsuario.DataSource = unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Familia)).ToList();
+            foreach (var item in unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Familia)).ToList())
+            {
+                treeView1.Nodes.Add(item.Descripcion.ToString());
+            }
+            
 
             // Muestro todas las Patentes individuales del Usuario
             dgvPatentesUsuario.DataSource = null;
             dgvPatentesUsuario.DataSource = unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Patente)).ToList();
+            
+            foreach (var item in unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Patente)).ToList())
+            {
+                treeView1.Nodes[0].Nodes.Add(item.Descripcion.ToString());
+            }
+            
 
             // Muestro las Patentes de las Familias que el Usuario tenga
             List<Permiso> miniLista = new List<Permiso>();
             miniLista = unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Familia)).ToList();
             dgvUsuarioPatenteFamilia.DataSource = null;
             dgvUsuarioPatenteFamilia.DataSource = miniLista.SelectMany(x => x.ListaCompleta).Distinct().ToList();
+
+            foreach (var item in miniLista.SelectMany(x => x.ListaCompleta).Distinct().ToList())
+            {
+                treeView1.Nodes[1].Nodes.Add(item.Descripcion.ToString());
+            }
+
 
             // Llevo todas las Patentes existentes a PatentesFaltantes
             PatentesFaltantes = new List<Patente>();
@@ -643,6 +660,11 @@ namespace GUI.Seguridad
         private void cbIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            
         }
 
         /// 
