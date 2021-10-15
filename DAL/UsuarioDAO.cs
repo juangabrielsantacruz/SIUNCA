@@ -172,9 +172,6 @@ namespace DAL
                     TraerTodasFamilias.Find(o => o.Id == item.IdFamilia).Agregar(mm);
                 }
 
-
-
-
                 foreach (var item in resultadoUsuarioFamilia)
                 {
                     // Guardo las relaciones de los Usuarios con las Familias
