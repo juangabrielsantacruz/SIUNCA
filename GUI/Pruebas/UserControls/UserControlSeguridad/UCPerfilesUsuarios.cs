@@ -133,7 +133,7 @@ namespace GUI.Seguridad
                 unUsuario = (Usuario)dgvUsuariosGestion.CurrentRow.DataBoundItem ;
                 // Logueo (traigo Perfil) del Usuario
                 unUsuario = UnGestorUsuario.CargarPermisos(unUsuario);
-                treeView1.Nodes.Add(unUsuario.ToString());
+                //treeView1.Nodes.Add(unUsuario.ToString());
                 CargarPermisosUsuario(unUsuario);
             }
             catch (Exception ex)
@@ -192,36 +192,33 @@ namespace GUI.Seguridad
             List<Patente> PatentesFaltantes;
             List<Familia> FamiliasFaltantes;
 
-            // Muestro las Familias del Usuario
+            // Muestro las Familias del Usuario BIEN
 
             dgvFamiliasUsuario.DataSource = null;
             dgvFamiliasUsuario.DataSource = unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Familia)).ToList();
-            foreach (var item in unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Familia)).ToList())
-            {
-                treeView1.Nodes.Add(item.Descripcion.ToString());
-            }
+           
             
 
-            // Muestro todas las Patentes individuales del Usuario
+            // Muestro todas las Patentes individuales del Usuario BIEN 
             dgvPatentesUsuario.DataSource = null;
             dgvPatentesUsuario.DataSource = unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Patente)).ToList();
             
-            foreach (var item in unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Patente)).ToList())
-            {
-                treeView1.Nodes[0].Nodes.Add(item.Descripcion.ToString());
-            }
+           
             
 
             // Muestro las Patentes de las Familias que el Usuario tenga
             List<Permiso> miniLista = new List<Permiso>();
             miniLista = unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Familia)).ToList();
             dgvUsuarioPatenteFamilia.DataSource = null;
-            dgvUsuarioPatenteFamilia.DataSource = miniLista.SelectMany(x => x.ListaCompleta).Distinct().ToList();
-
-            foreach (var item in miniLista.SelectMany(x => x.ListaCompleta).Distinct().ToList())
+            //dgvUsuarioPatenteFamilia.DataSource = miniLista.SelectMany(x => x.ListaCompleta).Distinct().ToList();
+            List<Permiso> lista = new List<Permiso>();
+            foreach (var item in miniLista)
             {
-                treeView1.Nodes[1].Nodes.Add(item.Descripcion.ToString());
+                lista.Add(item);
             }
+            dgvUsuarioPatenteFamilia.DataSource = lista;
+
+
 
 
             // Llevo todas las Patentes existentes a PatentesFaltantes

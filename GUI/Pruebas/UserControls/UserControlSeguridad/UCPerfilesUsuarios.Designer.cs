@@ -32,6 +32,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.button39 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button38 = new System.Windows.Forms.Button();
@@ -152,7 +153,6 @@
             this.button28 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
             this.dgvModPatente = new System.Windows.Forms.DataGridView();
-            this.treeView1 = new System.Windows.Forms.TreeView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -216,6 +216,7 @@
             // 
             this.tabPage1.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
             this.tabPage1.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage1.Controls.Add(this.treeView1);
             this.tabPage1.Controls.Add(this.tabControl2);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
@@ -240,7 +241,6 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.treeView1);
             this.tabPage4.Controls.Add(this.button39);
             this.tabPage4.Controls.Add(this.groupBox1);
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
@@ -251,6 +251,14 @@
             this.tabPage4.Tag = "combo";
             this.tabPage4.Text = "Perfiles";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(-105, 294);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(215, 157);
+            this.treeView1.TabIndex = 70;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // button39
             // 
@@ -1574,14 +1582,6 @@
             this.dgvModPatente.RowHeadersWidth = 57;
             this.dgvModPatente.Size = new System.Drawing.Size(450, 205);
             this.dgvModPatente.TabIndex = 23;
-            // 
-            // treeView1
-            // 
-            this.treeView1.Location = new System.Drawing.Point(33, 231);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(215, 157);
-            this.treeView1.TabIndex = 70;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // UCPerfilesUsuarios
             // 
