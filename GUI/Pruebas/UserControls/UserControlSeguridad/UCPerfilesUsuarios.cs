@@ -211,14 +211,7 @@ namespace GUI.Seguridad
             miniLista = unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Familia)).ToList();
             dgvUsuarioPatenteFamilia.DataSource = null;
             //dgvUsuarioPatenteFamilia.DataSource = miniLista.SelectMany(x => x.ListaCompleta).Distinct().ToList();
-            List<Permiso> lista = new List<Permiso>();
-            foreach (var item in miniLista)
-            {
-                lista.Add(item);
-            }
-            dgvUsuarioPatenteFamilia.DataSource = lista;
-
-
+            dgvUsuarioPatenteFamilia.DataSource = miniLista;
 
 
             // Llevo todas las Patentes existentes a PatentesFaltantes

@@ -96,6 +96,7 @@ namespace DAL
             Usuario elUsuario = new Usuario();
             Familia PatentesAFamilias = new Familia();
             Familia FamiliaconPatentes = new Familia();
+            
             List<Patente> ListaTodasPatentes = new List<Patente>();
             List<Familia> ListaTodasFamilias = new List<Familia>();
 
@@ -106,12 +107,8 @@ namespace DAL
 
             SqlConnection sql = new SqlConnection();
             sql.ConnectionString = cs.ConnectionString;
-            IDataReader reader1 = null;
-            IDataReader reader2 = null;
-            IDataReader reader3 = null;
-            IDataReader reader4 = null;
-            IDataReader reader5 = null;
-            IDataReader reader6 = null;
+            IDataReader reader = null;
+
             try
             {
                 sql.Open();
@@ -122,34 +119,33 @@ namespace DAL
                 cmd.Parameters.AddWithValue("IdUsuario", unUsuario.iduser);
                 //cmd.Parameters.AddWithValue("Contraseña", elUsuario.password);
 
-                reader1 = cmd.ExecuteReader();
-                while (reader1.Read())
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    elUsuario.iduser = Int32.Parse(reader1["iduser"].ToString());
+                    elUsuario.iduser = Int32.Parse(reader["iduser"].ToString());
 
                 }
-                reader1.Close();
-                //sql.Close();
+                reader.Close();
+
                 // Tomo el que debería ser el único usuario
                 //elUsuario = resultado.First();
 
 
-                //sql.Open();
                 SqlCommand cmd2 = new SqlCommand();
                 cmd2.Connection = sql;
                 cmd2.CommandText = @"SELECT * FROM UsuarioPatente WHERE IdUsuario = (@IdUsuario)  ";
                 cmd2.Parameters.AddWithValue("IdUsuario", unUsuario.iduser);
 
-                reader2 = cmd2.ExecuteReader();
+                reader = cmd2.ExecuteReader();
 
                 List<Permiso> ListaPatentesdelUsuario = new List<Permiso>();
-                while (reader2.Read())
+                while (reader.Read())
                 {
                     var unaPatente = new Patente();
                     var unUsu = new Usuario();
                     //unaPatente.IdPalabra_Traduccion = Int32.Parse(reader["username"].ToString());
-                    unaPatente.Id = Int32.Parse(reader2["IdPatente"].ToString());
-                    unUsu.iduser = Int32.Parse(reader2["IdUsuario"].ToString());
+                    unaPatente.Id = Int32.Parse(reader["IdPatente"].ToString());
+                    unUsu.iduser = Int32.Parse(reader["IdUsuario"].ToString());
                     ListaPatentesdelUsuario.Add(unaPatente);
                     foreach (var item in ListaPatentesdelUsuario)
                     {
@@ -159,24 +155,25 @@ namespace DAL
                     // hasta aca agregue al usuario sus patentes individuales , faltan las familias
 
                 }
-                reader2.Close();
-                //sql.Open();
+                reader.Close();
+
                 SqlCommand cmd3 = new SqlCommand();
                 cmd3.Connection = sql;
                 cmd3.CommandText = @"SELECT * FROM UsuarioFamilia WHERE IdUsuario = (@IdUsuario)  ";
                 cmd3.Parameters.AddWithValue("IdUsuario", unUsuario.iduser);
 
-                reader3 = cmd3.ExecuteReader();
+                reader = cmd3.ExecuteReader();
 
                 List<Permiso> ListaFamiliasdelUsuario = new List<Permiso>();
-                while (reader3.Read())
+                
+                while (reader.Read())
                 {
-                    var unaFamilia = new Familia();
+                    var unaFamilia4 = new Familia();
                     var unUsu = new Usuario();
                     //unaPatente.IdPalabra_Traduccion = Int32.Parse(reader["username"].ToString());
-                    unaFamilia.Id = Int32.Parse(reader3["IdFamilia"].ToString());
-                    unUsu.iduser = Int32.Parse(reader3["IdUsuario"].ToString());
-                    ListaFamiliasdelUsuario.Add(unaFamilia);
+                    unaFamilia4.Id = Int32.Parse(reader["IdFamilia"].ToString());
+                    unUsu.iduser = Int32.Parse(reader["IdUsuario"].ToString());
+                    ListaFamiliasdelUsuario.Add(unaFamilia4);
                     foreach (var item in ListaFamiliasdelUsuario)
                     {
                         PatentesAFamilias.Agregar(item);
@@ -184,7 +181,7 @@ namespace DAL
                     
 
                 }
-                reader3.Close();
+                reader.Close();
                 // hasta aca agregue al perfil del usuario sus familias
                 elUsuario.Perfil = PatentesAFamilias;
 
@@ -197,20 +194,25 @@ namespace DAL
                 cmd4.CommandText = @"SELECT * FROM Familia";               
                 //cmd.Parameters.AddWithValue("Contraseña", elUsuario.password);
 
-                reader4 = cmd4.ExecuteReader();
-                
-                while (reader4.Read())
+                reader = cmd4.ExecuteReader();
+
+                var unaFamilia3 = new Familia();
+                while (reader.Read())
                 {
-                    var unaFamilia = new Familia();
-                    unaFamilia.Id = Int32.Parse(reader4["Id"].ToString());
-                    unaFamilia.Descripcion = reader4["Descripcion"].ToString();
-                    ListaTodasFamilias.Add(unaFamilia);
+                    
+                    unaFamilia3.Id = Int32.Parse(reader["Id"].ToString());
+                    unaFamilia3.Descripcion = reader["Descripcion"].ToString();
+                    ListaTodasFamilias.Add(unaFamilia3);
                 }
                 
-                reader4.Close();
+                reader.Close();
 
 
                 ///
+                /// 
+           
+                /// 
+                /// 
                 /// 
                 SqlCommand cmd6 = new SqlCommand();
                 cmd6.Connection = sql;
@@ -218,20 +220,19 @@ namespace DAL
                 cmd6.CommandText = @"SELECT * FROM Patente";
                 //cmd.Parameters.AddWithValue("Contraseña", elUsuario.password);
 
-                reader6 = cmd6.ExecuteReader();
+                reader = cmd6.ExecuteReader();
 
-                while (reader6.Read())
+                while (reader.Read())
                 {
                     var unaPatente = new Patente();
-                    unaPatente.Id = Int32.Parse(reader6["Id"].ToString());
-                    unaPatente.Descripcion = reader6["Descripcion"].ToString();
+                    unaPatente.Id = Int32.Parse(reader["Id"].ToString());
+                    unaPatente.Descripcion = reader["Descripcion"].ToString();
                     ListaTodasPatentes.Add(unaPatente);
                 }
 
-                reader6.Close();
+                reader.Close();
                 /// 
                 ///
-
 
 
                 SqlCommand cmd5 = new SqlCommand();
@@ -239,29 +240,32 @@ namespace DAL
                 cmd5.CommandText = @"SELECT * FROM FamiliaPatente ";
                 //cmd4.Parameters.AddWithValue("IdUsuario", unUsuario.iduser);
 
-                reader5 = cmd5.ExecuteReader();
+                reader = cmd5.ExecuteReader();
 
-                List<Permiso> ListaPatentesenFamilia = new List<Permiso>();
-                
-                while (reader5.Read())
+                List<Permiso> ListaPatentesenFamilias = new List<Permiso>();
+                var unaFamilia2 = new Familia();
+                while (reader.Read())
                 {
-                    var unaFamilia = new Familia();
+                    //var unaFamilia = Familia();
                     var unaPatente = new Patente();
                     //unaPatente.IdPalabra_Traduccion = Int32.Parse(reader["username"].ToString());
-                    unaFamilia.Id = Int32.Parse(reader5["IdFamilia"].ToString());
-                    unaPatente.Id = Int32.Parse(reader5["IdPatente"].ToString());
-                    ListaPatentesenFamilia.Add(unaFamilia);
-                    foreach (var item in ListaPatentesenFamilia)
+                    unaFamilia2.Id = Int32.Parse(reader["IdFamilia"].ToString());
+                    unaPatente.Id = Int32.Parse(reader["IdPatente"].ToString());
+
+                    ListaPatentesenFamilias.Add(unaPatente);
+
+                    foreach (var item in ListaPatentesenFamilias)
                     {
-                        if (item.Id == unaFamilia.Id)
-                        {
-                            FamiliaconPatentes.Agregar(item);
-                        }                        
+                        unaFamilia2.Agregar(item);
+                        //var mm = ListaTodasPatentes.Find(x => x.Id == item.Id);
+                        ////ListaTodasFamilias.Find(o => o.Id == item.Id).Agregar(mm);
+                        //ListaTodasFamilias.Find(o => o.Id == item.Id).Agregar(mm);
                     }
-                    
                 }
+                reader.Close();
+
                 // agrego las patentes individuales y familias al perfil del usuario
-                reader5.Close();
+
                 elUsuario.Perfil = PatentesAFamilias;
             }
             catch (Exception e)
