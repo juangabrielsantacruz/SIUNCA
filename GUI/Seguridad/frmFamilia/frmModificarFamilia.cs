@@ -15,7 +15,7 @@ namespace GUI.Seguridad.frmFamilia
     public partial class frmModificarFamilia : Form
     {
         GestorFamilia unGestorFamilia = new GestorFamilia();
-        Familia unaFamilia = new Familia();
+        Familia2 unaFamilia = new Familia2();
         public frmModificarFamilia()
         {
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace GUI.Seguridad.frmFamilia
         {
             
 
-            unaFamilia = (Familia)dgvModFamilias.CurrentRow.DataBoundItem;
+            unaFamilia = (Familia2)dgvModFamilias.CurrentRow.DataBoundItem;
             unaFamilia.Descripcion = txtModDescripcionFamilia.Text;
 
             unGestorFamilia.Modificar(unaFamilia);

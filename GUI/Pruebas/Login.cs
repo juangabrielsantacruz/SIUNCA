@@ -60,7 +60,7 @@ namespace GUI
             var resultadoUser = gestorUsuario.IniciarSesion(usuario);
 
             //traigo el usuario de la sesion logueada
-            var UsuarioSingleton = ManejadorSesion.GetInstancia.usuario;
+            var UsuarioSingleton = ManejadorSesion.GetInstancia._usuario;
 
             if (resultadoUser != null)
             {
@@ -88,7 +88,7 @@ namespace GUI
                 //UNBLL.habilitarpermisos(resultadoUser);
 
                 //si usuario tiene la Patente de ID 1 muestra form secretario
-                frmAdministrativo.Visible = ManejadorSesion.GetInstancia.usuario.Perfil.Validar(1);
+                frmAdministrativo.Visible = ManejadorSesion.GetInstancia._usuario.Perfil.Validar(1);
                 //si usuario tiene la Patente de ID 9 muestra form profesor
                 frmProfe.Visible = UsuarioSingleton.Perfil.Validar(9);
 

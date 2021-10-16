@@ -105,8 +105,8 @@ namespace GUI.Seguridad
         private void button4_Click(object sender, EventArgs e)
         {
             // Agregar Familia seleccionada de la grilla
-            Familia unaFamilia = new Familia();
-            unaFamilia = (Familia)dgvUsuarioSinFamilias.CurrentRow.DataBoundItem;
+            Familia2 unaFamilia = new Familia2();
+            unaFamilia = (Familia2)dgvUsuarioSinFamilias.CurrentRow.DataBoundItem;
 
             unUsuario.AgregarFamilia(unaFamilia);
 
@@ -116,8 +116,8 @@ namespace GUI.Seguridad
         private void button5_Click(object sender, EventArgs e)
         {
             // Quitar Familia seleccionada de la grilla
-            Familia unaFamilia = new Familia();
-            unaFamilia = (Familia)dgvFamiliasUsuario.CurrentRow.DataBoundItem;
+            Familia2 unaFamilia = new Familia2();
+            unaFamilia = (Familia2)dgvFamiliasUsuario.CurrentRow.DataBoundItem;
 
             unUsuario.QuitarFamilia(unaFamilia);
 
@@ -127,8 +127,8 @@ namespace GUI.Seguridad
         private void button17_Click(object sender, EventArgs e)
         {
             // quito Patente seleccionada de la grilla
-            Patente unaPatente = new Patente();
-            unaPatente = (Patente)dgvPatentesUsuario.CurrentRow.DataBoundItem;
+            Patente2 unaPatente = new Patente2();
+            unaPatente = (Patente2)dgvPatentesUsuario.CurrentRow.DataBoundItem;
 
             unUsuario.QuitarPatente(unaPatente);
 
@@ -138,8 +138,8 @@ namespace GUI.Seguridad
         private void button18_Click(object sender, EventArgs e)
         {
             // Agrego Patente seleccionada de la grilla
-            Patente unaPatente = new Patente();
-            unaPatente = (Patente)dgvUsuarioSinPatentes.CurrentRow.DataBoundItem;
+            Patente2 unaPatente = new Patente2();
+            unaPatente = (Patente2)dgvUsuarioSinPatentes.CurrentRow.DataBoundItem;
 
             unUsuario.AgregarPatente(unaPatente);
 
@@ -147,30 +147,30 @@ namespace GUI.Seguridad
         }
         public void CargarPermisosUsuario(Usuario unUsuario)
         {
-            List<Patente> PatentesFaltantes;
-            List<Familia> FamiliasFaltantes;
+            List<Patente2> PatentesFaltantes;
+            List<Familia2> FamiliasFaltantes;
 
             // Muestro las Familias del Usuario
 
             dgvFamiliasUsuario.DataSource = null;
-            dgvFamiliasUsuario.DataSource = unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Familia)).ToList();
+            dgvFamiliasUsuario.DataSource = unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Familia2)).ToList();
 
             // Muestro todas las Patentes individuales del Usuario
             dgvPatentesUsuario.DataSource = null;
-            dgvPatentesUsuario.DataSource = unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Patente)).ToList();
+            dgvPatentesUsuario.DataSource = unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Patente2)).ToList();
 
             // Muestro las Patentes de las Familias que el Usuario tenga
             List<Permiso> miniLista = new List<Permiso>();
-            miniLista = unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Familia)).ToList();
+            miniLista = unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Familia2)).ToList();
             dgvUsuarioPatenteFamilia.DataSource = null;
             dgvUsuarioPatenteFamilia.DataSource = miniLista.SelectMany(x => x.ListaCompleta).Distinct().ToList();
 
             // Llevo todas las Patentes existentes a PatentesFaltantes
-            PatentesFaltantes = new List<Patente>();
+            PatentesFaltantes = new List<Patente2>();
             PatentesFaltantes = unGestorPatente.TraerTodo();
 
             // Saco las Patentes que el Usuario ya tiene
-            foreach (Patente item in unUsuario.Perfil.ListaCompleta)
+            foreach (Patente2 item in unUsuario.Perfil.ListaCompleta)
             {
                 if (PatentesFaltantes.Contains(item))
                     PatentesFaltantes.Remove(item);
@@ -186,7 +186,7 @@ namespace GUI.Seguridad
             // Saco las Familias que el Usuario ya tiene
             foreach (var item in unUsuario.Perfil.Lista)
             {
-                if (item.GetType() == typeof(Familia))
+                if (item.GetType() == typeof(Familia2))
                 {
                     if (FamiliasFaltantes.Exists(x => x.Id == item.Id))
                         FamiliasFaltantes.RemoveAll(y => y.Id == item.Id);

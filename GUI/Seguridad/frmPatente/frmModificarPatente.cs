@@ -14,7 +14,7 @@ namespace GUI.Seguridad.frmPatente
 {
     public partial class frmModificarPatente : Form
     {
-        Patente unaPatente = new Patente();
+        Patente2 unaPatente = new Patente2();
         GestorPatente unGestorPatente = new GestorPatente();
         public frmModificarPatente()
         {
@@ -23,7 +23,7 @@ namespace GUI.Seguridad.frmPatente
 
         private void btnModPatente_Click(object sender, EventArgs e)
         {
-            unaPatente = (Patente)dgvModPatente.CurrentRow.DataBoundItem;
+            unaPatente = (Patente2)dgvModPatente.CurrentRow.DataBoundItem;
             unaPatente.Descripcion = txtModDescPatente.Text;
 
             unGestorPatente.Modificar(unaPatente);

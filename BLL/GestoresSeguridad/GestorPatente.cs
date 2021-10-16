@@ -11,21 +11,21 @@ namespace BLL.GestoresSeguridad
     public class GestorPatente
     {
         PatenteDAO unaPatenteDAO = new PatenteDAO();
-        public List<Patente> TraerTodo()
+        public List<Patente2> TraerTodo()
         {
             return unaPatenteDAO.TraerTodo();
         }
 
-        public void Insertar(Patente unaPatente)
+        public void Insertar(Patente2 unaPatente)
         {
             unaPatenteDAO.Insertar(unaPatente);
         }
 
-        public void Modificar(Patente unaPatente)
+        public void Modificar(Patente2 unaPatente)
         {
             unaPatenteDAO.Modificar(unaPatente);
         }
-        public void Quitar(Patente unaPatente)
+        public void Quitar(Patente2 unaPatente)
         {
             unaPatenteDAO.Quitar(unaPatente);
         }

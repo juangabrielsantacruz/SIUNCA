@@ -52,6 +52,7 @@
     <Compile Include="GestoresSeguridad\GestorFamilia.cs" />
     <Compile Include="GestoresSeguridad\GestorPatente.cs" />
     <Compile Include="GestoresSeguridad\GestorTipoBitacora.cs" />
+    <Compile Include="GestoresSeguridad\PermisosBLL.cs" />
     <Compile Include="GestorIdioma.cs" />
     <Compile Include="GestorMateria.cs" />
     <Compile Include="GestorMateriaCC.cs" />

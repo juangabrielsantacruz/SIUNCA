@@ -11,19 +11,19 @@ namespace DAL.DAOSeguridad
 {
     public class PatenteDAO
     {
-        public List<Patente> TraerTodo()
+        public List<Patente2> TraerTodo()
         {
             Conexion unaConexion = new Conexion("config.xml");
-            List<Patente> resultado = new List<Patente>();
+            List<Patente2> resultado = new List<Patente2>();
 
-            List<Patente> TraerTodasPatentes = new List<Patente>();
+            List<Patente2> TraerTodasPatentes = new List<Patente2>();
 
 
             try
             {
                 unaConexion.ConexionIniciar();
 
-                resultado = unaConexion.EjecutarTupla<Patente>
+                resultado = unaConexion.EjecutarTupla<Patente2>
                     ("SELECT Id, Descripcion FROM Patente", new List<Parametro>());
             }
             catch (Exception ex)
@@ -40,7 +40,7 @@ namespace DAL.DAOSeguridad
             return resultado;
         }
 
-        public void Insertar(Patente unaPatente)
+        public void Insertar(Patente2 unaPatente)
         {
             Conexion unaConexion = new Conexion("config.xml");
             List<Parametro> listaParametros = new List<Parametro>();
@@ -68,7 +68,7 @@ namespace DAL.DAOSeguridad
             }
         }
 
-        public void Quitar(Patente unaPatente)
+        public void Quitar(Patente2 unaPatente)
         {
             Conexion unaConexion = new Conexion("config.xml");
             List<Parametro> listaParametros = new List<Parametro>();
@@ -94,7 +94,7 @@ namespace DAL.DAOSeguridad
         }
 
 
-        public void Modificar(Patente unaPatente)
+        public void Modificar(Patente2 unaPatente)
         {
             Conexion unaConexion = new Conexion("config.xml");
             List<Parametro> listaParametros = new List<Parametro>();

@@ -24,10 +24,10 @@ namespace BIZ
         private int _idUsuario;
         //private string _nombre;
 
-        private Familia _perfil;
+        private Familia2 _perfil;
 
 
-        public Familia Perfil
+        public Familia2 Perfil
         {
             get
             {
@@ -47,25 +47,48 @@ namespace BIZ
                 return false;
         }
 
-        public void QuitarFamilia(Familia unaFamilia)
+        public void QuitarFamilia(Familia2 unaFamilia)
         {
             Perfil.Quitar(unaFamilia);
         }
-        public void AgregarFamilia(Familia unaFamilia)
+        public void AgregarFamilia(Familia2 unaFamilia)
         {
             Perfil.Agregar(unaFamilia);
         }
 
-        public void QuitarPatente(Patente unaPatente)
+        public void QuitarPatente(Patente2 unaPatente)
         {
             Perfil.Lista.Remove(unaPatente);
         }
 
-        public void AgregarPatente(Patente unaPatente)
+        public void AgregarPatente(Patente2 unaPatente)
         {
             Perfil.Lista.Add(unaPatente);
         }
 
+        ////////////////////
+        ///nuevo
+        public Usuario()
+        {
+            _permisos = new List<Componente>();
+        }
+        List<Componente> _permisos;
+
+        public List<Componente> Permisos
+        {
+            get
+            {
+                return _permisos;
+            }
+        }
+
+        public override string ToString()
+        {
+            return username;
+        }
+
+        //cierre nuevo
+        /////////////////
 
     }
 }

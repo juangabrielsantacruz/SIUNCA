@@ -92,307 +92,307 @@ namespace DAL
 
         public Usuario TraerPermisos(Usuario unUsuario)
         {
-            List<Usuario> resultado = new List<Usuario>();
-            Usuario elUsuario = new Usuario();
-            Familia PatentesAFamilias = new Familia();
-            Familia FamiliaconPatentes = new Familia();
-            
-            List<Patente> ListaTodasPatentes = new List<Patente>();
-            List<Familia> ListaTodasFamilias = new List<Familia>();
+            //List<Usuario> resultado = new List<Usuario>();
+            //Usuario elUsuario = new Usuario();
+            //Familia2 PatentesAFamilias = new Familia2();
+            //Familia2 FamiliaconPatentes = new Familia2();
 
-            SqlConnectionStringBuilder cs = new SqlConnectionStringBuilder();
-            cs.InitialCatalog = "PruebaSIUNCA";
-            cs.DataSource = ".\\SQLEXPRESS";
-            cs.IntegratedSecurity = true;
+            //List<Patente2> ListaTodasPatentes = new List<Patente2>();
+            //List<Familia2> ListaTodasFamilias = new List<Familia2>();
 
-            SqlConnection sql = new SqlConnection();
-            sql.ConnectionString = cs.ConnectionString;
-            IDataReader reader = null;
+            //SqlConnectionStringBuilder cs = new SqlConnectionStringBuilder();
+            //cs.InitialCatalog = "PruebaSIUNCA";
+            //cs.DataSource = ".\\SQLEXPRESS";
+            //cs.IntegratedSecurity = true;
 
-            try
-            {
-                sql.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = sql;
+            //SqlConnection sql = new SqlConnection();
+            //sql.ConnectionString = cs.ConnectionString;
+            //IDataReader reader = null;
 
-                cmd.CommandText = @"SELECT * FROM tbl_user WHERE iduser = (@IdUsuario)  ";
-                cmd.Parameters.AddWithValue("IdUsuario", unUsuario.iduser);
-                //cmd.Parameters.AddWithValue("Contraseña", elUsuario.password);
+            //try
+            //{
+            //    sql.Open();
+            //    SqlCommand cmd = new SqlCommand();
+            //    cmd.Connection = sql;
 
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    elUsuario.iduser = Int32.Parse(reader["iduser"].ToString());
+            //    cmd.CommandText = @"SELECT * FROM tbl_user WHERE iduser = (@IdUsuario)  ";
+            //    cmd.Parameters.AddWithValue("IdUsuario", unUsuario.iduser);
+            //    //cmd.Parameters.AddWithValue("Contraseña", elUsuario.password);
 
-                }
-                reader.Close();
+            //    reader = cmd.ExecuteReader();
+            //    while (reader.Read())
+            //    {
+            //        elUsuario.iduser = Int32.Parse(reader["iduser"].ToString());
 
-                // Tomo el que debería ser el único usuario
-                //elUsuario = resultado.First();
+            //    }
+            //    reader.Close();
 
-
-                SqlCommand cmd2 = new SqlCommand();
-                cmd2.Connection = sql;
-                cmd2.CommandText = @"SELECT * FROM UsuarioPatente WHERE IdUsuario = (@IdUsuario)  ";
-                cmd2.Parameters.AddWithValue("IdUsuario", unUsuario.iduser);
-
-                reader = cmd2.ExecuteReader();
-
-                List<Permiso> ListaPatentesdelUsuario = new List<Permiso>();
-                while (reader.Read())
-                {
-                    var unaPatente = new Patente();
-                    var unUsu = new Usuario();
-                    //unaPatente.IdPalabra_Traduccion = Int32.Parse(reader["username"].ToString());
-                    unaPatente.Id = Int32.Parse(reader["IdPatente"].ToString());
-                    unUsu.iduser = Int32.Parse(reader["IdUsuario"].ToString());
-                    ListaPatentesdelUsuario.Add(unaPatente);
-                    foreach (var item in ListaPatentesdelUsuario)
-                    {
-                        PatentesAFamilias.Agregar(item);
-                    }
-                    //elUsuario.Perfil = PatentesAFamilias;
-                    // hasta aca agregue al usuario sus patentes individuales , faltan las familias
-
-                }
-                reader.Close();
-
-                SqlCommand cmd3 = new SqlCommand();
-                cmd3.Connection = sql;
-                cmd3.CommandText = @"SELECT * FROM UsuarioFamilia WHERE IdUsuario = (@IdUsuario)  ";
-                cmd3.Parameters.AddWithValue("IdUsuario", unUsuario.iduser);
-
-                reader = cmd3.ExecuteReader();
-
-                List<Permiso> ListaFamiliasdelUsuario = new List<Permiso>();
-                
-                while (reader.Read())
-                {
-                    var unaFamilia4 = new Familia();
-                    var unUsu = new Usuario();
-                    //unaPatente.IdPalabra_Traduccion = Int32.Parse(reader["username"].ToString());
-                    unaFamilia4.Id = Int32.Parse(reader["IdFamilia"].ToString());
-                    unUsu.iduser = Int32.Parse(reader["IdUsuario"].ToString());
-                    ListaFamiliasdelUsuario.Add(unaFamilia4);
-                    foreach (var item in ListaFamiliasdelUsuario)
-                    {
-                        PatentesAFamilias.Agregar(item);
-                    }
-                    
-
-                }
-                reader.Close();
-                // hasta aca agregue al perfil del usuario sus familias
-                elUsuario.Perfil = PatentesAFamilias;
-
-                //// 
-                ///
-
-                SqlCommand cmd4 = new SqlCommand();
-                cmd4.Connection = sql;
-
-                cmd4.CommandText = @"SELECT * FROM Familia";               
-                //cmd.Parameters.AddWithValue("Contraseña", elUsuario.password);
-
-                reader = cmd4.ExecuteReader();
-
-                var unaFamilia3 = new Familia();
-                while (reader.Read())
-                {
-                    
-                    unaFamilia3.Id = Int32.Parse(reader["Id"].ToString());
-                    unaFamilia3.Descripcion = reader["Descripcion"].ToString();
-                    ListaTodasFamilias.Add(unaFamilia3);
-                }
-                
-                reader.Close();
+            //    // Tomo el que debería ser el único usuario
+            //    //elUsuario = resultado.First();
 
 
-                ///
-                /// 
-           
-                /// 
-                /// 
-                /// 
-                SqlCommand cmd6 = new SqlCommand();
-                cmd6.Connection = sql;
+            //    SqlCommand cmd2 = new SqlCommand();
+            //    cmd2.Connection = sql;
+            //    cmd2.CommandText = @"SELECT * FROM UsuarioPatente WHERE IdUsuario = (@IdUsuario)  ";
+            //    cmd2.Parameters.AddWithValue("IdUsuario", unUsuario.iduser);
 
-                cmd6.CommandText = @"SELECT * FROM Patente";
-                //cmd.Parameters.AddWithValue("Contraseña", elUsuario.password);
+            //    reader = cmd2.ExecuteReader();
 
-                reader = cmd6.ExecuteReader();
+            //    List<Permiso> ListaPatentesdelUsuario = new List<Permiso>();
+            //    while (reader.Read())
+            //    {
+            //        var unaPatente = new Patente2();
+            //        var unUsu = new Usuario();
+            //        //unaPatente.IdPalabra_Traduccion = Int32.Parse(reader["username"].ToString());
+            //        unaPatente.Id = Int32.Parse(reader["IdPatente"].ToString());
+            //        unUsu.iduser = Int32.Parse(reader["IdUsuario"].ToString());
+            //        ListaPatentesdelUsuario.Add(unaPatente);
+            //        foreach (var item in ListaPatentesdelUsuario)
+            //        {
+            //            PatentesAFamilias.Agregar(item);
+            //        }
+            //        //elUsuario.Perfil = PatentesAFamilias;
+            //        // hasta aca agregue al usuario sus patentes individuales , faltan las familias
 
-                while (reader.Read())
-                {
-                    var unaPatente = new Patente();
-                    unaPatente.Id = Int32.Parse(reader["Id"].ToString());
-                    unaPatente.Descripcion = reader["Descripcion"].ToString();
-                    ListaTodasPatentes.Add(unaPatente);
-                }
+            //    }
+            //    reader.Close();
 
-                reader.Close();
-                /// 
-                ///
+            //    SqlCommand cmd3 = new SqlCommand();
+            //    cmd3.Connection = sql;
+            //    cmd3.CommandText = @"SELECT * FROM UsuarioFamilia WHERE IdUsuario = (@IdUsuario)  ";
+            //    cmd3.Parameters.AddWithValue("IdUsuario", unUsuario.iduser);
+
+            //    reader = cmd3.ExecuteReader();
+
+            //    List<Permiso> ListaFamiliasdelUsuario = new List<Permiso>();
+
+            //    while (reader.Read())
+            //    {
+            //        var unaFamilia4 = new Familia2();
+            //        var unUsu = new Usuario();
+            //        //unaPatente.IdPalabra_Traduccion = Int32.Parse(reader["username"].ToString());
+            //        unaFamilia4.Id = Int32.Parse(reader["IdFamilia"].ToString());
+            //        unUsu.iduser = Int32.Parse(reader["IdUsuario"].ToString());
+            //        ListaFamiliasdelUsuario.Add(unaFamilia4);
+            //        foreach (var item in ListaFamiliasdelUsuario)
+            //        {
+            //            PatentesAFamilias.Agregar(item);
+            //        }
 
 
-                SqlCommand cmd5 = new SqlCommand();
-                cmd5.Connection = sql;
-                cmd5.CommandText = @"SELECT * FROM FamiliaPatente ";
-                //cmd4.Parameters.AddWithValue("IdUsuario", unUsuario.iduser);
+            //    }
+            //    reader.Close();
+            //    // hasta aca agregue al perfil del usuario sus familias
+            //    elUsuario.Perfil = PatentesAFamilias;
 
-                reader = cmd5.ExecuteReader();
+            //    //// 
+            //    ///
 
-                List<Permiso> ListaPatentesenFamilias = new List<Permiso>();
-                var unaFamilia2 = new Familia();
-                while (reader.Read())
-                {
-                    //var unaFamilia = Familia();
-                    var unaPatente = new Patente();
-                    //unaPatente.IdPalabra_Traduccion = Int32.Parse(reader["username"].ToString());
-                    unaFamilia2.Id = Int32.Parse(reader["IdFamilia"].ToString());
-                    unaPatente.Id = Int32.Parse(reader["IdPatente"].ToString());
+            //    SqlCommand cmd4 = new SqlCommand();
+            //    cmd4.Connection = sql;
 
-                    ListaPatentesenFamilias.Add(unaPatente);
+            //    cmd4.CommandText = @"SELECT * FROM Familia";               
+            //    //cmd.Parameters.AddWithValue("Contraseña", elUsuario.password);
 
-                    foreach (var item in ListaPatentesenFamilias)
-                    {
-                        unaFamilia2.Agregar(item);
-                        //var mm = ListaTodasPatentes.Find(x => x.Id == item.Id);
-                        ////ListaTodasFamilias.Find(o => o.Id == item.Id).Agregar(mm);
-                        //ListaTodasFamilias.Find(o => o.Id == item.Id).Agregar(mm);
-                    }
-                }
-                reader.Close();
+            //    reader = cmd4.ExecuteReader();
 
-                // agrego las patentes individuales y familias al perfil del usuario
+            //    var unaFamilia3 = new Familia2();
+            //    while (reader.Read())
+            //    {
 
-                elUsuario.Perfil = PatentesAFamilias;
-            }
-            catch (Exception e)
-            {
+            //        unaFamilia3.Id = Int32.Parse(reader["Id"].ToString());
+            //        unaFamilia3.Descripcion = reader["Descripcion"].ToString();
+            //        ListaTodasFamilias.Add(unaFamilia3);
+            //    }
 
-                throw e;
-            }
-            finally
-            {
-                
-                //sql.Close();
-                //if (reader != null)
-                //    reader.Close();
-                //if (sql != null)
-                //    sql.Close();
-            }
-            return elUsuario;
+            //    reader.Close();
+
+
+            //    ///
+            //    /// 
+
+            //    /// 
+            //    /// 
+            //    /// 
+            //    SqlCommand cmd6 = new SqlCommand();
+            //    cmd6.Connection = sql;
+
+            //    cmd6.CommandText = @"SELECT * FROM Patente";
+            //    //cmd.Parameters.AddWithValue("Contraseña", elUsuario.password);
+
+            //    reader = cmd6.ExecuteReader();
+
+            //    while (reader.Read())
+            //    {
+            //        var unaPatente = new Patente2();
+            //        unaPatente.Id = Int32.Parse(reader["Id"].ToString());
+            //        unaPatente.Descripcion = reader["Descripcion"].ToString();
+            //        ListaTodasPatentes.Add(unaPatente);
+            //    }
+
+            //    reader.Close();
+            //    /// 
+            //    ///
+
+
+            //    SqlCommand cmd5 = new SqlCommand();
+            //    cmd5.Connection = sql;
+            //    cmd5.CommandText = @"SELECT * FROM FamiliaPatente ";
+            //    //cmd4.Parameters.AddWithValue("IdUsuario", unUsuario.iduser);
+
+            //    reader = cmd5.ExecuteReader();
+
+            //    List<Permiso> ListaPatentesenFamilias = new List<Permiso>();
+            //    var unaFamilia2 = new Familia2();
+            //    while (reader.Read())
+            //    {
+            //        //var unaFamilia = Familia();
+            //        var unaPatente = new Patente2();
+            //        //unaPatente.IdPalabra_Traduccion = Int32.Parse(reader["username"].ToString());
+            //        unaFamilia2.Id = Int32.Parse(reader["IdFamilia"].ToString());
+            //        unaPatente.Id = Int32.Parse(reader["IdPatente"].ToString());
+
+            //        ListaPatentesenFamilias.Add(unaPatente);
+
+            //        foreach (var item in ListaPatentesenFamilias)
+            //        {
+            //            unaFamilia2.Agregar(item);
+            //            //var mm = ListaTodasPatentes.Find(x => x.Id == item.Id);
+            //            ////ListaTodasFamilias.Find(o => o.Id == item.Id).Agregar(mm);
+            //            //ListaTodasFamilias.Find(o => o.Id == item.Id).Agregar(mm);
+            //        }
+            //    }
+            //    reader.Close();
+
+            //    // agrego las patentes individuales y familias al perfil del usuario
+
+            //    elUsuario.Perfil = PatentesAFamilias;
+            //}
+            //catch (Exception e)
+            //{
+
+            //    throw e;
+            //}
+            //finally
+            //{
+
+            //    //sql.Close();
+            //    //if (reader != null)
+            //    //    reader.Close();
+            //    //if (sql != null)
+            //    //    sql.Close();
+            //}
+            //return elUsuario;
 
 
 
 
 
             /////////
-            //Conexion unaConexion = new Conexion("config.xml");
-            //List<Usuario> resultado = new List<Usuario>();
-            //Usuario elUsuario = new Usuario();
+            Conexion unaConexion = new Conexion("config.xml");
+            List<Usuario> resultado = new List<Usuario>();
+            Usuario elUsuario = new Usuario();
 
-            //List<Patente> TraerTodasPatentes = new List<Patente>();
-            //List<Familia> TraerTodasFamilias = new List<Familia>();
-            //List<FamiliaPatente> TraerTodasFamiliaPatente = new List<FamiliaPatente>();
-            //List<FamiliaFamilia> TraerTodasFamiliaFamilia = new List<FamiliaFamilia>();
+            List<Patente2> TraerTodasPatentes = new List<Patente2>();
+            List<Familia2> TraerTodasFamilias = new List<Familia2>();
+            List<FamiliaPatente> TraerTodasFamiliaPatente = new List<FamiliaPatente>();
+            List<FamiliaFamilia> TraerTodasFamiliaFamilia = new List<FamiliaFamilia>();
 
-            //List<UsuarioPatente> resultadoUsuarioPatente = new List<UsuarioPatente>();
-            //List<UsuarioFamilia> resultadoUsuarioFamilia = new List<UsuarioFamilia>();
+            List<UsuarioPatente> resultadoUsuarioPatente = new List<UsuarioPatente>();
+            List<UsuarioFamilia> resultadoUsuarioFamilia = new List<UsuarioFamilia>();
 
-            //Familia PatentesAFamilias = new Familia();
+            Familia2 PatentesAFamilias = new Familia2();
 
-            //List<Parametro> listaParametros = new List<Parametro>();
-
-
-            //try
-            //{
-            //    unaConexion.ConexionIniciar();
-
-            //    listaParametros.Add(new Parametro("@IdUsuario", unUsuario.iduser));
-            //    listaParametros.Add(new Parametro("@Contraseña", unUsuario.password));
-
-            //    resultado = unaConexion.EjecutarTupla<Usuario>
-            //        //
-            //        ("SELECT * FROM tbl_user WHERE iduser = (@IdUsuario) AND password = (@Contraseña)", listaParametros);
-
-            //    // Tomo el que debería ser el único usuario
-            //    //elUsuario = resultado.First;
-            //    elUsuario = resultado.First();
-
-            //    // Traigo todas las patentes
-            //    TraerTodasPatentes = unaConexion.EjecutarTupla<Patente>
-            //        ("SELECT * FROM Patente", new List<Parametro>());
-
-            //    // Traigo las relaciones con Patente que tiene el Usuario 
-            //    resultadoUsuarioPatente = unaConexion.EjecutarTupla<UsuarioPatente>
-            //        ("SELECT * FROM UsuarioPatente WHERE IdUsuario = (@IdUsuario)", listaParametros);
+            List<Parametro> listaParametros = new List<Parametro>();
 
 
-            //    foreach (var item in resultadoUsuarioPatente)
-            //    {
-            //        // Guardo las Patentes que el Usuario tiene
-            //        var oo = TraerTodasPatentes.Find(y => y.Id == item.IdPatente);
-            //        //(!IsNothing(oo))
-            //        if (oo != null)
-            //            // Agrego la Patente a la Lista que será el Perfil del Usuario
-            //            PatentesAFamilias.Agregar(oo);
-            //    }
+            try
+            {
+                unaConexion.ConexionIniciar();
+
+                listaParametros.Add(new Parametro("@IdUsuario", unUsuario.iduser));
+                listaParametros.Add(new Parametro("@Contraseña", unUsuario.password));
+
+                resultado = unaConexion.EjecutarTupla<Usuario>
+                    //
+                    ("SELECT * FROM tbl_user WHERE iduser = (@IdUsuario) AND password = (@Contraseña)", listaParametros);
+
+                // Tomo el que debería ser el único usuario
+                //elUsuario = resultado.First;
+                elUsuario = resultado.First();
+
+                // Traigo todas las patentes
+                TraerTodasPatentes = unaConexion.EjecutarTupla<Patente2>
+                    ("SELECT * FROM Patente", new List<Parametro>());
+
+                // Traigo las relaciones con Patente que tiene el Usuario 
+                resultadoUsuarioPatente = unaConexion.EjecutarTupla<UsuarioPatente>
+                    ("SELECT * FROM UsuarioPatente WHERE IdUsuario = (@IdUsuario)", listaParametros);
+
+
+                foreach (var item in resultadoUsuarioPatente)
+                {
+                    // Guardo las Patentes que el Usuario tiene
+                    var oo = TraerTodasPatentes.Find(y => y.Id == item.IdPatente);
+                    //(!IsNothing(oo))
+                    if (oo != null)
+                        // Agrego la Patente a la Lista que será el Perfil del Usuario
+                        PatentesAFamilias.Agregar(oo);
+                }
 
 
 
-            //    TraerTodasFamilias = unaConexion.EjecutarTupla<Familia>
-            //        ("SELECT * FROM Familia", listaParametros);
+                TraerTodasFamilias = unaConexion.EjecutarTupla<Familia2>
+                    ("SELECT * FROM Familia", listaParametros);
 
-            //    resultadoUsuarioFamilia = unaConexion.EjecutarTupla<UsuarioFamilia>
-            //        ("SELECT * FROM UsuarioFamilia WHERE IdUsuario = (@IdUsuario)", listaParametros);
+                resultadoUsuarioFamilia = unaConexion.EjecutarTupla<UsuarioFamilia>
+                    ("SELECT * FROM UsuarioFamilia WHERE IdUsuario = (@IdUsuario)", listaParametros);
 
-            //    TraerTodasFamiliaPatente = unaConexion.EjecutarTupla<FamiliaPatente>
-            //       ("SELECT * FROM FamiliaPatente", new List<Parametro>());
+                TraerTodasFamiliaPatente = unaConexion.EjecutarTupla<FamiliaPatente>
+                   ("SELECT * FROM FamiliaPatente", new List<Parametro>());
 
-            //    TraerTodasFamiliaFamilia = unaConexion.EjecutarTupla<FamiliaFamilia>(("SELECT * FROM FamiliaFamilia"), new List<Parametro>());
-
-
-            //    foreach (var item in TraerTodasFamiliaPatente)
-            //    {
-            //        // Guardo las relaciones de las Familias con las Patentes
-            //        var mm = TraerTodasPatentes.Find(x => x.Id == item.IdPatente);
-            //        // Agrego la Patente a la Familia
-            //        TraerTodasFamilias.Find(o => o.Id == item.IdFamilia).Agregar(mm);
-            //    }
+                TraerTodasFamiliaFamilia = unaConexion.EjecutarTupla<FamiliaFamilia>(("SELECT * FROM FamiliaFamilia"), new List<Parametro>());
 
 
-            //    foreach (var item in TraerTodasFamiliaFamilia)
-            //    {
-            //        // Guardo las relaciones de las Familias con las Familias Hijas
-            //        var mm = TraerTodasFamilias.Find(x => x.Id == item.IdFamiliaHijo);
-            //        // Agrego la Familia hija a la Familia
-            //        TraerTodasFamilias.Find(o => o.Id == item.IdFamilia).Agregar(mm);
-            //    }
+                foreach (var item in TraerTodasFamiliaPatente)
+                {
+                    // Guardo las relaciones de las Familias con las Patentes
+                    var mm = TraerTodasPatentes.Find(x => x.Id == item.IdPatente);
+                    // Agrego la Patente a la Familia
+                    TraerTodasFamilias.Find(o => o.Id == item.IdFamilia).Agregar(mm);
+                }
 
-            //    foreach (var item in resultadoUsuarioFamilia)
-            //    {
-            //        // Guardo las relaciones de los Usuarios con las Familias
-            //        var xx = TraerTodasFamilias.Find(x => x.Id == item.IdFamilia);
 
-            //        if (xx != null)
-            //            // Agrego la Familia a la lista que será el Perfil del Usuario
-            //            PatentesAFamilias.Agregar(xx);
-            //    }
+                foreach (var item in TraerTodasFamiliaFamilia)
+                {
+                    // Guardo las relaciones de las Familias con las Familias Hijas
+                    var mm = TraerTodasFamilias.Find(x => x.Id == item.IdFamiliaHijo);
+                    // Agrego la Familia hija a la Familia
+                    TraerTodasFamilias.Find(o => o.Id == item.IdFamilia).Agregar(mm);
+                }
 
-            //    // Le pego el perfil al usuario
-            //    elUsuario.Perfil = PatentesAFamilias;
-            //}
-            //catch (Exception ex)
-            //{
-            //    return null;
-            //}
+                foreach (var item in resultadoUsuarioFamilia)
+                {
+                    // Guardo las relaciones de los Usuarios con las Familias
+                    var xx = TraerTodasFamilias.Find(x => x.Id == item.IdFamilia);
 
-            //finally
-            //{
-            //}
-            //return elUsuario;
+                    if (xx != null)
+                        // Agrego la Familia a la lista que será el Perfil del Usuario
+                        PatentesAFamilias.Agregar(xx);
+                }
+
+                // Le pego el perfil al usuario
+                elUsuario.Perfil = PatentesAFamilias;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+            finally
+            {
+            }
+            return elUsuario;
         }
 
         public void insertarUsuario(Usuario usuario)
@@ -451,13 +451,13 @@ namespace DAL
                 {
                     List<Parametro> listaParametros2 = new List<Parametro>();
 
-                    if (Item.GetType() == typeof(Familia))
+                    if (Item.GetType() == typeof(Familia2))
                     {
                         listaParametros2.Add(new Parametro("@IdUsuario", unUsuario.iduser));
                         listaParametros2.Add(new Parametro("@IdFamilia", Item.Id));
                         unaConexion.EjecutarSinResultado("INSERT INTO UsuarioFamilia (IdUsuario, IdFamilia) VALUES (@IdUsuario, @IdFamilia)", listaParametros2);
                     }
-                    else if (Item.GetType() == typeof(Patente))
+                    else if (Item.GetType() == typeof(Patente2))
                     {
                         listaParametros2.Add(new Parametro("@IdUsuario", unUsuario.iduser));
                         listaParametros2.Add(new Parametro("@IdPatente", Item.Id));
@@ -477,6 +477,94 @@ namespace DAL
                 unaConexion.ConexionFinalizar();
             }
         }
+
+
+
+
+        ///nuevo
+        ///
+        //
+        private string GetConnectionString()
+        {
+            var cs = new SqlConnectionStringBuilder();
+            cs.IntegratedSecurity = true;
+            cs.DataSource = ".\\SQLEXPRESS";
+            cs.InitialCatalog = "upf";
+            return cs.ConnectionString;
+        }
+
+        public List<Usuario> GetAll()
+        {
+            var cnn = new SqlConnection(GetConnectionString());
+            cnn.Open();
+            var cmd = new SqlCommand();
+            cmd.Connection = cnn;
+
+            var sql = $@"select * from usuarios;";
+
+            cmd.CommandText = sql;
+
+            var reader = cmd.ExecuteReader();
+
+            var lista = new List<Usuario>();
+
+            while (reader.Read())
+            {
+                Usuario c = new Usuario();
+                c.iduser = reader.GetInt32(reader.GetOrdinal("id_usuario"));
+                c.username = reader.GetString(reader.GetOrdinal("nombre"));
+                lista.Add(c);
+            }
+
+            reader.Close();
+            cnn.Close();
+
+            //vinculo los usuarios con las patentes y familias que tiene configuradas.
+            //foreach (var item in lista)
+            //{
+            //   repoPermisos.FillUserPermissions(item);
+            //}
+
+
+
+            return lista;
+        }
+        public void GuardarPermisos2(Usuario u)
+        {
+
+            try
+            {
+                var cnn = new SqlConnection(GetConnectionString());
+                cnn.Open();
+
+                var cmd = new SqlCommand();
+                cmd.Connection = cnn;
+
+                cmd.CommandText = $@"delete from usuarios_permisos where id_usuario=@id;";
+                cmd.Parameters.Add(new SqlParameter("id", u.iduser));
+                cmd.ExecuteNonQuery();
+
+                foreach (var item in u.Permisos)
+                {
+                    cmd = new SqlCommand();
+                    cmd.Connection = cnn;
+
+                    cmd.CommandText = $@"insert into usuarios_permisos (id_usuario,id_permiso) values (@id_usuario,@id_permiso) "; ;
+                    cmd.Parameters.Add(new SqlParameter("id_usuario", u.iduser));
+                    cmd.Parameters.Add(new SqlParameter("id_permiso", item.Id));
+
+                    cmd.ExecuteNonQuery();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        ////
+        ///
 
     }
 }

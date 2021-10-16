@@ -22,7 +22,7 @@ namespace GUI.Seguridad.frmFamilia
 
         private void button16_Click(object sender, EventArgs e)
         {
-            Familia nuevaFamilia = new Familia();
+            Familia2 nuevaFamilia = new Familia2();
 
             nuevaFamilia.Descripcion = txtDescripcionFamilia.Text;
             nuevaFamilia.Id = int.Parse(txtIdFamilia.Text);

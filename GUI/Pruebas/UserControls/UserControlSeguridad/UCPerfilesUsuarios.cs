@@ -146,8 +146,8 @@ namespace GUI.Seguridad
         private void Button4_Click_1(object sender, EventArgs e)
         {
             // Agregar Familia seleccionada de la grilla
-            Familia unaFamilia = new Familia();
-            unaFamilia = (Familia)dgvUsuarioSinFamilias.CurrentRow.DataBoundItem;
+            Familia2 unaFamilia = new Familia2();
+            unaFamilia = (Familia2)dgvUsuarioSinFamilias.CurrentRow.DataBoundItem;
 
             unUsuario.AgregarFamilia(unaFamilia);
 
@@ -157,8 +157,8 @@ namespace GUI.Seguridad
         private void Button5_Click(object sender, EventArgs e)
         {
             // Quitar Familia seleccionada de la grilla
-            Familia unaFamilia = new Familia();
-            unaFamilia = (Familia)dgvFamiliasUsuario.CurrentRow.DataBoundItem;
+            Familia2 unaFamilia = new Familia2();
+            unaFamilia = (Familia2)dgvFamiliasUsuario.CurrentRow.DataBoundItem;
 
             unUsuario.QuitarFamilia(unaFamilia);
 
@@ -168,8 +168,8 @@ namespace GUI.Seguridad
         private void Button18_Click(object sender, EventArgs e)
         {
             // Agrego Patente seleccionada de la grilla
-            Patente unaPatente = new Patente();
-            unaPatente = (Patente)dgvUsuarioSinPatentes.CurrentRow.DataBoundItem;
+            Patente2 unaPatente = new Patente2();
+            unaPatente = (Patente2)dgvUsuarioSinPatentes.CurrentRow.DataBoundItem;
 
             unUsuario.AgregarPatente(unaPatente);
 
@@ -179,8 +179,8 @@ namespace GUI.Seguridad
         private void Button17_Click(object sender, EventArgs e)
         {
             // quito Patente seleccionada de la grilla
-            Patente unaPatente = new Patente();
-            unaPatente = (Patente)dgvPatentesUsuario.CurrentRow.DataBoundItem;
+            Patente2 unaPatente = new Patente2();
+            unaPatente = (Patente2)dgvPatentesUsuario.CurrentRow.DataBoundItem;
 
             unUsuario.QuitarPatente(unaPatente);
 
@@ -189,37 +189,37 @@ namespace GUI.Seguridad
 
         public void CargarPermisosUsuario(Usuario unUsuario)
         {
-            List<Patente> PatentesFaltantes;
-            List<Familia> FamiliasFaltantes;
+            List<Patente2> PatentesFaltantes;
+            List<Familia2> FamiliasFaltantes;
 
             // Muestro las Familias del Usuario BIEN
 
             dgvFamiliasUsuario.DataSource = null;
-            dgvFamiliasUsuario.DataSource = unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Familia)).ToList();
+            dgvFamiliasUsuario.DataSource = unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Familia2)).ToList();
            
             
 
             // Muestro todas las Patentes individuales del Usuario BIEN 
             dgvPatentesUsuario.DataSource = null;
-            dgvPatentesUsuario.DataSource = unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Patente)).ToList();
+            dgvPatentesUsuario.DataSource = unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Patente2)).ToList();
             
            
             
 
             // Muestro las Patentes de las Familias que el Usuario tenga
             List<Permiso> miniLista = new List<Permiso>();
-            miniLista = unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Familia)).ToList();
+            miniLista = unUsuario.Perfil.Lista.Where(x => x.GetType() == typeof(Familia2)).ToList();
             dgvUsuarioPatenteFamilia.DataSource = null;
             //dgvUsuarioPatenteFamilia.DataSource = miniLista.SelectMany(x => x.ListaCompleta).Distinct().ToList();
             dgvUsuarioPatenteFamilia.DataSource = miniLista;
 
 
             // Llevo todas las Patentes existentes a PatentesFaltantes
-            PatentesFaltantes = new List<Patente>();
+            PatentesFaltantes = new List<Patente2>();
             PatentesFaltantes = unGestorPatente.TraerTodo();
 
             // Saco las Patentes que el Usuario ya tiene
-            foreach (Patente item in unUsuario.Perfil.ListaCompleta)
+            foreach (Patente2 item in unUsuario.Perfil.ListaCompleta)
             {
                 if (PatentesFaltantes.Contains(item))
                     PatentesFaltantes.Remove(item);
@@ -235,7 +235,7 @@ namespace GUI.Seguridad
             // Saco las Familias que el Usuario ya tiene
             foreach (var item in unUsuario.Perfil.Lista)
             {
-                if (item.GetType() == typeof(Familia))
+                if (item.GetType() == typeof(Familia2))
                 {
                     if (FamiliasFaltantes.Exists(x => x.Id == item.Id))
                         FamiliasFaltantes.RemoveAll(y => y.Id == item.Id);
@@ -304,7 +304,7 @@ namespace GUI.Seguridad
 
         /// /////////
 
-        Familia unaFamilia = new Familia();
+        Familia2 unaFamilia = new Familia2();
         private void Button1_Click(object sender, EventArgs e)
         {
             dgvFamilias.DataSource = null;
@@ -316,21 +316,21 @@ namespace GUI.Seguridad
             // Bloqueo Controles
             //BloqueoFamilia();
 
-            Familia unaFamilia = new Familia();
+            Familia2 unaFamilia = new Familia2();
             // Cargo Familia seleccionada del DataGrid
-            unaFamilia = (Familia)dgvFamilias.CurrentRow.DataBoundItem;
+            unaFamilia = (Familia2)dgvFamilias.CurrentRow.DataBoundItem;
 
             CargarPermisosFamilia(unaFamilia);
         }
 
-        public void CargarPermisosFamilia(Familia unaFamilia)
+        public void CargarPermisosFamilia(Familia2 unaFamilia)
         {
-            List<Patente> PatentesFaltantes;
-            List<Familia> FamiliasFaltantes;
+            List<Patente2> PatentesFaltantes;
+            List<Familia2> FamiliasFaltantes;
 
             // Muestro las Familias de la Familia seleccionada
             dgvFamiliaFamilia.DataSource = null;
-            dgvFamiliaFamilia.DataSource = unaFamilia.Lista.Where(x => x.GetType() == typeof(Familia)).ToList();
+            dgvFamiliaFamilia.DataSource = unaFamilia.Lista.Where(x => x.GetType() == typeof(Familia2)).ToList();
 
             // Muestro todas las Patentes (incluso contenidas dentro de Familias) de la Familia seleccionada
             dgvFamiliaPatente.DataSource = null;
@@ -340,7 +340,7 @@ namespace GUI.Seguridad
             PatentesFaltantes = unGestorPatente.TraerTodo();
 
             // Saco las Patentes que la Familia ya tiene
-            foreach (Patente item in unaFamilia.ListaCompleta)
+            foreach (Patente2 item in unaFamilia.ListaCompleta)
             {
                 if (PatentesFaltantes.Contains(item))
                     PatentesFaltantes.Remove(item);
@@ -356,7 +356,7 @@ namespace GUI.Seguridad
             // Saco las Familias que la Familia seleccionada ya tiene
             foreach (var item in unaFamilia.Lista)
             {
-                if (item.GetType() == typeof(Familia))
+                if (item.GetType() == typeof(Familia2))
                 {
                     if (FamiliasFaltantes.Exists(x => x.Id == item.Id))
                         FamiliasFaltantes.RemoveAll(y => y.Id == item.Id);
@@ -373,9 +373,9 @@ namespace GUI.Seguridad
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            Familia FamiliaSeleccionada = new Familia();
+            Familia2 FamiliaSeleccionada = new Familia2();
             // Cargo Familia seleccionada de la grilla
-            FamiliaSeleccionada = (Familia)dgvFamiliaSinFamilia.CurrentRow.DataBoundItem;
+            FamiliaSeleccionada = (Familia2)dgvFamiliaSinFamilia.CurrentRow.DataBoundItem;
 
             unaFamilia.Agregar(FamiliaSeleccionada);
 
@@ -385,8 +385,8 @@ namespace GUI.Seguridad
         private void Button2_Click(object sender, EventArgs e)
         {
             // agrego Patente seleccionada de la grilla
-            Patente unaPatente = new Patente();
-            unaPatente = (Patente)dgvFamiliaSinPatente.CurrentRow.DataBoundItem;
+            Patente2 unaPatente = new Patente2();
+            unaPatente = (Patente2)dgvFamiliaSinPatente.CurrentRow.DataBoundItem;
 
             unaFamilia.Agregar(unaPatente);
 
@@ -395,9 +395,9 @@ namespace GUI.Seguridad
 
         private void Button24_Click(object sender, EventArgs e)
         {
-            Familia FamiliaSeleccionada = new Familia();
+            Familia2 FamiliaSeleccionada = new Familia2();
             // Cargo Familia seleccionada de la grilla
-            FamiliaSeleccionada = (Familia)dgvFamiliaFamilia.CurrentRow.DataBoundItem;
+            FamiliaSeleccionada = (Familia2)dgvFamiliaFamilia.CurrentRow.DataBoundItem;
 
             unaFamilia.Quitar(FamiliaSeleccionada);
 
@@ -407,8 +407,8 @@ namespace GUI.Seguridad
         private void Button7_Click(object sender, EventArgs e)
         {
             // quito Patente seleccionada de la grilla
-            Patente unaPatente = new Patente();
-            unaPatente = (Patente)dgvFamiliaPatente.CurrentRow.DataBoundItem;
+            Patente2 unaPatente = new Patente2();
+            unaPatente = (Patente2)dgvFamiliaPatente.CurrentRow.DataBoundItem;
 
             unaFamilia.Quitar(unaPatente);
 
@@ -453,7 +453,7 @@ namespace GUI.Seguridad
         /// 
         private void Button16_Click(object sender, EventArgs e)
         {
-            Familia nuevaFamilia = new Familia();
+            Familia2 nuevaFamilia = new Familia2();
 
             nuevaFamilia.Descripcion = txtDescripcionFamilia.Text;
             nuevaFamilia.Id = int.Parse(txtIdFamilia.Text);
@@ -482,7 +482,7 @@ namespace GUI.Seguridad
         /// 
         private void Button35_Click(object sender, EventArgs e)
         {
-            unaFamilia = (Familia)dgvBajaFamilias.CurrentRow.DataBoundItem;
+            unaFamilia = (Familia2)dgvBajaFamilias.CurrentRow.DataBoundItem;
 
             unGestorFamilia.Quitar(unaFamilia);
 
@@ -505,9 +505,9 @@ namespace GUI.Seguridad
         /// 
         private void Button11_Click(object sender, EventArgs e)
         {
-            Familia unaFamilia = new Familia();
+            Familia2 unaFamilia = new Familia2();
 
-            unaFamilia = (Familia)dgvModFamilias.CurrentRow.DataBoundItem;
+            unaFamilia = (Familia2)dgvModFamilias.CurrentRow.DataBoundItem;
             unaFamilia.Descripcion = txtModDescripcionFamilia.Text;
 
             unGestorFamilia.Modificar(unaFamilia);
@@ -540,7 +540,7 @@ namespace GUI.Seguridad
         /// Alta PATENTE
         /// 
 
-        Patente unaPatente = new Patente();
+        Patente2 unaPatente = new Patente2();
         private void Button32_Click(object sender, EventArgs e)
         {
             unaPatente.Id = int.Parse(txtIdPatente.Text);
@@ -571,9 +571,9 @@ namespace GUI.Seguridad
 
         private void Button8_Click(object sender, EventArgs e)
         {
-            Patente unaPatente = new Patente();
+            Patente2 unaPatente = new Patente2();
             DialogResult respuesta;
-            unaPatente = (Patente)dgvBajaPatentes.CurrentRow.DataBoundItem;
+            unaPatente = (Patente2)dgvBajaPatentes.CurrentRow.DataBoundItem;
             //MessageBox.Show("mensaje", "titulo", MessageBoxButtons.YesNo);
             respuesta = MessageBox.Show("¿Estás seguro que querés borrar ésta patente? Se eliminarán todas las relaciones.", "Atencion", MessageBoxButtons.YesNo);
             if (respuesta == DialogResult.Yes)
@@ -605,7 +605,7 @@ namespace GUI.Seguridad
 
         private void BtnModPatente_Click(object sender, EventArgs e)
         {
-            unaPatente = (Patente)dgvModPatente.CurrentRow.DataBoundItem;
+            unaPatente = (Patente2)dgvModPatente.CurrentRow.DataBoundItem;
             unaPatente.Descripcion = txtModDescPatente.Text;
 
             unGestorPatente.Modificar(unaPatente);

@@ -35,7 +35,7 @@ namespace GUI
         {
             InitializeComponent();
             seleccionarUserControl(ucplandeestudio);
-            this.lblSecretarioAcademico.Text = ManejadorSesion.GetInstancia.usuario.email;
+            this.lblSecretarioAcademico.Text = ManejadorSesion.GetInstancia._usuario.email;
 
             //IdiomaViejo.cambiarIdioma(IdiomaViejo.cacheIdioma, IdiomaPorDefecto);
 
@@ -64,7 +64,7 @@ namespace GUI
 
             //aca deberia llamar al usuario singleton
             //habilitarbotones()
-            btnUSUARIOS.Visible = ManejadorSesion.GetInstancia.usuario.Perfil.Validar(3);
+            btnUSUARIOS.Visible = ManejadorSesion.GetInstancia._usuario.Perfil.Validar(3);
 
 
         }

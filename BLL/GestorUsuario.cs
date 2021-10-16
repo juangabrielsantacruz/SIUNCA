@@ -34,7 +34,7 @@ namespace BLL
             else
             {
                 ManejadorSesion.Login(CargarPermisos(unUsuario));
-                return ManejadorSesion.GetInstancia.usuario;
+                return ManejadorSesion.GetInstancia._usuario;
             }               
 
         }
@@ -66,6 +66,28 @@ namespace BLL
             unUsuarioDAO.GuardarPermisos(unUsuario);
         }
 
+
+
+        /// <summary>
+        /// nuevo
+        /// </summary>
+        /// <returns></returns>
+        ///  UsuariosRepository _usuarios;
+        ///  
+        UsuarioDAO _usuarios;
+        public GestorUsuario()
+        {
+            _usuarios = new UsuarioDAO();
+        }
+        public List<Usuario> GetAll()
+        {
+            return _usuarios.GetAll();
+        }
+
+        public void GuardarPermisos2(Usuario u)
+        {
+            _usuarios.GuardarPermisos2(u);
+        }
 
     }
 }

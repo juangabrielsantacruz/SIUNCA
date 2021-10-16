@@ -126,7 +126,7 @@ namespace GUI
 
         private void HabilitarPermisos()
         {
-            Usuario unUsuario = ManejadorSesion.GetInstancia.usuario;
+            Usuario unUsuario = ManejadorSesion.GetInstancia._usuario;
 
             // Modulo Seguridad
             btnUsuarios.Enabled = unUsuario.Perfil.Validar(1);

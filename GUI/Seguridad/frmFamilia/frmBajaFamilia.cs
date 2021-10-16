@@ -15,7 +15,7 @@ namespace GUI.Seguridad.frmFamilia
     public partial class frmBajaFamilia : Form
     {
         GestorFamilia unGestorFamilia = new GestorFamilia();
-        Familia unaFamilia = new Familia();
+        Familia2 unaFamilia = new Familia2();
         public frmBajaFamilia()
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace GUI.Seguridad.frmFamilia
 
         private void button35_Click(object sender, EventArgs e)
         {
-            unaFamilia = (Familia)dgvBajaFamilias.CurrentRow.DataBoundItem;
+            unaFamilia = (Familia2)dgvBajaFamilias.CurrentRow.DataBoundItem;
 
             unGestorFamilia.Quitar(unaFamilia);
 

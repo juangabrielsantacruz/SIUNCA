@@ -14,7 +14,7 @@ namespace GUI.Seguridad.frmPatente
 {
     public partial class frmBajaPatente : Form
     {
-        Patente unaPatente = new Patente();
+        Patente2 unaPatente = new Patente2();
         GestorPatente unGestorPatente = new GestorPatente();
         public frmBajaPatente()
         {
@@ -24,7 +24,7 @@ namespace GUI.Seguridad.frmPatente
         private void button8_Click(object sender, EventArgs e)
         {
             DialogResult respuesta;
-            unaPatente = (Patente)dgvBajaPatentes.CurrentRow.DataBoundItem;
+            unaPatente = (Patente2)dgvBajaPatentes.CurrentRow.DataBoundItem;
             //MessageBox.Show("mensaje", "titulo", MessageBoxButtons.YesNo);
             respuesta = MessageBox.Show("¿Estás seguro que querés borrar ésta patente? Se eliminarán todas las relaciones.", "Atencion", MessageBoxButtons.YesNo);
             if (respuesta == DialogResult.Yes)

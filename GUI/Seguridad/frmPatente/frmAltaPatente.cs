@@ -14,7 +14,7 @@ namespace GUI.Seguridad.frmPatente
 {
     public partial class frmAltaPatente : Form
     {
-        Patente unaPatente = new Patente();
+        Patente2 unaPatente = new Patente2();
         GestorPatente unGestorPatente = new GestorPatente();
         public frmAltaPatente()
         {

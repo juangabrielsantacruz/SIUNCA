@@ -11,14 +11,14 @@ namespace DAL.DAOSeguridad
 {
     public class FamiliaDAO
     {
-        public List<Familia> TraerTodo()
+        public List<Familia2> TraerTodo()
         {
             Conexion unaConexion = new Conexion("config.xml");
-            List<Familia> TraerTodasFamilias = new List<Familia>();
+            List<Familia2> TraerTodasFamilias = new List<Familia2>();
 
-            Familia PatentesAFamilias = new Familia();
+            Familia2 PatentesAFamilias = new Familia2();
 
-            List<Patente> TraerTodasPatentes = new List<Patente>();
+            List<Patente2> TraerTodasPatentes = new List<Patente2>();
 
             List<FamiliaPatente> TraerTodasFamiliaPatente = new List<FamiliaPatente>();
 
@@ -29,10 +29,10 @@ namespace DAL.DAOSeguridad
                 unaConexion.ConexionIniciar();
 
 
-                TraerTodasFamilias = unaConexion.EjecutarTupla<Familia>
+                TraerTodasFamilias = unaConexion.EjecutarTupla<Familia2>
                     ("SELECT Id, Descripcion FROM Familia", new List<Parametro>());
 
-                TraerTodasPatentes = unaConexion.EjecutarTupla<Patente>
+                TraerTodasPatentes = unaConexion.EjecutarTupla<Patente2>
                     ("SELECT Id, Descripcion FROM Patente", new List<Parametro>());
 
                 TraerTodasFamiliaPatente = unaConexion.EjecutarTupla<FamiliaPatente>(("SELECT IdFamilia, IdPatente FROM FamiliaPatente"), new List<Parametro>());
@@ -70,7 +70,7 @@ namespace DAL.DAOSeguridad
             return TraerTodasFamilias;
         }
 
-        public void GuardarPermisos(Familia unaFamilia)
+        public void GuardarPermisos(Familia2 unaFamilia)
         {
             Conexion unaConexion = new Conexion("config.xml");
 
@@ -95,13 +95,13 @@ namespace DAL.DAOSeguridad
                 {
                     List<Parametro> listaParametros2 = new List<Parametro>();
 
-                    if (Item.GetType() == typeof(Familia))
+                    if (Item.GetType() == typeof(Familia2))
                     {
                         listaParametros2.Add(new Parametro("@IdFamilia", unaFamilia.Id));
                         listaParametros2.Add(new Parametro("@IdFamiliaHijo", Item.Id));
                         unaConexion.EjecutarSinResultado("INSERT INTO FamiliaFamilia (IdFamilia, IdFamiliaHijo) VALUES (@IdFamilia, @IdFamiliaHijo)", listaParametros2);
                     }
-                    else if (Item.GetType() == typeof(Patente))
+                    else if (Item.GetType() == typeof(Patente2))
                     {
                         listaParametros2.Add(new Parametro("@IdFamilia", unaFamilia.Id));
                         listaParametros2.Add(new Parametro("@IdPatente", Item.Id));
@@ -123,7 +123,7 @@ namespace DAL.DAOSeguridad
             }
         }
 
-        public void Insertar(Familia unaFamilia)
+        public void Insertar(Familia2 unaFamilia)
         {
             Conexion unaConexion = new Conexion("config.xml");
             List<Parametro> listaParametros = new List<Parametro>();
@@ -150,7 +150,7 @@ namespace DAL.DAOSeguridad
             }
         }
 
-        public void Quitar(Familia unaFamilia)
+        public void Quitar(Familia2 unaFamilia)
         {
             Conexion unaConexion = new Conexion("config.xml");
             List<Parametro> listaParametros = new List<Parametro>();
@@ -176,7 +176,7 @@ namespace DAL.DAOSeguridad
             }
         }
 
-        public void Modificar(Familia unaFamilia)
+        public void Modificar(Familia2 unaFamilia)
         {
             Conexion unaConexion = new Conexion("config.xml");
             List<Parametro> listaParametros = new List<Parametro>();
