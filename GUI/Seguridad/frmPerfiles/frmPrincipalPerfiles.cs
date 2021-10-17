@@ -1,4 +1,5 @@
 ﻿using BIZ.Seguridad;
+using GUI.Seguridad.frmPerfiles;
 using Interfaces;
 using System;
 using System.Collections.Generic;
@@ -23,14 +24,14 @@ namespace GUI.Seguridad
         private void button19_Click(object sender, EventArgs e)
         {
            //Verfica que el form no este abierto
-            if ((Application.OpenForms["frmPerfilesUsuarios"] as frmPerfilesUsuarios) != null)
+            if ((Application.OpenForms["frmPerfilUsuario"] as frmPerfilUsuario) != null)
             {
                 MessageBox.Show("Este formulario ya se encuenta abierto");
-                Application.OpenForms["frmPerfilesUsuarios"].BringToFront();
+                Application.OpenForms["frmPerfilUsuario"].BringToFront();
             }
             else
             {
-                frmPerfilesUsuarios f1 = new frmPerfilesUsuarios();
+                frmPerfilUsuario f1 = new frmPerfilUsuario();
                 f1.MdiParent = this.MdiParent;
                 f1.Show();
                 this.MdiParent.MinimumSize = f1.Size;

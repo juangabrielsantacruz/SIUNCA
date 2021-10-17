@@ -168,6 +168,18 @@ namespace GUI.Seguridad.frmFamilia
             MessageBox.Show("Patente guardada correctamente");
         }
 
-        
+        private void cmdGuardarFamilia_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                repo.GuardarFamilia(seleccion);
+                MessageBox.Show("Familia guardada correctamente");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error al guardar la familia");
+            }
+        }
     }
 }

@@ -140,7 +140,7 @@ namespace GUI.Seguridad.frmPerfiles
         {
             try
             {
-                repo.GuardarPermisos(tmp);
+                repo.GuardarPermisos2(tmp);
                 MessageBox.Show("Usuario guardado correctamente");
             }
             catch (Exception)

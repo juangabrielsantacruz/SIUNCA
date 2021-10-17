@@ -489,7 +489,7 @@ namespace DAL
             var cs = new SqlConnectionStringBuilder();
             cs.IntegratedSecurity = true;
             cs.DataSource = ".\\SQLEXPRESS";
-            cs.InitialCatalog = "upf";
+            cs.InitialCatalog = "PruebaSIUNCA";
             return cs.ConnectionString;
         }
 
@@ -500,7 +500,7 @@ namespace DAL
             var cmd = new SqlCommand();
             cmd.Connection = cnn;
 
-            var sql = $@"select * from usuarios;";
+            var sql = $@"select * from tbl_user;";
 
             cmd.CommandText = sql;
 
@@ -511,8 +511,8 @@ namespace DAL
             while (reader.Read())
             {
                 Usuario c = new Usuario();
-                c.iduser = reader.GetInt32(reader.GetOrdinal("id_usuario"));
-                c.username = reader.GetString(reader.GetOrdinal("nombre"));
+                c.iduser = reader.GetInt32(reader.GetOrdinal("iduser"));
+                c.username = reader.GetString(reader.GetOrdinal("username"));
                 lista.Add(c);
             }
 
@@ -522,7 +522,7 @@ namespace DAL
             //vinculo los usuarios con las patentes y familias que tiene configuradas.
             //foreach (var item in lista)
             //{
-            //   repoPermisos.FillUserPermissions(item);
+            //    repoPermisos.FillUserPermissions(item);
             //}
 
 

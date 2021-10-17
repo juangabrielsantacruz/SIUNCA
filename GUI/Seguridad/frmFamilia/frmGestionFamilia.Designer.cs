@@ -53,7 +53,7 @@
             // 
             // cmdAgregarPatente
             // 
-            this.cmdAgregarPatente.Location = new System.Drawing.Point(469, 71);
+            this.cmdAgregarPatente.Location = new System.Drawing.Point(40, 75);
             this.cmdAgregarPatente.Margin = new System.Windows.Forms.Padding(2);
             this.cmdAgregarPatente.Name = "cmdAgregarPatente";
             this.cmdAgregarPatente.Size = new System.Drawing.Size(98, 19);
@@ -66,7 +66,7 @@
             // 
             this.cboPatentes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPatentes.FormattingEnabled = true;
-            this.cboPatentes.Location = new System.Drawing.Point(467, 47);
+            this.cboPatentes.Location = new System.Drawing.Point(38, 51);
             this.cboPatentes.Margin = new System.Windows.Forms.Padding(2);
             this.cboPatentes.Name = "cboPatentes";
             this.cboPatentes.Size = new System.Drawing.Size(234, 21);
@@ -75,7 +75,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(465, 31);
+            this.label2.Location = new System.Drawing.Point(36, 35);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 13);
@@ -89,7 +89,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cboPermisos);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(467, 107);
+            this.groupBox1.Location = new System.Drawing.Point(38, 111);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
@@ -100,7 +100,7 @@
             // 
             // btnGuardarPatente
             // 
-            this.btnGuardarPatente.Location = new System.Drawing.Point(16, 108);
+            this.btnGuardarPatente.Location = new System.Drawing.Point(39, 113);
             this.btnGuardarPatente.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardarPatente.Name = "btnGuardarPatente";
             this.btnGuardarPatente.Size = new System.Drawing.Size(56, 19);
@@ -149,7 +149,7 @@
             // 
             // cmdSeleccionar
             // 
-            this.cmdSeleccionar.Location = new System.Drawing.Point(60, 71);
+            this.cmdSeleccionar.Location = new System.Drawing.Point(530, 75);
             this.cmdSeleccionar.Margin = new System.Windows.Forms.Padding(2);
             this.cmdSeleccionar.Name = "cmdSeleccionar";
             this.cmdSeleccionar.Size = new System.Drawing.Size(98, 19);
@@ -160,7 +160,7 @@
             // 
             // cmdAgregarFamilia
             // 
-            this.cmdAgregarFamilia.Location = new System.Drawing.Point(163, 71);
+            this.cmdAgregarFamilia.Location = new System.Drawing.Point(633, 75);
             this.cmdAgregarFamilia.Margin = new System.Windows.Forms.Padding(2);
             this.cmdAgregarFamilia.Name = "cmdAgregarFamilia";
             this.cmdAgregarFamilia.Size = new System.Drawing.Size(98, 19);
@@ -174,7 +174,7 @@
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.txtNombreFamilia);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Location = new System.Drawing.Point(61, 107);
+            this.groupBox3.Location = new System.Drawing.Point(531, 111);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
@@ -216,7 +216,7 @@
             // 
             this.cboFamilias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFamilias.FormattingEnabled = true;
-            this.cboFamilias.Location = new System.Drawing.Point(61, 47);
+            this.cboFamilias.Location = new System.Drawing.Point(531, 51);
             this.cboFamilias.Margin = new System.Windows.Forms.Padding(2);
             this.cboFamilias.Name = "cboFamilias";
             this.cboFamilias.Size = new System.Drawing.Size(234, 21);
@@ -225,7 +225,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(59, 31);
+            this.label4.Location = new System.Drawing.Point(529, 35);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 13);
@@ -241,6 +241,7 @@
             this.cmdGuardarFamilia.TabIndex = 19;
             this.cmdGuardarFamilia.Text = "Guardar familia";
             this.cmdGuardarFamilia.UseVisualStyleBackColor = true;
+            this.cmdGuardarFamilia.Click += new System.EventHandler(this.cmdGuardarFamilia_Click);
             // 
             // treeConfigurarFamilia
             // 

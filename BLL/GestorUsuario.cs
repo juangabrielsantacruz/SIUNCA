@@ -9,6 +9,7 @@ using Framework.D_2015.Cache;
 using BIZ.Seguridad;
 using Framework.D_2015.Seguridad;
 using BLL.GestoresSeguridad;
+using DAL.DAOSeguridad;
 
 namespace BLL
 {
@@ -33,7 +34,13 @@ namespace BLL
             }
             else
             {
-                ManejadorSesion.Login(CargarPermisos(unUsuario));
+                new PermisosRepository().FillUserComponents(unUsuario);
+                ManejadorSesion.Login(unUsuario);
+
+
+                //no hace falta un return del usuario
+                //ManejadorSesion.Login(CargarPermisos(unUsuario));
+
                 return ManejadorSesion.GetInstancia._usuario;
             }               
 

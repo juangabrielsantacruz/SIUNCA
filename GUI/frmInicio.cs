@@ -16,6 +16,7 @@ using Interfaces;
 using BLL;
 using Framework.D_2015.Multiidioma;
 using GUI.Seguridad.frmUsuarios;
+using BLL.GestoresSeguridad;
 
 namespace GUI
 {
@@ -25,6 +26,53 @@ namespace GUI
         public frmInicio()
         {
             InitializeComponent();
+        }
+        private void frmInicio_Load(object sender, EventArgs e)
+        {
+            Actualizar(sesion.idioma);
+            //HabilitarPermisos();
+            //registro usercontrol y traigo idiomas
+            cbIdioma.DataSource = GestorIdioma.ObtenerIdiomas();
+            cbIdioma.DisplayMember = "Nombre";
+
+
+            //PermisosBLL bllPermisos = new PermisosBLL();
+            //bllPermisos.FillUserComponents(ManejadorSesion.GetInstancia._usuario);    
+
+            ManejadorSesion.GetInstancia.RegistrarObservador(this);
+            ValidarPermisos();
+        }
+
+
+        void ValidarPermisos()
+        {
+            if (ManejadorSesion.IsLogged())
+            {
+                //this.mnuEjemplo.Visible = ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeHacerF);
+                this.btnAlumnos.Visible = ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeHacerA);
+                this.btnExit.Enabled = ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeHacerB);
+                //this.mnuC.Enabled = ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeHacerC);
+                //this.mnuD.Enabled = ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeHacerD);
+                if (ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeHacerE) == false)
+                {
+                    MessageBox.Show("no tiene permiso de E");
+                }
+                //this.mnuE.Enabled = ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeHacerE);
+                this.btnBitacora.Enabled = ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeVerFormVentas);
+
+            }
+            else
+            {
+                //this.btnAlumnos.Visible = false;
+                //this.btn.Enabled = false;
+                //this.mnuB.Enabled = false;
+                //this.mnuC.Enabled = false;
+                //this.mnuD.Enabled = false;
+                //this.mnuE.Enabled = false;
+                //this.mnuG.Enabled = false;
+                MessageBox.Show("no esta logeado");
+
+            }
         }
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
@@ -106,21 +154,22 @@ namespace GUI
             }
         }
 
-        private void frmInicio_Load(object sender, EventArgs e)
-        {
-            Actualizar(sesion.idioma);
-            HabilitarPermisos();
-            //registro usercontrol y traigo idiomas
-            cbIdioma.DataSource = GestorIdioma.ObtenerIdiomas();
-            cbIdioma.DisplayMember = "Nombre";
-            ManejadorSesion.GetInstancia.RegistrarObservador(this);
-        }
-
+       
      
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
+            if (ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeHacerA))
+            {
+                frmBackup frm = new frmBackup();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+            else
+            {
+                MessageBox.Show("no tiene permisos");
+            }
         }
 
 

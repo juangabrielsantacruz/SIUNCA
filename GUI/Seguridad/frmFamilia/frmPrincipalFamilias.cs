@@ -21,14 +21,14 @@ namespace GUI.Seguridad
         private void button1_Click(object sender, EventArgs e)
         {
             //Verfica que el form no este abierto
-            if ((Application.OpenForms["frmGestionFamilias"] as frmGestionFamilias) != null)
+            if ((Application.OpenForms["frmGestionFamilia"] as frmGestionFamilia) != null)
             {
                 MessageBox.Show("Este formulario ya se encuenta abierto");
-                Application.OpenForms["frmGestionFamilias"].BringToFront();
+                Application.OpenForms["frmGestionFamilia"].BringToFront();
             }
             else
             {
-                frmGestionFamilias f1 = new frmGestionFamilias();
+                frmGestionFamilia f1 = new frmGestionFamilia();
                 f1.MdiParent = this.MdiParent;
                 f1.Show();
                 this.MdiParent.MinimumSize = f1.Size;
