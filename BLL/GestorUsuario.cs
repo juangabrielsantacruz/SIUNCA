@@ -34,7 +34,7 @@ namespace BLL
             }
             else
             {
-                new PermisosRepository().FillUserComponents(unUsuario);
+                new PermisosDAO().FillUserComponents(unUsuario);
                 ManejadorSesion.Login(unUsuario);
 
 

@@ -11,10 +11,10 @@ namespace BLL.GestoresSeguridad
 {
     public class PermisosBLL
     {
-        PermisosRepository _permisos;
+        PermisosDAO _permisos;
         public PermisosBLL()
         {
-            _permisos = new PermisosRepository();
+            _permisos = new PermisosDAO();
         }
 
         public bool Existe(Componente c, int id)

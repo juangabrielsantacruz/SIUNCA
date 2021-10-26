@@ -49,7 +49,7 @@
     <Compile Include="DAOSeguridad\FamiliaDAO.cs" />
     <Compile Include="DAOSeguridad\ICRUD.cs" />
     <Compile Include="DAOSeguridad\PatenteDAO.cs" />
-    <Compile Include="DAOSeguridad\PermisosRepository.cs" />
+    <Compile Include="DAOSeguridad\PermisosDAO.cs" />
     <Compile Include="DAOSeguridad\TipoBitacoraDAO.cs" />
     <Compile Include="DetalleAlumnoMateriaDAO.cs" />
     <Compile Include="DetalleCorrelativaDAO.cs" />

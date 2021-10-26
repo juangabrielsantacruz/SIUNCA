@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.DAOSeguridad
 {
-    public class PermisosRepository
+    public class PermisosDAO
     {
 
         public Array GetAllPermission()
