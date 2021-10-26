@@ -219,7 +219,7 @@ namespace DAL.DAOSeguridad
         public string TraerCadenaDv()
         {
             SqlConnectionStringBuilder cs = new SqlConnectionStringBuilder();
-            cs.InitialCatalog = "PruebaSIUNCA";
+            cs.InitialCatalog = "SIUNCA";
             cs.DataSource = ".\\SQLEXPRESS";
             cs.IntegratedSecurity = true;
 

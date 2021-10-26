@@ -101,7 +101,7 @@ namespace DAL
             //List<Familia2> ListaTodasFamilias = new List<Familia2>();
 
             //SqlConnectionStringBuilder cs = new SqlConnectionStringBuilder();
-            //cs.InitialCatalog = "PruebaSIUNCA";
+            //cs.InitialCatalog = "SIUNCA";
             //cs.DataSource = ".\\SQLEXPRESS";
             //cs.IntegratedSecurity = true;
 
@@ -489,7 +489,7 @@ namespace DAL
             var cs = new SqlConnectionStringBuilder();
             cs.IntegratedSecurity = true;
             cs.DataSource = ".\\SQLEXPRESS";
-            cs.InitialCatalog = "PruebaSIUNCA";
+            cs.InitialCatalog = "SIUNCA";
             return cs.ConnectionString;
         }
 

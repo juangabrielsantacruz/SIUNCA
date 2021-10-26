@@ -50,7 +50,7 @@ namespace GUI
             {
                 //this.mnuEjemplo.Visible = ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeHacerF);
                 this.btnAlumnos.Visible = ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeHacerA);
-                this.btnExit.Enabled = ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeHacerB);
+                this.btnExit.Enabled = ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeHacerC);
                 //this.mnuC.Enabled = ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeHacerC);
                 //this.mnuD.Enabled = ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeHacerD);
                 if (ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeHacerE) == false)

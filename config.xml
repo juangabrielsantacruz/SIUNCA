@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <ConfiguracionDB xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Servidor>.\SQLEXPRESS</Servidor>
-  <Catalogo>PruebaSIUNCA</Catalogo>
+  <Catalogo>SIUNCA</Catalogo>
   <Usuario></Usuario>
   <Clave></Clave>
   <TipoDeConexion>0</TipoDeConexion>

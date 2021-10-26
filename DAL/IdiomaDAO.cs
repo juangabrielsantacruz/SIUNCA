@@ -75,7 +75,7 @@ namespace DAL
         public static List<ITraduccion> ObtenerTraducciones2(IIdioma idioma)
         {
             SqlConnectionStringBuilder cs = new SqlConnectionStringBuilder();
-            cs.InitialCatalog = "PruebaSIUNCA";
+            cs.InitialCatalog = "SIUNCA";
             cs.DataSource = ".\\SQLEXPRESS";
             cs.IntegratedSecurity = true;
 

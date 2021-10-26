@@ -23,7 +23,7 @@ namespace DAL.DAOSeguridad
             var cs = new SqlConnectionStringBuilder();
             cs.IntegratedSecurity = true;
             cs.DataSource = ".\\SQLEXPRESS";
-            cs.InitialCatalog = "PruebaSIUNCA";
+            cs.InitialCatalog = "SIUNCA";
             return cs.ConnectionString;
         }
 
@@ -193,7 +193,7 @@ namespace DAL.DAOSeguridad
             var cs = new SqlConnectionStringBuilder();
             cs.IntegratedSecurity = true;
             cs.DataSource = ".\\SQLEXPRESS";
-            cs.InitialCatalog = "PruebaSIUNCA";
+            cs.InitialCatalog = "SIUNCA";
             var cnn = new SqlConnection(cs.ConnectionString);
             cnn.Open();
             var cmd = new SqlCommand();
