@@ -82,6 +82,7 @@ namespace DAL.DAOSeguridad
             return resultado;
         }
 
+
         public List<Bitacora2> ConsultarBitacora(DateTime unaFechaInicial, DateTime unaFechaFinal, int unTipoIdBitacora, int unIdUsuario)
         {
             List<Bitacora2> resultado = new List<Bitacora2>();
@@ -130,17 +131,18 @@ namespace DAL.DAOSeguridad
             List<Parametro> listaParametros = new List<Parametro>();
             
 
-            listaParametros.Add(new Parametro("IdUsuario", unaBitacora.Usuario.iduser));
-            listaParametros.Add(new Parametro("IdTipoBitacora", unaBitacora.TipoBitacora.IdTipoBitacora));
+            listaParametros.Add(new Parametro("IdUsuario", unaBitacora.IdUsuario));
+            listaParametros.Add(new Parametro("IdTipoBitacora", unaBitacora.IdTipoBitacora));
             listaParametros.Add(new Parametro("FechaHora", unaBitacora.FechaHora));
             listaParametros.Add(new Parametro("Mensaje", unaBitacora.Mensaje));
+            listaParametros.Add(new Parametro("dv", unaBitacora.dv));
 
 
             try
             {
                 unaConexion.ConexionIniciar();
                 unaConexion.TransaccionIniciar();
-                unaConexion.EjecutarSinResultado("INSERT INTO Bitacora (IdUsuario,IdTipoBitacora,FechaHora,Mensaje) VALUES (@IdUsuario,@IdTipoBitacora,@FechaHora,@Mensaje)", listaParametros);
+                unaConexion.EjecutarSinResultado("INSERT INTO Bitacora (IdUsuario,IdTipoBitacora,FechaHora,Mensaje,dv) VALUES (@IdUsuario,@IdTipoBitacora,@FechaHora,@Mensaje,@dv)", listaParametros);
                 unaConexion.TransaccionAceptar();
             }
             catch (Exception ex)

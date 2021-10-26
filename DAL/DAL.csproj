@@ -46,6 +46,7 @@
     <Compile Include="CarreraDAO.cs" />
     <Compile Include="CursoDAO.cs" />
     <Compile Include="DAOSeguridad\BitacoraDAO.cs" />
+    <Compile Include="DAOSeguridad\DigitoVerificadorDAO.cs" />
     <Compile Include="DAOSeguridad\FamiliaDAO.cs" />
     <Compile Include="DAOSeguridad\ICRUD.cs" />
     <Compile Include="DAOSeguridad\PatenteDAO.cs" />

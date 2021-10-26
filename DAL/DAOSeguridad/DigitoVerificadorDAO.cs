@@ -1,15 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.GestoresSeguridad
+namespace DAL.DAOSeguridad
 {
     public class DigitoVerificadorDAO
     {
+        private string GetConnectionString()
+        {
+            var cs = new SqlConnectionStringBuilder();
+            cs.IntegratedSecurity = true;
+            cs.DataSource = ".\\SQLEXPRESS";
+            cs.InitialCatalog = "SIUNCA";
+            return cs.ConnectionString;
+        }
+
         public int TraerDvv(string tabla)
         {
+            IDataReader reader = null;
+            try
+            {
+                var cnn = new SqlConnection(GetConnectionString());
+                cnn.Open();
+                var cmd = new SqlCommand();
+                cmd.Connection = cnn;
+
+                SqlTransaction Transaction;
+                Transaction = cnn.BeginTransaction();
+
+                cmd.Parameters.AddWithValue("tabla", tabla);
+
+                var sql = $@"select dvv from Dvv where nombreTabla = @tabla";
+
+                cmd.CommandText = sql;
+                cmd.Transaction = Transaction;
+                reader = cmd.ExecuteReader();
+
+                if (!reader.Read()) return 0;
+
+                //var unaCadena = "";
+                int dv = 0;
+                //while (reader.Read())
+                //{
+                    dv = reader.GetInt32(0);
+                //}
+                reader.Close();
+                return dv;
+
+                cnn.Close();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
             //try
             //{
             //    AbrirConec();
@@ -43,7 +90,35 @@ namespace BLL.GestoresSeguridad
         }
 
         public void ActualizarDvv(string tabla, int valor)
-        {
+        {          
+            try
+            {               
+                var cnn = new SqlConnection(GetConnectionString());
+                cnn.Open();
+                var cmd = new SqlCommand();
+                cmd.Connection = cnn;
+
+                SqlTransaction Transaction;
+                Transaction = cnn.BeginTransaction();
+
+                cmd.Parameters.AddWithValue("tabla", tabla);
+                cmd.Parameters.AddWithValue("valor", valor);
+
+                var sql = $@"UPDATE Dvv SET dvv = @valor where nombreTabla = @tabla";
+
+                cmd.CommandText = sql;
+                cmd.Transaction = Transaction;
+                cmd.ExecuteNonQuery();
+ 
+                Transaction.Commit();
+                cnn.Close();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+
             //AbrirConec();
             //SqlTransaction Transaction;
             //Transaction = ConString.BeginTransaction();

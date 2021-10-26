@@ -53,10 +53,13 @@ namespace GUI.Seguridad.frmBitacora
         }
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            ListaBitacoras = unGestorBitacora.ConsultarBitacora(dtpFechaInicial.Value, dtpFechaFinal.Value, (TipoBitacora)cbCriticidad.SelectedItem, (Usuario)cbUsuario.SelectedItem, (string)cbEvento.SelectedValue);
+
+            ListaBitacoras = unGestorBitacora.ConsultarBitacora3(dtpFechaInicial.Value, dtpFechaFinal.Value, (TipoBitacora)cbCriticidad.SelectedItem, (Usuario)cbUsuario.SelectedItem, (string)cbEvento.SelectedValue);
+            //ListaBitacoras = unGestorBitacora.ConsultarBitacora(dtpFechaInicial.Value, dtpFechaFinal.Value, (TipoBitacora)cbCriticidad.SelectedItem, (Usuario)cbUsuario.SelectedItem, (string)cbEvento.SelectedValue);
 
             dgvBitacoras.DataSource = null;
             dgvBitacoras.DataSource = ListaBitacoras;
+            
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -74,7 +77,16 @@ namespace GUI.Seguridad.frmBitacora
 
             // Forma 2
 
-            unGestorBitacora.AgregarBitacora((Usuario)cbUsuario.SelectedItem, (TipoBitacora)cbCriticidad.SelectedItem, DateTime.Now, "Todo ok");
+            //unGestorBitacora.AgregarBitacora((Usuario)cbUsuario.SelectedItem, (TipoBitacora)cbCriticidad.SelectedItem, DateTime.Now, "Todo ok");
+
+            Bitacora2 unaBitacora = new Bitacora2();
+            unaBitacora.IdUsuario = 1;
+            unaBitacora.IdTipoBitacora = 1;
+            unaBitacora.FechaHora = DateTime.Now;
+            unaBitacora.Mensaje = "Prueba DVV";
+            //unaBitacora.dv = 123;
+
+            unGestorBitacora.AgregarBitacora(unaBitacora);
         }
 
         private void button8_Click(object sender, EventArgs e)
