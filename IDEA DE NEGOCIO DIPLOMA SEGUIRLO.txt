@@ -1,0 +1,55 @@
+- hacer caso de uso generar plan de estudio tal cual como hice los permisos, con composite, tambien en la base
+(con esto solo necesito en el sql una entidad MATERIA(permiso), MATERIA_MATERIA(permiso_permiso), PLAN_MATERIA(Usuarios_permisos), PLAN(usuario))
+
+en el visual va a ser: 
+clase materia(patente), familiaMaterias(familia), componente(componente - con nombre(nombre de la familia o patente), nombremateria(es TIPOPERMISO, que voy a poner el nombre de la materia)
+
+
+EJ: TABLA MATERIA(igual a tabla permiso):
+
+id / nombre / permiso
+1 / MateriaIngles / Ingles
+2 / FamiliaMatematicas / NULL
+3 / MateriaMatematicas1 / Matematica1
+4 / MateriaMatematicas2 / Matematica2
+
+
+
+despues voy a tener la familiaMatematica con adentro la "pantente" MateriaMatematicas1 y MateriaMatematicas2
+
+ESTO SIRVE PARA GENERAR y GESTIONAR LOS PLANES DE ESTUDIO
+
+PLAN 1 va a tener Tales familias, tales pantentes
+
+
+
+----------------------------------
+
+Curso va a tener tal patente 
+
+
+alumno va a tener tal PLAN de estudio y se va a anotar al curso que pida
+
+
+--------------------
+
+
+UNA VEZ GENERADO EL PLAN, EL CREADOR DEBE ASIGNAR CORRELATIVAS
+selecciona matematica2 y le agrega matematica 1 como correlativa
+
+
+despues a la hora de asignar un alumno a un curso debe traer la materias y sus correlativas y fijarse que esas correlativas las tenga aprobadas, notafinal > 4
+
+
+---------------------------
+
+
+para crear curso debe seleccionar plan, luego traer sus familias y patentes , seleccionar 1 patente y poner un nombre al curso, fecha inicio y fin y crear
+
+
+---------------------------
+
+
+asignar alumno a materia: seleccionar alumno, luego me trae el plan al que esta anotado, y sus cursos disponibles, debe corroborar correlativas aprobadas y fechas
+
+
