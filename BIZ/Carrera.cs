@@ -11,6 +11,6 @@ namespace BIZ
         public String  Nombre { get; set; }
         public List<Curso> Curso { get; set; }
         public List<Alumno> Alumnos { get; set; }
-        public List<PlanDeEstudio> PlanDeEstudio { get; set; }
+        public List<PlanDeEstudio2> PlanDeEstudio { get; set; }
     }
 }

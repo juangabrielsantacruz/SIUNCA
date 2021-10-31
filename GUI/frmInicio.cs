@@ -92,14 +92,14 @@ namespace GUI
         private void button2_Click_1(object sender, EventArgs e)
         {
             //Verfica que el form no este abierto
-            if ((Application.OpenForms["frmPrincipalPerfiles"] as frmPrincipalPerfiles) != null)
+            if ((Application.OpenForms["frmSecretarioAcademico"] as frmSecretarioAcademico) != null)
             {
                 MessageBox.Show("Este formulario ya se encuenta abierto");
-                Application.OpenForms["frmPrincipalPerfiles"].BringToFront();
+                Application.OpenForms["frmSecretarioAcademico"].BringToFront();
             }
             else
             {
-                frmPrincipalPerfiles frmSegu = new frmPrincipalPerfiles();
+                frmSecretarioAcademico frmSegu = new frmSecretarioAcademico();
                 frmSegu.MdiParent = this;
                 frmSegu.Show();
             }

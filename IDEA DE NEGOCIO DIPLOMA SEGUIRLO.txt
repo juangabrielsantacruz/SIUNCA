@@ -13,6 +13,30 @@ id / nombre / permiso
 3 / MateriaMatematicas1 / Matematica1
 4 / MateriaMatematicas2 / Matematica2
 
+[o]
+
+id / nombre / permiso
+1 / MateriaIngles / Opcional
+2 / FamiliaMatematicas / NULL
+3 / MateriaMatematicas1 / Obligatorio
+4 / MateriaMatematicas2 / Obligatorio
+
+[o]
+
+id / nombre / permiso
+1 / MateriaIngles / Anual
+2 / FamiliaMatematicas / NULL
+3 / MateriaMatematicas1 / 1erCuatri
+4 / MateriaMatematicas2 / 2doCuatri
+
+TABLA MATERIA_materia(igual a tabla permiso_permiso):
+
+id_padre / id_hijo 
+2		 / 3	(MateriaMatematicas1)
+2		 / 4	(MateriaMatematicas2) 
+
+
+
 
 
 despues voy a tener la familiaMatematica con adentro la "pantente" MateriaMatematicas1 y MateriaMatematicas2

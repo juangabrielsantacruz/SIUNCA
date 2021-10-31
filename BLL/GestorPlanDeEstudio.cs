@@ -11,7 +11,7 @@ namespace BLL
 {
     public class GestorPlanDeEstudio
     {
-        public void CrearPlanDeEstudio(PlanDeEstudio unPlanDeEstudio, List<DetallesPlanDeEstudio> PEDetalles)
+        public void CrearPlanDeEstudio(PlanDeEstudio2 unPlanDeEstudio, List<DetallesPlanDeEstudio> PEDetalles)
         {
             // If
             // End If
@@ -19,7 +19,7 @@ namespace BLL
             GuardarPlanDeEstudio(unPlanDeEstudio, PEDetalles);
         }
 
-        private void GuardarPlanDeEstudio(PlanDeEstudio unPlanDeEstudio, List<DetallesPlanDeEstudio> PEDetalles)
+        private void GuardarPlanDeEstudio(PlanDeEstudio2 unPlanDeEstudio, List<DetallesPlanDeEstudio> PEDetalles)
         {
             PlanDeEstudioDAO UnPEDAO = new PlanDeEstudioDAO();
             UnPEDAO.Insertar(unPlanDeEstudio, PEDetalles);

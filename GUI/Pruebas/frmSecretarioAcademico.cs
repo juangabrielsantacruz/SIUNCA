@@ -64,7 +64,7 @@ namespace GUI
 
             //aca deberia llamar al usuario singleton
             //habilitarbotones()
-            btnUSUARIOS.Visible = ManejadorSesion.GetInstancia._usuario.Perfil.Validar(3);
+            //btnUSUARIOS.Visible = ManejadorSesion.GetInstancia._usuario.Perfil.Validar(3);
 
 
         }

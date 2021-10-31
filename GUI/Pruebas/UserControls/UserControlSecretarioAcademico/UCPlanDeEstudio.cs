@@ -30,7 +30,7 @@ namespace GUI.UserControlSecretarioAcademico
         DTODetallesCorrPlan unDTODMPCP = new DTODetallesCorrPlan();
         MateriaConCorrelativas UnaMateriaCC = new MateriaConCorrelativas();
         Carrera UnaCarrera = new Carrera();
-        PlanDeEstudio unPlanDeEstudio = new PlanDeEstudio();
+        PlanDeEstudio2 unPlanDeEstudio = new PlanDeEstudio2();
         GestorPlanDeEstudio unGestorPE = new GestorPlanDeEstudio();
 
 
@@ -605,6 +605,11 @@ namespace GUI.UserControlSecretarioAcademico
         }
 
         private void GroupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
         {
 
         }

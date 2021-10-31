@@ -14,7 +14,7 @@ namespace DAL
 
     public class PlanDeEstudioDAO
     {
-        public void Insertar(PlanDeEstudio unPlanDeEstudio, List<DetallesPlanDeEstudio> PEDetalles)
+        public void Insertar(PlanDeEstudio2 unPlanDeEstudio, List<DetallesPlanDeEstudio> PEDetalles)
         {
             Conexion unaConexion = new Conexion("config.xml");
             List<Parametro> listaDeParametros = new List<Parametro>();

@@ -29,8 +29,6 @@ namespace GUI.UserControlSecretarioAcademico
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgPEMaterias = new System.Windows.Forms.DataGridView();
@@ -96,6 +94,8 @@ namespace GUI.UserControlSecretarioAcademico
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPEMaterias)).BeginInit();
@@ -140,7 +140,6 @@ namespace GUI.UserControlSecretarioAcademico
             this.tabPage1.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
             this.tabPage1.BackColor = System.Drawing.Color.SkyBlue;
             this.tabPage1.Controls.Add(this.dgPEMaterias);
-            this.tabPage1.Controls.Add(this.btnConsultarCorrelativas);
             this.tabPage1.Controls.Add(this.btnAsignarCorrelativas);
             this.tabPage1.Controls.Add(this.lblCargaHoraria);
             this.tabPage1.Controls.Add(this.lblAño);
@@ -170,9 +169,9 @@ namespace GUI.UserControlSecretarioAcademico
             // 
             this.btnConsultarCorrelativas.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnConsultarCorrelativas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnConsultarCorrelativas.Location = new System.Drawing.Point(470, 184);
+            this.btnConsultarCorrelativas.Location = new System.Drawing.Point(66, 97);
             this.btnConsultarCorrelativas.Name = "btnConsultarCorrelativas";
-            this.btnConsultarCorrelativas.Size = new System.Drawing.Size(296, 84);
+            this.btnConsultarCorrelativas.Size = new System.Drawing.Size(296, 36);
             this.btnConsultarCorrelativas.TabIndex = 22;
             this.btnConsultarCorrelativas.Text = "Consultar correlativas";
             this.btnConsultarCorrelativas.UseVisualStyleBackColor = false;
@@ -184,7 +183,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.btnAsignarCorrelativas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAsignarCorrelativas.Location = new System.Drawing.Point(470, 94);
             this.btnAsignarCorrelativas.Name = "btnAsignarCorrelativas";
-            this.btnAsignarCorrelativas.Size = new System.Drawing.Size(296, 84);
+            this.btnAsignarCorrelativas.Size = new System.Drawing.Size(296, 30);
             this.btnAsignarCorrelativas.TabIndex = 21;
             this.btnAsignarCorrelativas.Text = "Asignar correlativas a una materia";
             this.btnAsignarCorrelativas.UseVisualStyleBackColor = false;
@@ -238,6 +237,9 @@ namespace GUI.UserControlSecretarioAcademico
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.textBox2);
+            this.panel3.Controls.Add(this.button11);
+            this.panel3.Controls.Add(this.btnConsultarCorrelativas);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Location = new System.Drawing.Point(402, 31);
             this.panel3.Name = "panel3";
@@ -687,23 +689,7 @@ namespace GUI.UserControlSecretarioAcademico
             // dgvModPE
             // 
             this.dgvModPE.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvModPE.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvModPE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvModPE.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvModPE.Location = new System.Drawing.Point(55, 194);
             this.dgvModPE.Name = "dgvModPE";
             this.dgvModPE.Size = new System.Drawing.Size(371, 311);
@@ -822,6 +808,26 @@ namespace GUI.UserControlSecretarioAcademico
             this.button1.Text = "Quitar Plan seleccionado";
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button11.Location = new System.Drawing.Point(66, 201);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(296, 43);
+            this.button11.TabIndex = 34;
+            this.button11.Text = "Agregar correlativa";
+            this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(66, 169);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(281, 26);
+            this.textBox2.TabIndex = 35;
+            this.textBox2.Text = "Materia X";
+            // 
             // UCPlanDeEstudio
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -930,5 +936,7 @@ namespace GUI.UserControlSecretarioAcademico
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

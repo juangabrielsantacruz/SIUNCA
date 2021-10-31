@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BIZ
 {
-    public class PlanDeEstudio : Bitacora
+    public class PlanDeEstudio2 : Bitacora
     {
         public int IdCarrera { get; set; }
         public int IdPlanDeEstudio { get; set; }
