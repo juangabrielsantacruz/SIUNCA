@@ -1,0 +1,20 @@
+CARRERA 
+
+
+carrera-alumno
+activa/noactiva
+
+
+alumno
+
+
+///////////////
+
+
+
+ver CONSTRAIN para que nno me permita igresar duplicados para evitar varios usuarios
+
+
+///////
+
+
