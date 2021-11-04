@@ -8,7 +8,9 @@ namespace BIZ.GestionPlanes
 {
     public class DetallesPlan
     {
+        [System.ComponentModel.Browsable(false)]
         public int IdDetallePlan { get; set; }
+        [System.ComponentModel.Browsable(false)]
         public int IdPlanDeEstudio { get; set; }
         public Materia Materia { get; set; }
         public int NumeroMateria { get; set; }

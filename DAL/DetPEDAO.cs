@@ -67,7 +67,9 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sql;
                 cmd.CommandText = @"SELECT IdPlanDetalles, IdPlanDeEstudio, det.IdMateria, NumeroMateria, Año, mat.Nombre 
-                                    FROM DetallesPlanDeEstudio as det inner join Materia as mat on det.IdMateria = mat.IdMateria WHERE det.IdPlanDeEstudio = @IdPlanDeEstudio";
+                                    FROM DetallesPlanDeEstudio as det 
+                                    inner join Materia as mat on det.IdMateria = mat.IdMateria 
+                                    WHERE det.IdPlanDeEstudio = @IdPlanDeEstudio";
                 cmd.Parameters.AddWithValue("IdPlanDeEstudio", unPE.IdPlanDeEstudio);
 
                 reader = cmd.ExecuteReader();
@@ -75,8 +77,7 @@ namespace DAL
                 var listaDetalles = new List<DetallesPlan>();
                 while (reader.Read())
                 {
-                    var unDetalle = new DetallesPlan();
-                    //unaTraduccion.IdPalabra_Traduccion = Int32.Parse(reader["username"].ToString());
+                    var unDetalle = new DetallesPlan();                 
                     //unDetalle.IdDetallePlan = Int32.Parse(reader["IdPlanDetalles"].ToString());
                     //unDetalle.Materia.IdMateria = Int32.Parse(reader["IdMateria"].ToString());
                     //unDetalle.NumeroMateria = Int32.Parse(reader["NumeroMateria"].ToString());
@@ -92,6 +93,7 @@ namespace DAL
                     var Año = reader.GetInt32(reader.GetOrdinal("Año"));
 
                     DetallesPlan c = new DetallesPlan();
+                    //Materia m = new Materia { Nombre = Nombre, IdMateria = IdMateria };
                     Materia m = new Materia();
 
 

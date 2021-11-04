@@ -18,6 +18,7 @@ namespace GUI.PlanDeEstudio
     {
         List<DetallesPlan> listaDetalles = new List<DetallesPlan>();
         List<object> lista = new List<object>();
+        List<object> lista2 = new List<object>();
         GestorBitacora unGestorBitacora = new GestorBitacora();
         Carrera UnaCarrera = new Carrera();
         GestorPlanDeEstudio unGestorPE = new GestorPlanDeEstudio();
@@ -54,30 +55,22 @@ namespace GUI.PlanDeEstudio
                     if (CorroborarRepetidos() == false)
                     {
                         listaDetalles.Add(unDetallePE);
-                    }                   
-
-                    //var lista = (from a in listaDetalles
-                    //             select new {
-                    //                 NumeroMateria = a.NumeroMateria,
-                    //                 Materia = a.Materia.Nombre,
-                    //                 Año = a.Año,
-                    //                 Cuatrimestre = a.Cuatrimestre,
-                    //                 CargaHoraria = a.CargaHorariaTotal}).ToList();
-
-                    var lista2 = listaDetalles.Select(x => new
-                    {
-                        NumeroMateria = x.NumeroMateria,
-                        Nombre = x.Materia.Nombre,
-                        Año = x.Año,
-                        Cuatrimestre = x.Cuatrimestre,
-                        CargaHorariaTotal = x.CargaHorariaTotal
-                    }).ToList();
-
-
+                    }
+                   
+                    //var lista2 = listaDetalles.Select(x => new
+                    //{
+                    //    NumeroMateria = x.NumeroMateria,
+                    //    Nombre = x.Materia.Nombre,
+                    //    Año = x.Año,
+                    //    Cuatrimestre = x.Cuatrimestre,
+                    //    CargaHorariaTotal = x.CargaHorariaTotal
+                    //}).ToList();
 
                     dgPEMaterias.DataSource = null;
-                    dgPEMaterias.DataSource = lista2;                    
+                    dgPEMaterias.DataSource = listaDetalles;
 
+
+                    //RemoverColumnas();
                 }
             }
             catch (Exception ex)
@@ -85,6 +78,12 @@ namespace GUI.PlanDeEstudio
                 //MessageBox.Show("Faltan campos");
                 throw ex;
             }            
+        }
+
+        private void RemoverColumnas()
+        {
+            dgPEMaterias.Columns.Remove("IdPlanDeEstudio");
+            dgPEMaterias.Columns.Remove("IdDetallePlan");
         }
 
         private bool CorroborarRepetidos()
@@ -133,10 +132,6 @@ namespace GUI.PlanDeEstudio
 
         private void btnQuitarMateria_Click(object sender, EventArgs e)
         {
-            //var item = dgPEMaterias.CurrentRow.DataBoundItem;
-            // borrar de la lista 
-            //listaDetalles.RemoveAt(1)
-            
             listaDetalles.Remove((DetallesPlan)dgPEMaterias.CurrentRow.DataBoundItem);
 
             dgPEMaterias.DataSource = null;

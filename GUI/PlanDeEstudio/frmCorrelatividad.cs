@@ -61,16 +61,15 @@ namespace GUI.PlanDeEstudio
             //dgDetallesPlan.DataSource = listaDetalles;
 
 
-            var lista = (from a in listaDetalles
-                         select new
-                         {
-                             NumeroMateria = a.NumeroMateria,
-                             Materia = a.Materia.IdMateria,
-                             Nombre = a.Materia.Nombre,
-                             Año = a.Año,
-                             Cuatrimestre = a.Cuatrimestre,
-                             CargaHoraria = a.CargaHorariaTotal
-                         }).ToList();
+            var lista = listaDetalles.Select(x => new
+            {
+                NumeroMateria = x.NumeroMateria,
+                Nombre = x.Materia.Nombre,
+                Año = x.Año,
+                Cuatrimestre = x.Cuatrimestre,
+                CargaHorariaTotal = x.CargaHorariaTotal
+            }).ToList();
+
 
 
             dgDetallesPlan.DataSource = null;
@@ -115,7 +114,7 @@ namespace GUI.PlanDeEstudio
 
             for (int i = 0; i < dgDetallesDetalle.Rows.Count; i++)
             {
-                if (dgDetallesDetalle.CurrentRow.Cells[2].Value.ToString() == dgDetallesDetalle.Rows[i].Cells[3].Value.ToString())
+                if (dgDetallesPlan.CurrentRow.Cells[1].Value.ToString() == dgDetallesDetalle.Rows[i].Cells[1].Value.ToString())
                 {
                     MessageBox.Show("Registro duplicado");
                     existe = true;
