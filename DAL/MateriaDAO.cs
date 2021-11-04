@@ -12,15 +12,15 @@ namespace DAL
 {
     public class MateriaDAO
     {
-        public List<Materias> TraerTodo()
+        public List<Materia> TraerTodo()
         {
-            List<Materias> resultado;
+            List<Materia> resultado;
             Conexion unaConexion = new Conexion("config.xml");
             //var unaConexion = new ProveedorSql();
             unaConexion.ConexionIniciar();
             try
             {
-                resultado = unaConexion.EjecutarTupla<Materias>("SELECT IdMateriaCC, Nombre FROM Materias", new List<Parametro>());
+                resultado = unaConexion.EjecutarTupla<Materia>("SELECT IdMateria, Nombre FROM Materia", new List<Parametro>());
                 return resultado;
             }
             catch (Exception ex)

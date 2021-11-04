@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.PlanDeEstudio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,8 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            //Application.Run(new frmLogin());
+            Application.Run(new frmPlanDeEstudio());
             //Application.Run(new frmSeguridad());
             //Application.Run(new frmSecretarioAcademico());
         }

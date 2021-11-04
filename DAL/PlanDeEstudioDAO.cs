@@ -8,13 +8,14 @@ using Framework.D_2015.Persistencia;
 using System.Windows.Forms;
 using System.Collections;
 using BIZ.DTOs;
+using BIZ.GestionPlanes;
 
 namespace DAL
 {
 
     public class PlanDeEstudioDAO
     {
-        public void Insertar(PlanDeEstudio2 unPlanDeEstudio, List<DetallesPlanDeEstudio> PEDetalles)
+        public void Insertar2(PlanDeEstudio2 unPlanDeEstudio, List<DetallesPlanDeEstudio> PEDetalles)
         {
             Conexion unaConexion = new Conexion("config.xml");
             List<Parametro> listaDeParametros = new List<Parametro>();
@@ -61,6 +62,54 @@ namespace DAL
             }
 
             
+        }
+        public void Insertar(PlanDeEstudio unPlanDeEstudio, List<DetallesPlan> PEDetalles)
+        {
+            Conexion unaConexion = new Conexion("config.xml");
+            List<Parametro> listaDeParametros = new List<Parametro>();
+            listaDeParametros.Add(new Parametro("Nombre", unPlanDeEstudio.Nombre));
+            //listaDeParametros.Add(new Parametro("NombreCarrera", unPlanDeEstudio.NombreCarrera));
+            listaDeParametros.Add(new Parametro("IdCarrera", unPlanDeEstudio.IdCarrera));
+            try
+            {
+                unaConexion.ConexionIniciar();
+                unaConexion.TransaccionIniciar();
+                unaConexion.EjecutarSinResultado("INSERT INTO PlanDeEstudio (IdCarrera, Nombre) VALUES (@IdCarrera, @Nombre)", listaDeParametros);
+
+                int IdPlanDeEstudio = unaConexion.EjecutarEscalar<int>("SELECT MAX(IdPlanDeEstudio) FROM PlanDeEstudio", new List<Parametro>());
+
+
+                foreach (var item in PEDetalles)
+                {
+                    List<Parametro> listaParametrosPED = new List<Parametro>();
+
+                    listaParametrosPED.Add(new Parametro("NumeroMateria", item.NumeroMateria));
+                    //listaParametrosPED.Add(new Parametro("Obligatoriedad", item.Obligatoriedad));
+                    listaParametrosPED.Add(new Parametro("IdPlanDeEstudio", IdPlanDeEstudio));
+                    listaParametrosPED.Add(new Parametro("IdMateria", item.Materia.IdMateria));
+                    listaParametrosPED.Add(new Parametro("Año", item.Año));
+                    listaParametrosPED.Add(new Parametro("NombreMateria", item.Materia.Nombre));
+
+
+                    item.IdPlanDeEstudio = IdPlanDeEstudio;
+
+                    unaConexion.EjecutarSinResultado("INSERT INTO DetallesPlanDeEstudio (IdPlanDeEstudio, IdMateria, NumeroMateria, Año) VALUES(@IdPlanDeEstudio, @IdMateria, @NumeroMateria, @Año)", listaParametrosPED);
+                }
+
+                unaConexion.TransaccionAceptar();
+            }
+            catch (Exception x)
+            {
+                unaConexion.TransaccionCancelar();
+                // EventViewer.RegistrarError("VB", "SQL", "ERROR AL PRODUCIR TRANSACCION", EventViewer.TipoEvento._Error)
+                //Interaction.MsgBox("error al insertar plan de estudio detalles");
+            }
+            finally
+            {
+                unaConexion.ConexionFinalizar();
+            }
+
+
         }
 
         public void Modificar(DTODetallesCorrPlan unDTODMPCP)
@@ -111,6 +160,27 @@ namespace DAL
                 unaConexion.ConexionFinalizar();
             }
         }
+        public List<PlanDeEstudio> TraerTodoBien()
+        {
+            List<PlanDeEstudio> resultado;
+            Conexion unaConexion = new Conexion("config.xml");
+            unaConexion.ConexionIniciar();
+            try
+            {
+                resultado = unaConexion.EjecutarTupla<PlanDeEstudio>("SELECT IdPlanDeEstudio, Nombre FROM PlanDeEstudio", new List<Parametro>());
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            // Dim log As New EventViewer("error", "SQL", "Error al traer los Clientes de la base de datos", ".", EventViewer.TipoEvento._Error)
+            finally
+            {
+                unaConexion.ConexionFinalizar();
+            }
+        }
+
 
         public List<DTODetallesCorrPlan> TraerTodo(Alumno UnAlumno, Carrera unaCarrera)
         {

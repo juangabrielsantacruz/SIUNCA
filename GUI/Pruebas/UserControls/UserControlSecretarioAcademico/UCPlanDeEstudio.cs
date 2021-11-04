@@ -75,11 +75,11 @@ namespace GUI.UserControlSecretarioAcademico
         {
             GestorPlanDeEstudio unGPE = new GestorPlanDeEstudio();
             ComboPEcorr.DataSource = null;
-            ComboPEcorr.DataSource = unGPE.TraerListaPlanes();
+            ComboPEcorr.DataSource = unGPE.TraerListaPlanes2();
             ComboPEcorr.DisplayMember = "Nombre";
 
             ComboConsultaPlan.DataSource = null;
-            ComboConsultaPlan.DataSource = unGPE.TraerListaPlanes();
+            ComboConsultaPlan.DataSource = unGPE.TraerListaPlanes2();
             ComboConsultaPlan.DisplayMember = "Nombre";
 
             //dgvModPE.DataSource = null;
@@ -485,7 +485,7 @@ namespace GUI.UserControlSecretarioAcademico
                     throw new Exception("Nombre del plan en blanco");
                 }
                 GestorPlanDeEstudio GestorPE = new GestorPlanDeEstudio();
-                GestorPE.CrearPlanDeEstudio(unPlanDeEstudio, PEDetalles);
+                GestorPE.CrearPlanDeEstudio2(unPlanDeEstudio, PEDetalles);
                 MessageBox.Show("Se registró el Plan de estudio.");
 
                 //Agrego una bitacora del registro del plan.
@@ -557,7 +557,7 @@ namespace GUI.UserControlSecretarioAcademico
 
 
                     dgvModPE.DataSource = null;
-                    dgvModPE.DataSource = unGestorPE.TraerListaPlanes();
+                    dgvModPE.DataSource = unGestorPE.TraerListaPlanes2();
                     RemoverColumnas();
                     MessageBox.Show("Se modifico el Plan " + unPlanDeEstudio.Nombre);
                 }
@@ -578,7 +578,7 @@ namespace GUI.UserControlSecretarioAcademico
         private void Button6_Click_1(object sender, EventArgs e)
         {
             dgvModPE.DataSource = null;
-            dgvModPE.DataSource = unGestorPE.TraerListaPlanes();
+            dgvModPE.DataSource = unGestorPE.TraerListaPlanes2();
             RemoverColumnas();
         }
         private void RemoverColumnas()

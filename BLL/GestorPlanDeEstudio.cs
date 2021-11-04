@@ -6,12 +6,20 @@ using System.Threading.Tasks;
 using BIZ;
 using DAL;
 using BIZ.DTOs;
+using BIZ.GestionPlanes;
 
 namespace BLL
 {
     public class GestorPlanDeEstudio
     {
-        public void CrearPlanDeEstudio(PlanDeEstudio2 unPlanDeEstudio, List<DetallesPlanDeEstudio> PEDetalles)
+        public void CrearPlanDeEstudio2(PlanDeEstudio2 unPlanDeEstudio, List<DetallesPlanDeEstudio> PEDetalles)
+        {
+            // If
+            // End If
+
+            GuardarPlanDeEstudio2(unPlanDeEstudio, PEDetalles);
+        }
+        public void CrearPlanDeEstudio(PlanDeEstudio unPlanDeEstudio, List<DetallesPlan> PEDetalles)
         {
             // If
             // End If
@@ -19,17 +27,30 @@ namespace BLL
             GuardarPlanDeEstudio(unPlanDeEstudio, PEDetalles);
         }
 
-        private void GuardarPlanDeEstudio(PlanDeEstudio2 unPlanDeEstudio, List<DetallesPlanDeEstudio> PEDetalles)
+        private void GuardarPlanDeEstudio2(PlanDeEstudio2 unPlanDeEstudio, List<DetallesPlanDeEstudio> PEDetalles)
+        {
+            PlanDeEstudioDAO UnPEDAO = new PlanDeEstudioDAO();
+            UnPEDAO.Insertar2(unPlanDeEstudio, PEDetalles);
+        }
+        private void GuardarPlanDeEstudio(PlanDeEstudio unPlanDeEstudio, List<DetallesPlan> PEDetalles)
         {
             PlanDeEstudioDAO UnPEDAO = new PlanDeEstudioDAO();
             UnPEDAO.Insertar(unPlanDeEstudio, PEDetalles);
         }
 
-        public List<DTODetallesCorrPlan> TraerListaPlanes()
+        public List<DTODetallesCorrPlan> TraerListaPlanes2()
         {
             List<DTODetallesCorrPlan> ListaPlanes = new List<DTODetallesCorrPlan>();
             PlanDeEstudioDAO unPlanDAO = new PlanDeEstudioDAO();
             ListaPlanes = unPlanDAO.TraerTodo();
+
+            return ListaPlanes;
+        }
+        public List<PlanDeEstudio> TraerListaPlanes()
+        {
+            List<PlanDeEstudio> ListaPlanes = new List<PlanDeEstudio>();
+            PlanDeEstudioDAO unPlanDAO = new PlanDeEstudioDAO();
+            ListaPlanes = unPlanDAO.TraerTodoBien();
 
             return ListaPlanes;
         }

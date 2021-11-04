@@ -61,11 +61,10 @@
     <Compile Include="GestionMaterias\Materia.cs" />
     <Compile Include="GestionPlanes\DetallesDetallePlan.cs" />
     <Compile Include="GestionPlanes\DetallesPlan.cs" />
-    <Compile Include="GestionPlanes\Materia.cs" />
     <Compile Include="GestionPlanes\PlanDeEstudio.cs" />
     <Compile Include="MateriaCC_Profesor.cs" />
     <Compile Include="MateriaConCorrelativas.cs" />
-    <Compile Include="Materias.cs" />
+    <Compile Include="Materia.cs" />
     <Compile Include="PlanDeEstudio2.cs" />
     <Compile Include="Profesor.cs" />
     <Compile Include="Promedio.cs" />

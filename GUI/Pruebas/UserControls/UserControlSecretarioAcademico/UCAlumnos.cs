@@ -65,7 +65,7 @@ namespace GUI.UserControlSecretarioAcademico
         {
             GestorPlanDeEstudio unGPE = new GestorPlanDeEstudio();
             ComboPEcorr.DataSource = null;
-            ComboPEcorr.DataSource = unGPE.TraerListaPlanes();
+            ComboPEcorr.DataSource = unGPE.TraerListaPlanes2();
             ComboPEcorr.DisplayMember = "Nombre";
             
         }

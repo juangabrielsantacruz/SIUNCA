@@ -1,0 +1,16 @@
+https://www.youtube.com/watch?v=MjWWAIgfPkM
+
+que hace en el video?
+1profesor agrega curso y lo deja 'pendiente de revision'
+
+2un admin o secretario ve los cursos y le cambia a 'publicado/aceptado'
+
+3 ahora se pueden editar los cursos y agregar alumnos
+
+//////////////
+
+
+un curso puede tener lecciones(clases)
+
+tabla sql:
+clase1 / descripcion (intrudccion a la materia) / curso (mate1)

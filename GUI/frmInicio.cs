@@ -17,6 +17,7 @@ using BLL;
 using Framework.D_2015.Multiidioma;
 using GUI.Seguridad.frmUsuarios;
 using BLL.GestoresSeguridad;
+using GUI.PlanDeEstudio;
 
 namespace GUI
 {
@@ -55,7 +56,7 @@ namespace GUI
                 //this.mnuD.Enabled = ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeHacerD);
                 if (ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeHacerE) == false)
                 {
-                    MessageBox.Show("no tiene permiso de E");
+                    //MessageBox.Show("no tiene permiso de E");
                 }
                 //this.mnuE.Enabled = ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeHacerE);
                 this.btnBitacora.Enabled = ManejadorSesion.GetInstancia.IsInRole(TipoPermiso.PuedeVerFormVentas);
@@ -91,15 +92,16 @@ namespace GUI
         }
         private void button2_Click_1(object sender, EventArgs e)
         {
+          
             //Verfica que el form no este abierto
-            if ((Application.OpenForms["frmSecretarioAcademico"] as frmSecretarioAcademico) != null)
+            if ((Application.OpenForms["frmPlanDeEstudio"] as frmPlanDeEstudio) != null)
             {
                 MessageBox.Show("Este formulario ya se encuenta abierto");
-                Application.OpenForms["frmSecretarioAcademico"].BringToFront();
+                Application.OpenForms["frmPlanDeEstudio"].BringToFront();
             }
             else
             {
-                frmSecretarioAcademico frmSegu = new frmSecretarioAcademico();
+                frmPlanDeEstudio frmSegu = new frmPlanDeEstudio();
                 frmSegu.MdiParent = this;
                 frmSegu.Show();
             }

@@ -11,9 +11,9 @@ namespace BLL
 {
     public class GestorMateria
     {
-        public List<Materias> TraerListaMaterias()
+        public List<Materia> TraerListaMaterias()
         {
-            List<Materias> ListaMaterias = new List<Materias>();
+            List<Materia> ListaMaterias = new List<Materia>();
             MateriaDAO unaMateriaDAO = new MateriaDAO();
             ListaMaterias = unaMateriaDAO.TraerTodo();
             return ListaMaterias;

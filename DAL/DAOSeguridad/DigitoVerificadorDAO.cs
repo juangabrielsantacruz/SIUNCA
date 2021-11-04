@@ -57,34 +57,7 @@ namespace DAL.DAOSeguridad
             {
                 throw e;
             }
-            //try
-            //{
-            //    AbrirConec();
-            //    Command = new SqlCommand();
-            //    Command.Connection = ConString;
-            //    Command.Parameters.AddWithValue("tabla", tabla);
-            //    Command.CommandText = "select dvv from Dvv where nombreTabla = @tabla";
-            //    Command.CommandType = CommandType.Text;
-            //    var reader = Command.ExecuteReader();
-            //    var dv = default(int);
-            //    while (reader.Read())
-            //    {
-            //        dv = new int();
-            //        dv = Conversions.ToInteger(reader[0]);
-            //    }
 
-            //    reader.Close();
-            //    CerrarConec();
-            //    return dv;
-            //}
-            //catch (SqlException ex)
-            //{
-            //    Interaction.MsgBox(ex.Message);
-            //}
-            //catch (Exception ex)
-            //{
-            //    Interaction.MsgBox(ex);
-            //}
 
             return default;
         }

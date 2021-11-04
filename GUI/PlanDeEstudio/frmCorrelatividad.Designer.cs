@@ -28,63 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgPEMaterias = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button11 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.dgDetallesPlan = new System.Windows.Forms.DataGridView();
+            this.dgDetallesDetalle = new System.Windows.Forms.DataGridView();
+            this.btnAgregarCorrelativa = new System.Windows.Forms.Button();
+            this.cbPlan = new System.Windows.Forms.ComboBox();
+            this.cbMateria = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgPEMaterias)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnGuardarCorrelativas = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDetallesPlan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDetallesDetalle)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgPEMaterias
+            // dgDetallesPlan
             // 
-            this.dgPEMaterias.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgPEMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgPEMaterias.Location = new System.Drawing.Point(111, 68);
-            this.dgPEMaterias.Name = "dgPEMaterias";
-            this.dgPEMaterias.Size = new System.Drawing.Size(536, 149);
-            this.dgPEMaterias.TabIndex = 41;
+            this.dgDetallesPlan.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgDetallesPlan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgDetallesPlan.Location = new System.Drawing.Point(111, 173);
+            this.dgDetallesPlan.Name = "dgDetallesPlan";
+            this.dgDetallesPlan.Size = new System.Drawing.Size(536, 149);
+            this.dgDetallesPlan.TabIndex = 41;
             // 
-            // dataGridView1
+            // dgDetallesDetalle
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(111, 326);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(536, 149);
-            this.dataGridView1.TabIndex = 43;
+            this.dgDetallesDetalle.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgDetallesDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgDetallesDetalle.Location = new System.Drawing.Point(111, 355);
+            this.dgDetallesDetalle.Name = "dgDetallesDetalle";
+            this.dgDetallesDetalle.Size = new System.Drawing.Size(536, 191);
+            this.dgDetallesDetalle.TabIndex = 43;
             // 
-            // button11
+            // btnAgregarCorrelativa
             // 
-            this.button11.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button11.Location = new System.Drawing.Point(653, 360);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(162, 69);
-            this.button11.TabIndex = 44;
-            this.button11.Text = "Agregar correlativa (selected item del DG1 y agrego materia)";
-            this.button11.UseVisualStyleBackColor = false;
+            this.btnAgregarCorrelativa.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAgregarCorrelativa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregarCorrelativa.Location = new System.Drawing.Point(653, 402);
+            this.btnAgregarCorrelativa.Name = "btnAgregarCorrelativa";
+            this.btnAgregarCorrelativa.Size = new System.Drawing.Size(162, 69);
+            this.btnAgregarCorrelativa.TabIndex = 44;
+            this.btnAgregarCorrelativa.Text = "Agregar correlativa (selected item del DG1 y agrego materia)";
+            this.btnAgregarCorrelativa.UseVisualStyleBackColor = false;
+            this.btnAgregarCorrelativa.Click += new System.EventHandler(this.btnAgregarCorrelativa_Click);
             // 
-            // comboBox1
+            // cbPlan
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(111, 18);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 46;
-            this.comboBox1.Text = "Seleccionar plan";
+            this.cbPlan.FormattingEnabled = true;
+            this.cbPlan.Location = new System.Drawing.Point(111, 18);
+            this.cbPlan.Name = "cbPlan";
+            this.cbPlan.Size = new System.Drawing.Size(121, 21);
+            this.cbPlan.TabIndex = 46;
+            this.cbPlan.Text = "Seleccionar plan";
+            this.cbPlan.SelectedIndexChanged += new System.EventHandler(this.cbPlan_SelectedIndexChanged);
             // 
-            // comboBox2
+            // cbMateria
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(653, 326);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 47;
-            this.comboBox2.Text = "Seleccionar materia";
+            this.cbMateria.FormattingEnabled = true;
+            this.cbMateria.Location = new System.Drawing.Point(653, 355);
+            this.cbMateria.Name = "cbMateria";
+            this.cbMateria.Size = new System.Drawing.Size(121, 21);
+            this.cbMateria.TabIndex = 47;
+            this.cbMateria.Text = "Seleccionar materia";
             // 
             // label1
             // 
@@ -95,33 +97,34 @@
             this.label1.TabIndex = 48;
             this.label1.Text = "Traigo los detalles del plan";
             // 
-            // button1
+            // btnGuardarCorrelativas
             // 
-            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(653, 477);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(162, 69);
-            this.button1.TabIndex = 49;
-            this.button1.Text = "GUARDAR";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnGuardarCorrelativas.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnGuardarCorrelativas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuardarCorrelativas.Location = new System.Drawing.Point(653, 477);
+            this.btnGuardarCorrelativas.Name = "btnGuardarCorrelativas";
+            this.btnGuardarCorrelativas.Size = new System.Drawing.Size(162, 69);
+            this.btnGuardarCorrelativas.TabIndex = 49;
+            this.btnGuardarCorrelativas.Text = "GUARDAR";
+            this.btnGuardarCorrelativas.UseVisualStyleBackColor = false;
             // 
             // frmCorrelatividad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(928, 558);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGuardarCorrelativas);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.dgPEMaterias);
+            this.Controls.Add(this.cbMateria);
+            this.Controls.Add(this.cbPlan);
+            this.Controls.Add(this.btnAgregarCorrelativa);
+            this.Controls.Add(this.dgDetallesDetalle);
+            this.Controls.Add(this.dgDetallesPlan);
             this.Name = "frmCorrelatividad";
             this.Text = "frmCorrelatividad";
-            ((System.ComponentModel.ISupportInitialize)(this.dgPEMaterias)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.frmCorrelatividad_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgDetallesPlan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDetallesDetalle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,12 +132,12 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgPEMaterias;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.DataGridView dgDetallesPlan;
+        private System.Windows.Forms.DataGridView dgDetallesDetalle;
+        private System.Windows.Forms.Button btnAgregarCorrelativa;
+        private System.Windows.Forms.ComboBox cbPlan;
+        private System.Windows.Forms.ComboBox cbMateria;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGuardarCorrelativas;
     }
 }
