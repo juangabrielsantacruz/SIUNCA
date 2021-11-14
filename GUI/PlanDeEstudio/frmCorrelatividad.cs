@@ -137,9 +137,9 @@ namespace GUI.PlanDeEstudio
         {
             DetallesPlan unDetalle = new DetallesPlan();
 
-            unDetalle.IdDetallePlan = Int32.Parse(dgDetallesPlan.CurrentRow.Cells[0].Value.ToString());
+            //unDetalle.IdDetallePlan = Int32.Parse(dgDetallesPlan.CurrentRow.Cells[0].Value.ToString());
+            unDetalle = (DetallesPlan)cbMateria.SelectedItem;
 
-            
             //UnaCarrera = (Carrera)cbCarrera.SelectedItem;
             //unPlanDeEstudio.IdCarrera = UnaCarrera.IdCarrera;
             ////unPlanDeEstudio.NombreCarrera = ((Carrera)ComboBox3.SelectedItem).Nombre;

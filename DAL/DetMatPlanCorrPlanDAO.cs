@@ -72,7 +72,7 @@ namespace DAL
 
                 //unaConexion.EjecutarSinResultado("INSERT INTO DetallesDetallePlan (IdDetallesDetallePlan) VALUES (@IdDetallesDetallePlan)", listaDeParametros);
 
-                int IdDetallesDetallePlan = unaConexion.EjecutarEscalar<int>("SELECT MAX(IdPlanDetalles) FROM DetallesPlanDeEstudio", new List<Parametro>());
+                //int IdDetallesDetallePlan = unaConexion.EjecutarEscalar<int>("SELECT MAX(IdPlanDetalles) FROM DetallesPlanDeEstudio", new List<Parametro>());
 
 
                 foreach (var item in listaDetalles)
@@ -80,7 +80,8 @@ namespace DAL
                     List<Parametro> listaParametrosCD = new List<Parametro>();
 
                     //listaParametrosCD.Add(new Parametro("IdDetallesDetMatPlanCorrPlan", IdDetallesDetMatPlanCorrPlan));
-                    listaParametrosCD.Add(new Parametro("IdDetallesDetallePlan", IdDetallesDetallePlan));
+                    //listaParametrosCD.Add(new Parametro("IdDetallesDetallePlan", IdDetallesDetallePlan));
+                    listaParametrosCD.Add(new Parametro("IdDetallesDetallePlan", unDetallePlan.IdDetallePlan));
                     listaParametrosCD.Add(new Parametro("IdDetallesPlan", item.IdDetallesPlan));
 
 
