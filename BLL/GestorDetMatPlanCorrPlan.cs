@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BIZ;
 using DAL;
 using BIZ.DTOs;
+using BIZ.GestionPlanes;
 
 namespace BLL
 {
@@ -24,6 +25,12 @@ namespace BLL
         {
             DetMatPlanCorrPlanDAO UnaMateriaCCDAO = new DetMatPlanCorrPlanDAO();
             UnaMateriaCCDAO.Insertar(unDTODMPCP, DetallesMPCP);
+        }
+
+        public void GuardarCorrelativas2(DetallesPlan unDetalle, List<DetallesDetallePlan> listaDetalles)
+        {
+            DetMatPlanCorrPlanDAO UnaMateriaCCDAO = new DetMatPlanCorrPlanDAO();
+            UnaMateriaCCDAO.Insertar2(unDetalle, listaDetalles);
         }
 
         public List<DTODetallesCorrPlan> TraerListaCorrelativas(DTODetallesCorrPlan unDTO)

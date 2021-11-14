@@ -5,14 +5,13 @@ using System.Text;
 
 namespace BIZ
 {
-    public class Materia : Bitacora
-    {
+    public class Materia 
+    {      
         public int IdMateria { get; set; }
         public string Nombre { get; set; }
 
         public override string ToString()
         {
-
             return Nombre;
         }
     }

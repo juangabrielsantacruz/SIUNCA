@@ -8,8 +8,9 @@ namespace BIZ.GestionPlanes
 {
     public class DetallesDetallePlan
     {
+        [System.ComponentModel.Browsable(false)]
         public int IdDetallesDetallePlan { get; set; }
         public int IdDetallesPlan { get; set; }
-        public Materia Materia { get; set; }
+        //public Materia Materia { get; set; }
     }
 }

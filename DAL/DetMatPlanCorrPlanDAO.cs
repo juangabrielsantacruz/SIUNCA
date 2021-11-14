@@ -7,7 +7,7 @@ using BIZ;
 using Framework.D_2015.Persistencia;
 using System.Windows.Forms;
 using BIZ.DTOs;
-
+using BIZ.GestionPlanes;
 
 namespace DAL
 {
@@ -51,6 +51,52 @@ namespace DAL
                 // EventViewer.RegistrarError("VB", "SQL", "ERROR AL PRODUCIR TRANSACCION", EventViewer.TipoEvento._Error)
                 MessageBox.Show("error guardando MPCP");
                 throw ;
+            }
+            finally
+            {
+                unaConexion.ConexionFinalizar();
+            }
+        }
+
+        public void Insertar2(DetallesPlan unDetallePlan, List<DetallesDetallePlan> listaDetalles)
+        {
+            Conexion unaConexion = new Conexion("config.xml");
+            List<Parametro> listaDeParametros = new List<Parametro>();
+
+            try
+            {
+                unaConexion.ConexionIniciar();
+                unaConexion.TransaccionIniciar();
+
+                listaDeParametros.Add(new Parametro("IdDetallesDetallePlan", unDetallePlan.IdDetallePlan));
+
+                //unaConexion.EjecutarSinResultado("INSERT INTO DetallesDetallePlan (IdDetallesDetallePlan) VALUES (@IdDetallesDetallePlan)", listaDeParametros);
+
+                int IdDetallesDetallePlan = unaConexion.EjecutarEscalar<int>("SELECT MAX(IdPlanDetalles) FROM DetallesPlanDeEstudio", new List<Parametro>());
+
+
+                foreach (var item in listaDetalles)
+                {
+                    List<Parametro> listaParametrosCD = new List<Parametro>();
+
+                    //listaParametrosCD.Add(new Parametro("IdDetallesDetMatPlanCorrPlan", IdDetallesDetMatPlanCorrPlan));
+                    listaParametrosCD.Add(new Parametro("IdDetallesDetallePlan", IdDetallesDetallePlan));
+                    listaParametrosCD.Add(new Parametro("IdDetallesPlan", item.IdDetallesPlan));
+
+
+                    //item.IdDetallesDetMatPlanCorrPlan = IdDetallesDetMatPlanCorrPlan;
+
+                    unaConexion.EjecutarSinResultado("INSERT INTO DetallesDetallePlan (IdDetallesDetallePlan, IdDetallesPlan) VALUES (@IdDetallesDetallePlan, @IdDetallesPlan)", listaParametrosCD);
+                }
+
+                unaConexion.TransaccionAceptar();
+            }
+            catch (Exception ex)
+            {
+                unaConexion.TransaccionCancelar();
+                // EventViewer.RegistrarError("VB", "SQL", "ERROR AL PRODUCIR TRANSACCION", EventViewer.TipoEvento._Error)
+                MessageBox.Show("error guardando MPCP");
+                throw;
             }
             finally
             {
